@@ -1,0 +1,7 @@
+.emacs.desktop
+.emacs.desktop.lock
+auto-save-list/*
+ac-comphist.dat
+*.elc
+.cvsignore
+tramp

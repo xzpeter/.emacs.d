@@ -1,0 +1,6 @@
+# name: source block
+# key: src
+# --
+#+BEGIN_SRC ${1:LANGUAGE}
+${0:CODE_BLOCK}
+#+END_SRC

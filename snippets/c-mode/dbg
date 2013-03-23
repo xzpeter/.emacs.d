@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: dbg
+# key: dbg
+# --
+fprintf(stderr, "$1\\n"${1:$(if (string-match "%" text) ", " "\);")
+}$2${1:$(if (string-match "%" text) "\);" "")}
