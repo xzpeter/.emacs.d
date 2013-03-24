@@ -42,7 +42,7 @@
 (global-set-key [(meta shift backspace)] 'redo)
 
 ;; loading magit, the git client under emacs
-(add-to-list 'load-path (emacs-path "magit-1.1.1"))
-(require 'magit)
+;; (add-to-list 'load-path (emacs-path "magit-1.1.1"))
+;; (require 'magit)
 
 (provide 'load-misc-widgets)
