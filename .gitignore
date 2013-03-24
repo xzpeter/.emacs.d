@@ -5,3 +5,5 @@ ac-comphist.dat
 *.elc
 .cvsignore
 tramp
+cedet-1.1/*
+ecb-2.40/*
