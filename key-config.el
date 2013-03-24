@@ -82,11 +82,15 @@
 ;; unscrolling for evil mode
 (global-set-key (kbd "C-M-o") 'evil-unscroll)
 
-;; fixing cygwin key bindings
-(when (is-system-p 'cygwin)
+(defun key-config-cygwin ()
   (global-set-key (kbd "C-_") 'backward-kill-word)
   (define-key evil-normal-state-map (kbd "C-_") 'backward-kill-word)
   (define-key evil-insert-state-map (kbd "C-_") 'backward-kill-word))
+(defun key-config-darwin ()
+  (global-set-key (kbd "<S-help>") 'yank))
+(cond
+ ((is-system-p 'darwin) (key-config-darwin))
+ ((is-system-p 'cygwin) (key-config-cygwin)))
 
 (global-set-key (kbd "C-M-q") 'kill-buffer-and-window)
 
@@ -117,6 +121,6 @@
 (global-set-key (kbd "C-c r") 'my-read-tmux-buffer)
 
 ;;; useful when using emacs as git commit editor
-(global-set-key (kbd "C-c C-c") 'server-edit)
+(global-set-key (kbd "C-c C-z") 'server-edit)
 
 (provide 'key-config)

@@ -10,6 +10,7 @@
 (add-hook 'sh-mode-hook 'common-hook-function)
 (add-hook 'c-mode-hook
 	  (lambda ()
+		(autopair-mode t)
 	    (common-hook-function)
 	    (setq c-basic-offset 4)
 	    ;; (setq c-auto-newline nil)
