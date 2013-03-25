@@ -1,0 +1,6 @@
+#name : 'more' block
+#key: more
+# --
+#+BEGIN_HTML
+<!--more-->
+#+END_HTML

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: test to insert a snippet
+# key: testsnippet
+# binding: direct-keybinding
+# expand-env: ((some-var some-value))
+# type: command
+# --
+
+wow $1
+this is a test, $2 you know?
+$0

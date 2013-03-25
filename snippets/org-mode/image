@@ -1,0 +1,10 @@
+#name : insert html images
+#key: image
+# --
+#+BEGIN_HTML
+<div align="center">
+<a href="$1">
+<img title="$2"
+src="$1"/>
+</a></div>
+#+END_HTML

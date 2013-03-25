@@ -1,0 +1,8 @@
+#name : wordpress syntax highlighter tool 
+#key: code
+# --
+#+BEGIN_HTML
+<pre class="brush:$1">
+$0
+</pre>
+#+END_HTML
