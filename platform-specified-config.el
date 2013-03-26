@@ -1,13 +1,12 @@
 ;; in this file, I will put some codes that are platform-specified
 (defun platform-linux-startup ()
   (server-start)
-  ;; set font if we are in a windows environment
   (setq browse-url-browser-function 'browse-url-generic
 	browse-url-generic-program "chromium-browser"))
 
 (defun platform-darwin-startup ()
   ;; setting /bin directory on emacs
-  (setq exec-path (cons "/sw/bin" exec-path))
+  (setq exec-path (cons "/usr/local/bin" exec-path))
   (server-start))
 
 ;; run different startup DEFUNs
