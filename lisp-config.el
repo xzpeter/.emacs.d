@@ -7,7 +7,7 @@
 (require 'slime)
 (slime-setup '(slime-fancy))
 ;;; set this to local file if there is one back up
-(setq common-lisp-hyperspec-root "http://www.lispworks.com/reference/HyperSpec/")
+(setq common-lisp-hyperspec-root "HyperSpec/")
 
 (defun my-switch-to-slime-compilation-window ()
   (interactive)
