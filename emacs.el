@@ -10,7 +10,7 @@
 (setq emacs-working-dir 
       (cond
        ((or (is-system-p 'gnu/linux)
-			(is-system-p 'darwin)) "~/.emacs.d/")
+			(is-system-p 'darwin)) "/Users/xz/.emacs.d/")
        ((is-system-p 'windows-nt) "C:/xuzhe/softs/.emacs.d/")
        ((is-system-p 'cygwin) "/cygdrive/c/xuzhe/softs/.emacs.d/")
        (else (error "unsupported system!"))))
