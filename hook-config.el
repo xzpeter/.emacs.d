@@ -1,10 +1,9 @@
 ;; enabling auto-fill-mode in various modes
 (defun common-hook-function ()
   (auto-fill-mode 1)
-  ;;(autopair-mode)
-)
-(add-hook 'text-mode-hook 'common-hook-function)
+  (autopair-mode))
 
+(add-hook 'text-mode-hook 'common-hook-function)
 (add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
 (add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
 (add-hook 'sh-mode-hook 'common-hook-function)
