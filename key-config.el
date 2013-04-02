@@ -108,6 +108,8 @@
 ;; just like my defines in tmux
 (define-prefix-command 'evil-window-map)
 (global-set-key (kbd "C-a") 'evil-window-map)
+(define-key 'evil-window-map (kbd "|") 'split-window-horizontally)
+(define-key 'evil-window-map (kbd "-") 'split-window-vertically)
 (define-key 'evil-window-map (kbd "h") 'evil-window-left)
 (define-key 'evil-window-map (kbd "j") 'evil-window-down)
 (define-key 'evil-window-map (kbd "k") 'evil-window-up)
