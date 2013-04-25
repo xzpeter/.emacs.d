@@ -31,7 +31,9 @@
   (define-key org-mode-map (kbd "C-c P") 'org2blog/wp-post-buffer-as-page-and-publish)
   (define-key org-mode-map (kbd "<C-return>") 'org-insert-heading)
   (define-key org-mode-map (kbd "<C-M-return>") 'org-insert-todo-heading))
-(add-hook 'org-mode-hook 'org-mode-key-config)
+(add-hook 'org-mode-hook (lambda ()
+                            (org-mode-key-config)
+                            (setq indent-tabs-mode nil))
 
 ;;; org2blog configures
 (add-to-list 'load-path (emacs-path "org2blog/"))
