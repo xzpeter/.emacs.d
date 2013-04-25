@@ -33,7 +33,7 @@
   (define-key org-mode-map (kbd "<C-M-return>") 'org-insert-todo-heading))
 (add-hook 'org-mode-hook (lambda ()
                             (org-mode-key-config)
-                            (setq indent-tabs-mode nil))
+                            (setq indent-tabs-mode nil)))
 
 ;;; org2blog configures
 (add-to-list 'load-path (emacs-path "org2blog/"))
