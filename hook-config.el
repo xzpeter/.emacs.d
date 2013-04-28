@@ -3,6 +3,7 @@
   (auto-fill-mode 1)
   ;; never use evilful tabs in my lovely Emacs
   (setq indent-tabs-mode nil)
+  (modify-syntax-entry ?_ "w")
   (autopair-mode))
 
 (add-hook 'text-mode-hook 'common-hook-function)
@@ -18,7 +19,7 @@
         (which-function-mode 1)
         (setq indent-tabs-mode nil)
         ;; (c-toggle-auto-hungry-state 1)
-        (modify-syntax-entry ?_ "w")))
+        ))
 
 (add-hook 'lisp-mode-hook 'common-hook-function) 
 (add-hook 'perl-mode-hook 'common-hook-function) 
