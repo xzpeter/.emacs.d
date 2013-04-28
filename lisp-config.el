@@ -48,4 +48,9 @@
   (define-key slime-repl-mode-map (kbd "C-a") nil))
 (add-hook 'slime-repl-mode-hook 'slime-repl-mode-key-config)
 
+;;; some indent config
+(put 'lambda 'lisp-indent-function 'defun)
+(put 'while 'lisp-indent-function 1)
+(put 'if 'lisp-indent-function 2)
+
 (provide 'lisp-config)
