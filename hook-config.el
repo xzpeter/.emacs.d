@@ -1,8 +1,8 @@
 ;; enabling auto-fill-mode in various modes
 (defun common-hook-function ()
   (auto-fill-mode 1)
-  ;; never use evilful tabs in my lovely Emacs
-  (setq indent-tabs-mode nil)
+  ;; whether to use tab
+  (setq indent-tabs-mode t)
   (modify-syntax-entry ?_ "w")
   (autopair-mode))
 
@@ -17,7 +17,6 @@
         (setq c-basic-offset 4)
         ;; (setq c-auto-newline nil)
         (which-function-mode 1)
-        (setq indent-tabs-mode nil)
         ;; (c-toggle-auto-hungry-state 1)
         ))
 

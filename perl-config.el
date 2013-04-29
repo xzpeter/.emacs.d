@@ -7,7 +7,6 @@
   (autopair-mode t)
   ;; Use 4 space indents via cperl mode
   (setq
-   indent-tabs-mode nil
    cperl-close-paren-offset -4
    cperl-continued-statement-offset 4
    cperl-indent-level 4

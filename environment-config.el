@@ -56,7 +56,8 @@
 (setq font-lock-maximum-decoration t)
 
 (setq x-select-enable-clipboard t)
-(setq indent-tabs-mode nil)
+;;; this is useless to be set here. Moved to hook functions. 
+;; (setq indent-tabs-mode nil)
 (setq tab-always-indent nil)
 (setq tab-width 4)
 (global-auto-revert-mode 1)
