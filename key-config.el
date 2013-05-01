@@ -9,8 +9,9 @@
 (global-set-key (kbd "C-<next>") 'swbuff-switch-to-next-buffer)
 (global-set-key (kbd "<C-kp-prior>") 'swbuff-switch-to-previous-buffer)
 (global-set-key (kbd "<C-kp-next>") 'swbuff-switch-to-next-buffer)
-(global-set-key (kbd "C-9") 'swbuff-switch-to-previous-buffer)
-(global-set-key (kbd "C-0") 'swbuff-switch-to-next-buffer)
+(global-set-key (kbd "C-8") 'cscope-display-buffer)
+(global-set-key (kbd "C-9") 'cscope-prev-symbol)
+(global-set-key (kbd "C-0") 'cscope-next-symbol)
 
 ;; find corresponding parens. Default is C-M-p/n, and I just redirect them to
 ;; C-M-{/}
