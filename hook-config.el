@@ -25,10 +25,7 @@
         (autopair-mode t)
         (common-hook-function)
         (setq c-basic-offset 4)
-        ;; (setq c-auto-newline nil)
-        (which-function-mode 1)
-        ;; (c-toggle-auto-hungry-state 1)
-        ))
+        (which-function-mode 1))
 (add-hook 'c-mode-hook 'c-hook-function)
 (add-hook 'c++-mode-hook 'c-hook-function)
 
