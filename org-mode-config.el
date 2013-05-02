@@ -33,6 +33,7 @@
   (define-key org-mode-map (kbd "<C-M-return>") 'org-insert-todo-heading))
 (add-hook 'org-mode-hook (lambda ()
                             (org-mode-key-config)
+                            (modify-syntax-entry ?_ "w")  
                             (setq indent-tabs-mode nil)))
 
 ;;; org2blog configures
