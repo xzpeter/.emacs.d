@@ -33,8 +33,8 @@
 (transient-mark-mode t)
 ;; set scroll configurations
 (setq scroll-margin 5
-      scroll-conservatively 0
-      scroll-step 8)
+      scroll-conservatively 1000
+      scroll-step 5)
 (show-paren-mode 1)
 ;; (setq show-paren-style 'expression)
 (setq show-paren-style 'parentheses)
