@@ -32,9 +32,9 @@
 (global-font-lock-mode t)
 (transient-mark-mode t)
 ;; set scroll configurations
-(setq scroll-margin 5
-      scroll-conservatively 0
-      scroll-step 8)
+(setq scroll-margin 1
+      scroll-conservatively 1000
+      scroll-step 1)
 (show-paren-mode 1)
 ;; (setq show-paren-style 'expression)
 (setq show-paren-style 'parentheses)

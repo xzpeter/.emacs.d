@@ -10,6 +10,11 @@
 	  ((eq e element) (return t))
 	  (t (setq mylist (cdr mylist))))))) 
 
+(defun my-switch-to-other-buffer ()
+  "Switch to latest buffer"
+  (interactive)
+  (switch-to-buffer (other-buffer)))
+
 ;; quick shortcuts to switch to scratch buffer
 (defun switch-to-scratch-buffer ()
   "Switch between one recent buffer and the scratch buffer."

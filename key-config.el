@@ -120,6 +120,7 @@
 (define-key 'evil-window-map (kbd "C-h") 'swbuff-switch-to-previous-buffer)
 (define-key 'evil-window-map (kbd "C-l") 'swbuff-switch-to-next-buffer)
 (define-key 'evil-window-map (kbd "C-k") 'swbuff-kill-this-buffer)
+(define-key 'evil-window-map (kbd "C-a") 'my-switch-to-other-buffer)
 
 (global-set-key (kbd "C-c r") 'my-read-tmux-buffer)
 
