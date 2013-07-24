@@ -5,6 +5,7 @@
 
 (defun perl-mode-load-config ()
   (autopair-mode t)
+  (auto-fill-mode 1)
   ;; Use 4 space indents via cperl mode
   (setq
    cperl-close-paren-offset -4
