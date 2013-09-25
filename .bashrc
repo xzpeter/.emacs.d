@@ -24,7 +24,7 @@ if is_darwin; then
 	# TERM not right may lead to vi/etc. open fail
 	export TERM=xterm
 else
-	export PATH=~/bin:/usr/local/bin:$PATH
+	export PATH=~/bin:~/bin/cyphy:/usr/local/bin:$PATH
 fi
 
 # change PS1 format

@@ -7,7 +7,7 @@
   (eq system-type type))
 
 ;; set the default directory. This is the start of all things else
-(setq emacs-working-dir 
+(setq emacs-working-dir
       (cond
        ((is-system-p 'gnu/linux) "/home/xz/.emacs.d/")
        ((is-system-p 'darwin) "/Users/xz/.emacs.d/")
@@ -57,8 +57,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; just load cscope
-(when (or (is-system-p 'gnu/linux)
-		  (is-system-p 'darwin))
+(when (is-system-p 'gnu/linux)
   (require 'cedet-config)
   (require 'ecb-config))
 ;; All evil stuffs here

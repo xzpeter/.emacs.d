@@ -127,4 +127,7 @@
 ;;; useful when using emacs as git commit editor
 (global-set-key (kbd "C-c C-z") 'server-edit)
 
+;;; manual key
+(global-set-key (kbd "C-k") 'man)
+
 (provide 'key-config)
