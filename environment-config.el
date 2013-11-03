@@ -25,7 +25,7 @@
 
 ;; some other defines
 (setq default-line-spacing 0)
-(setq default-fill-column 74)
+(setq default-fill-column 79)
 (setq default-major-mode 'text-mode)
 (setq kill-ring-max 200)
 (setq require-final-newline t) 
@@ -87,10 +87,13 @@
 ;; it seems that autopair-global may raise error when used with slime, I have
 ;; fixed this in the orgmode config
 ;; (autoload 'autopair-global-mode "autopair" nil t)
-(require 'autopair)
-(setq autopair-skip-whitespace 'chomp)
+;; (require 'autopair)
+;; (setq autopair-skip-whitespace 'chomp)
 ;; (autopair-global-mode 1)
 ;; (add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
+
+;;; emacs 24 provides a better and faster electric-pair mode
+(electric-pair-mode t)
 
 ;; set some idioms for the startup message
 (defvar *global-idioms*

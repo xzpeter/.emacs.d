@@ -1,6 +1,6 @@
 default: init
 emacsfile=~/.emacs
-user_files='.ecb-user-layouts.el .tmux.conf .gitconfig .bashrc'
+user_files='.ecb-user-layouts.el .tmux.conf .gitconfig .bashrc .vimrc'
 makelog=/tmp/emacs-make.log
 file=$(shell ls HyperSpec*.gz)
 .PHONY: init clean build_packages cp_user_files install_hyperspec

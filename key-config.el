@@ -17,6 +17,8 @@
 ;; C-M-{/}
 (global-set-key (kbd "C-M-[") 'backward-list)
 (global-set-key (kbd "C-M-]") 'forward-list)
+(global-set-key (kbd "M-[") 'evil-backward-section-begin)
+(global-set-key (kbd "M-]") 'evil-forward-section-begin)
 
 ;; something related to buffer manipulate
 (global-set-key (kbd "M-1") 'delete-other-windows)

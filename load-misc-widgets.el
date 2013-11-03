@@ -45,4 +45,7 @@
 ;; (add-to-list 'load-path (emacs-path "magit-1.1.1"))
 ;; (require 'magit)
 
+;;; for reading logs
+(require 'log4j-mode)
+
 (provide 'load-misc-widgets)
