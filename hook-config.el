@@ -3,8 +3,7 @@
   (auto-fill-mode 1)
   ;; whether to use tab
   (setq indent-tabs-mode t)
-  (modify-syntax-entry ?_ "w")
-  (autopair-mode))
+  (modify-syntax-entry ?_ "w"))
 	
 (add-hook 'text-mode-hook 'common-hook-function)
 (add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
