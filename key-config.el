@@ -129,7 +129,18 @@
 ;;; useful when using emacs as git commit editor
 (global-set-key (kbd "C-c C-z") 'server-edit)
 
-;;; manual key
+ ;;; manual key
 (global-set-key (kbd "C-k") 'man)
+
+;;; remap magit-mode-map
+(define-key magit-mode-map (kbd "C-b") 'scroll-down)
+(define-key magit-mode-map (kbd "C-f") 'scroll-up)
+(define-key magit-mode-map (kbd "j") 'next-line)
+(define-key magit-mode-map (kbd "k") 'previous-line)
+(define-key magit-mode-map (kbd "RET") #'(lambda ()
+										   (interactive)
+										   (magit-visit-item)
+										   (delete-other-windows)))
+(global-set-key (kbd "C-c g") 'magit-status)
 
 (provide 'key-config)

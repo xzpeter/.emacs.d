@@ -52,8 +52,7 @@
 (require 'hook-config)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; codes that with NO dependency problems
-;; (which means that random load order is ok)
+;; codes that with dependencies
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; just load cscope
