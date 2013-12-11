@@ -93,7 +93,7 @@
 ;; (add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
 
 ;;; emacs 24 provides a better and faster electric-pair mode
-;; (electric-pair-mode t)
+(electric-pair-mode t)
 
 ;; set some idioms for the startup message
 (defvar *global-idioms*

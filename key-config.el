@@ -143,4 +143,12 @@
 										   (delete-other-windows)))
 (global-set-key (kbd "C-c g") 'magit-status)
 
+;;; something about yank
+(global-set-key (kbd "C-v") 'yank)
+(global-set-key (kbd "M-v") 'yank)
+
+;;; for UNIX, I will possibly need this via X
+(when (is-system-p 'berkeley-unix)
+	(setq x-alt-keysym 'meta))
+
 (provide 'key-config)

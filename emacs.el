@@ -11,6 +11,7 @@
       (cond
        ((is-system-p 'gnu/linux) "/home/xz/.emacs.d/")
        ((is-system-p 'darwin) "/Users/xz/.emacs.d/")
+       ((is-system-p 'berkeley-unix) "/root/.emacs.d/")
        ((is-system-p 'windows-nt) "C:/xuzhe/softs/.emacs.d/")
        ((is-system-p 'cygwin) "/cygdrive/c/xuzhe/softs/.emacs.d/")
        (else (error "unsupported system!"))))

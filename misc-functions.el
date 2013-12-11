@@ -50,7 +50,8 @@ in ORG MODE. "
     ((or (is-system-p 'gnu/linux)
 		 (is-system-p 'darwin)) "~/org/work.org")
     ((is-system-p 'windows-nt) "C:/xuzhe/docs/org/2012-Q3.org")
-    ((is-system-p 'cygwin) "/cygdrive/c/xuzhe/docs/org/2012-Q3.org")))) 
+    ((is-system-p 'cygwin) "/cygdrive/c/xuzhe/docs/org/2012-Q3.org")
+	((is-system-p 'berkeley-unix) "/root/org/work.org")))) 
 
 (defun my-kill-buffer ()
   (interactive)

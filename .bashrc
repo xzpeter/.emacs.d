@@ -15,7 +15,7 @@ alias ..='cd ..'
 alias ...='cd ..; cd ..'
 alias tree='tree -C'
 alias grep='grep --color'
-alias work='ssh dev-spa'
+alias work='ssh dev'
 alias cp_r='rsync --progress -ah'
 
 # env modifications

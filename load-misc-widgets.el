@@ -45,6 +45,7 @@
 (add-to-list 'load-path (emacs-path "elpa/magit-20131126.621"))
 (add-to-list 'load-path (emacs-path "elpa/git-commit-mode-20131124.2132"))
 (add-to-list 'load-path (emacs-path "elpa/git-rebase-mode-20131124.1840"))
+(load "cl-lib-0.3.el")
 (require 'magit)
 
 ;;; for reading logs
