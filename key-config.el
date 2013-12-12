@@ -132,7 +132,22 @@
  ;;; manual key
 (global-set-key (kbd "C-k") 'man)
 
-;;; remap magit-mode-map
+;;; something about yank
+(global-set-key (kbd "C-v") 'yank)
+(global-set-key (kbd "M-v") 'yank)
+
+;;; for UNIX, I will possibly need this via X
+(when (is-system-p 'berkeley-unix)
+	(setq x-alt-keysym 'meta))
+
+;;; a quick grep
+(global-set-key (kbd "C-c e") 'my-grep-find)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; VCS related keys
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; remap magit related keys
 (define-key magit-mode-map (kbd "C-b") 'scroll-down)
 (define-key magit-mode-map (kbd "C-f") 'scroll-up)
 (define-key magit-mode-map (kbd "j") 'next-line)
@@ -141,14 +156,25 @@
 										   (interactive)
 										   (magit-visit-item)
 										   (delete-other-windows)))
-(global-set-key (kbd "C-c g") 'magit-status)
+(define-key magit-mode-map (kbd "M-1") nil)
+(define-key magit-mode-map (kbd "M-4") nil)
+(global-set-key (kbd "C-c g") #'(lambda ()
+								  (interactive)
+								  (magit-status ".")
+								  (delete-other-windows)))
+;;; magit diff mode
+(define-key magit-diff-mode-map (kbd "M-1") nil)
+(define-key magit-diff-mode-map (kbd "M-4") nil)
 
-;;; something about yank
-(global-set-key (kbd "C-v") 'yank)
-(global-set-key (kbd "M-v") 'yank)
-
-;;; for UNIX, I will possibly need this via X
-(when (is-system-p 'berkeley-unix)
-	(setq x-alt-keysym 'meta))
+;;; vc keys
+(global-set-key (kbd "C-c v")
+				#'(lambda ()
+					(interactive)
+					(vc-print-root-log)
+					(delete-other-windows)))
+;;; diff mode
+(define-key diff-mode-map (kbd "M-1") nil)
+(define-key diff-mode-map (kbd "M-4") nil)
+(define-key diff-mode-map (kbd "M-q") 'kill-buffer)
 
 (provide 'key-config)

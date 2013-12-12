@@ -117,7 +117,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"))
 
 ;; remove the boring tempt when trying to kill a buffer invoked by emacsclient
-(remove-hook 'kill-buffer-query-functions
-	     'server-kill-buffer-query-function)
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 (provide 'environment-config)

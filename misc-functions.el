@@ -61,6 +61,12 @@ in ORG MODE. "
   (interactive)
   (evil-read nil "~/.tmux-buffer"))
 
+(defun my-grep-find ()
+  "grep and find current word"
+  (interactive)
+  (let ((word (current-word)))
+	(grep-find (concat "find . -type f -exec grep -nH -e " word " {} +"))))
+
 (require 'my-key-buffer)
 (require 'temp-use-functions)
 

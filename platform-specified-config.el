@@ -14,6 +14,7 @@
  ((is-system-p 'gnu/linux) (platform-linux-startup))
  ((is-system-p 'darwin) (platform-darwin-startup))
  ((is-system-p 'windows-nt) nil)
- ((is-system-p 'cygwin) nil))
+ ((is-system-p 'cygwin) nil)
+ ((is-system-p 'berkeley-unix) (platform-darwin-startup)))
 
 (provide 'platform-specified-config)
