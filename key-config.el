@@ -146,12 +146,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; VCS related keys
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;; remap magit related keys
 (define-key magit-mode-map (kbd "C-b") 'scroll-down)
 (define-key magit-mode-map (kbd "C-f") 'scroll-up)
 (define-key magit-mode-map (kbd "j") 'next-line)
 (define-key magit-mode-map (kbd "k") 'previous-line)
+
+;;; remap magit related keys
 (define-key magit-mode-map (kbd "RET") #'(lambda ()
 										   (interactive)
 										   (magit-visit-item)
@@ -170,11 +170,20 @@
 (global-set-key (kbd "C-c v")
 				#'(lambda ()
 					(interactive)
-					(vc-print-root-log)
+					;; only display the last 20 entries
+					(vc-print-root-log 20)
 					(delete-other-windows)))
 ;;; diff mode
 (define-key diff-mode-map (kbd "M-1") nil)
 (define-key diff-mode-map (kbd "M-4") nil)
 (define-key diff-mode-map (kbd "M-q") 'kill-buffer)
+
+;;; svn log view mode
+(add-hook 'vc-svn-log-view-mode-hook
+		  #'(lambda ()
+			  (define-key vc-svn-log-view-mode-map (kbd "C-b") 'scroll-down)
+			  (define-key vc-svn-log-view-mode-map (kbd "C-f") 'scroll-up)
+			  (define-key vc-svn-log-view-mode-map (kbd "j") 'next-line)
+			  (define-key vc-svn-log-view-mode-map (kbd "k") 'previous-line)))
 
 (provide 'key-config)
