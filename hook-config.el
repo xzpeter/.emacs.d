@@ -8,7 +8,13 @@
 (add-hook 'text-mode-hook 'common-hook-function)
 (add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
 (add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
-(add-hook 'sh-mode-hook 'common-hook-function)
+(defun sh-hook-function ()
+  (common-hook-function)
+  ;; not using tabs, but spaces
+  (setq indent-tabs-mode nil)
+  (setq tab-width 8))
+(add-hook 'sh-mode-hook 'sh-hook-function)
+(add-hook 'shell-script-mode-hook 'sh-hook-function)
 
 (add-hook 'lisp-mode-hook 'common-hook-function) 
 (add-hook 'perl-mode-hook 'common-hook-function) 
