@@ -13,10 +13,17 @@ fi
 alias l='ls -lha'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 alias tree='tree -C'
 alias grep='grep --color'
 alias work='ssh dev'
 alias cp_r='rsync --progress -ah'
+
+# change PS1 format
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+export EDITOR='vim'
 
 # env modifications
 
