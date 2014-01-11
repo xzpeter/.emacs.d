@@ -12,7 +12,7 @@ if is_unix; then
 fi
 alias l='ls -lha'
 alias ..='cd ..'
-alias ...='cd ..; cd ..'
+alias ...='cd ../..'
 alias tree='tree -C'
 alias grep='grep --color'
 alias work='ssh dev'

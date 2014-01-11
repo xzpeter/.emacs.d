@@ -30,9 +30,10 @@
   (define-key python-mode-map (kbd "C-M-.") 'python-shift-right))
 (add-hook 'python-mode-hook 'python-hook-function)
 (defun c-hook-function ()
-        (common-hook-function)
-        (setq c-basic-offset 4)
-        (which-function-mode 1))
+  (common-hook-function)
+  (setq c-basic-offset 4)
+  (setq indent-tabs-mode t)
+  (which-function-mode 1))
 (add-hook 'c-mode-hook 'c-hook-function)
 (add-hook 'c++-mode-hook 'c-hook-function)
 

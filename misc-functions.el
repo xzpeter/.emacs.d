@@ -59,7 +59,7 @@ in ORG MODE. "
 
 (defun my-read-tmux-buffer ()
   (interactive)
-  (evil-read nil "~/.tmux-buffer"))
+  (evil-read nil "/mac:~/.tmux-buffer"))
 
 (defun my-grep-find ()
   "grep and find current word"

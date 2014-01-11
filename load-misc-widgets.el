@@ -51,4 +51,8 @@
 ;;; for reading logs
 (require 'log4j-mode)
 
+;;; load the d-mode for dtrace files
+(autoload 'd-mode "d-mode" () t)
+(add-to-list 'auto-mode-alist '("\\.d\\'" . d-mode))
+
 (provide 'load-misc-widgets)

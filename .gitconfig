@@ -10,7 +10,7 @@
         di = diff --color
         br = branch --color
 [core]
-        editor = emacsclient -a emacs
+        editor = vim
 [merge]
         tool = meld
 
