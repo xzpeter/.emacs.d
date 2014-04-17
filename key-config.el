@@ -101,7 +101,7 @@
 (global-set-key (kbd "C-=") 'my-switch-between-key-buffer-and-latest)
 
 ;; some <ctrl+fn> settings
-(global-set-key (kbd "<C-f5>") 'my-set-current-as-key-buffer)
+(global-set-key (kbd "<M-f5>") 'my-set-current-as-key-buffer)
 (global-set-key (kbd "<C-f7>") 'eshell)
 (global-set-key (kbd "<C-f9>") 'cscope-display-buffer)
 (global-set-key (kbd "<C-f10>") 'cscope-display-buffer-toggle)
@@ -141,7 +141,7 @@
 	(setq x-alt-keysym 'meta))
 
 ;;; a quick grep
-(global-set-key (kbd "C-c e") 'my-grep-find)
+;; (global-set-key (kbd "C-c e") 'my-grep-find)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; VCS related keys

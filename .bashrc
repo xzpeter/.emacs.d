@@ -21,7 +21,6 @@ alias cp_r='rsync --progress -ah'
 # env modifications
 
 if is_unix; then
-	EMACS_MAC_PATH_EXTRA=/Applications/Emacs.app/Contents/MacOS/bin
 	export VERSIONER_PYTHON_PREFER_32_BIT=yes
 	export PATH=~/bin:~/bin/cyphy:/usr/local/bin:$EMACS_MAC_PATH:$PATH
 	# TERM not right may lead to vi/etc. open fail

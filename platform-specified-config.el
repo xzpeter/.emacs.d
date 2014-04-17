@@ -4,9 +4,21 @@
   (setq browse-url-browser-function 'browse-url-generic
 	browse-url-generic-program "chromium-browser"))
 
+;; (defun darwin-open-url (url &optional new-window)
+;;   (call-process "ssh" nil 0 nil
+;; 				;; these are args
+;; 				"mac"
+;; 				"open"
+;; 				"-a"
+;; 				"\"/Application/Google\ Chrome.app\""
+;; 				(format "\"%s\"" url)))
+
 (defun platform-darwin-startup ()
   ;; setting /bin directory on emacs
   (setq exec-path (cons "/usr/local/bin" exec-path))
+  (setq browse-url-browser-function 'browse-url-generic
+		browse-url-generic-program "remote-open-url")
+  ;; (setq browse-url-browser-function 'darwin-open-url)
   (server-start))
 
 ;; run different startup DEFUNs

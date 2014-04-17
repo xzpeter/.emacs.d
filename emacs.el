@@ -31,20 +31,20 @@
 ;; load some small functions that I may use during config
 (require 'misc-functions)
 ;; fullscreen stuff
-(require 'fullscreen)
+;; (require 'fullscreen)
 ;; load platform specified codes
 (require 'platform-specified-config)
 ;; load miscellaneous widgets
 (require 'load-misc-widgets)
 ;; these stuff is fairly slow when loading...
-(require 'all-auto-complete-config)
+;; (require 'all-auto-complete-config)
 ;; load environment stuff
 (require 'environment-config)
 
 ;; some config for lisp
 (require 'lisp-config)
 ;;; paredit: powerful tool with parenthesis
-(require 'paredit-config)
+;; (require 'paredit-config)
 ;; Perl config
 (require 'perl-config)
 ;; something about the org mode

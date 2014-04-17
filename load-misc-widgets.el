@@ -49,7 +49,7 @@
 (require 'magit)
 
 ;;; for reading logs
-(require 'log4j-mode)
+;; (require 'log4j-mode)
 
 ;;; load the d-mode for dtrace files
 (autoload 'd-mode "d-mode" () t)
