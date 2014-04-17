@@ -67,6 +67,24 @@ in ORG MODE. "
   (let ((word (current-word)))
 	(grep-find (concat "find . -type f -exec grep -nH -e " word " {} +"))))
 
+(defun my-delete-previous-tab-stop ()
+  "Remove spaces before point, max to `tab-width' spaces."
+  (interactive)
+  (let ((max-backchar tab-width)
+		(last-point (point))
+		(cur-point (point))
+		(moveon t))
+	 (while moveon
+	   (if (= (char-before cur-point) ?\s)
+		   (setq cur-point (1- cur-point))
+		 (progn
+		   (message "not space")
+		   (setq moveon nil)))
+	   (when (>= (- last-point cur-point) max-backchar)
+		 (message "reach max backchar")
+		 (setq moveon nil)))
+	(delete-region cur-point last-point)))
+
 (require 'my-key-buffer)
 (require 'temp-use-functions)
 

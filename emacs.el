@@ -40,11 +40,10 @@
 ;; (require 'all-auto-complete-config)
 ;; load environment stuff
 (require 'environment-config)
-
 ;; some config for lisp
 (require 'lisp-config)
 ;;; paredit: powerful tool with parenthesis
-;; (require 'paredit-config)
+(require 'paredit-config)
 ;; Perl config
 (require 'perl-config)
 ;; something about the org mode

@@ -59,12 +59,11 @@
 ;;; this is useless to be set here. Moved to hook functions. 
 ;; (setq indent-tabs-mode nil)
 (setq tab-always-indent nil)
-(setq tab-width 4)
+(setq default-tab-width 4)
 (global-auto-revert-mode 1)
 ;; enable clipboard sharing with system
 (setq x-select-enable-clipboard 1)
 ;; default tab width to 4
-(setq default-tab-width 4)
 
 ;; settings for mouse wheels
 (setq mouse-wheel-progressive-speed nil)

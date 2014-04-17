@@ -3,7 +3,7 @@
 (require 'yasnippet) ;; not yasnippet-bundle
 (setq yas/snippet-dirs (emacs-path "snippets"))
 (yas/initialize)
-;; (yas/load-directory )
+;; (yas/load-directory)
 
 ;; enable auto-complete
 (require 'auto-complete-config)

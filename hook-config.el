@@ -3,7 +3,8 @@
   (auto-fill-mode 1)
   ;; whether to use tab
   (setq indent-tabs-mode t)
-  (modify-syntax-entry ?_ "w"))
+  (modify-syntax-entry ?_ "w")
+  (modify-syntax-entry ?- "w"))
 	
 (add-hook 'text-mode-hook 'common-hook-function)
 (add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
@@ -12,7 +13,8 @@
   (common-hook-function)
   ;; not using tabs, but spaces
   (setq indent-tabs-mode nil)
-  (setq tab-width 8))
+  (setq sh-basic-offset 8
+		tab-width 8))
 (add-hook 'sh-mode-hook 'sh-hook-function)
 (add-hook 'shell-script-mode-hook 'sh-hook-function)
 
@@ -45,7 +47,6 @@
   (setq c-basic-offset 8)
   (setq indent-tabs-mode nil)
   (c-set-style "cyphy")
-  ;; (c-init-customized-style)
   (which-function-mode 1))
 (add-hook 'c-mode-hook 'c-hook-function)
 (add-hook 'c++-mode-hook 'c-hook-function)

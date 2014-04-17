@@ -95,6 +95,7 @@
  ((is-system-p 'darwin) (key-config-darwin))
  ((is-system-p 'cygwin) (key-config-cygwin)))
 
+(define-key evil-insert-state-map (kbd "<backspace>") 'paredit-backward-delete)
 (global-set-key (kbd "C-M-q") 'kill-buffer-and-window)
 
 ;; key buffer thing
@@ -185,5 +186,8 @@
 			  (define-key vc-svn-log-view-mode-map (kbd "C-f") 'scroll-up)
 			  (define-key vc-svn-log-view-mode-map (kbd "j") 'next-line)
 			  (define-key vc-svn-log-view-mode-map (kbd "k") 'previous-line)))
+
+;;; use ctrl-backspace to delete a tab
+(global-set-key (kbd "<C-backspace>") 'my-delete-previous-tab-stop)
 
 (provide 'key-config)
