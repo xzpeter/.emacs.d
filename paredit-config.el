@@ -8,7 +8,7 @@
   '(progn
 	 ;; it seems that paredit-kill works just as kill-sexp
 	 (define-key paredit-mode-map (kbd "C-k") 'kill-sexp)
-	 (define-key paredit-mode-map (kbd "<C-backspace>") 'paredit-backward-kill-word)
+	 ;; (define-key paredit-mode-map (kbd "<backspace>") 'paredit-backward-delete)
 
 	 ;; (define-key paredit-mode-map (kbd "(") 'paredit-open-parenthesis)
 	 (define-key paredit-mode-map (kbd "M-)") 'paredit-close-parenthesis-and-newline)

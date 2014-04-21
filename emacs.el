@@ -37,7 +37,7 @@
 ;; load miscellaneous widgets
 (require 'load-misc-widgets)
 ;; these stuff is fairly slow when loading...
-;; (require 'all-auto-complete-config)
+(require 'all-auto-complete-config)
 ;; load environment stuff
 (require 'environment-config)
 ;; some config for lisp

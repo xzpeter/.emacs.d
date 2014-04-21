@@ -13,8 +13,8 @@
   (common-hook-function)
   ;; not using tabs, but spaces
   (setq indent-tabs-mode nil)
-  (setq sh-basic-offset 8
-		tab-width 8))
+  (setq sh-basic-offset 8)
+  (my-set-tab-width 8))
 (add-hook 'sh-mode-hook 'sh-hook-function)
 (add-hook 'shell-script-mode-hook 'sh-hook-function)
 
@@ -25,7 +25,8 @@
   (common-hook-function)
   ;; not using tabs, but spaces
   (setq indent-tabs-mode nil)
-  (setq tab-width 8)
+  (my-set-tab-width 8)
+  (setq python-indent 8)
   ;; (define-key python-mode-map "\C-ch" 'pylookup-lookup)
   (define-key python-mode-map (kbd "C-c !") 'run-python)
   (define-key python-mode-map (kbd "C-M-,") 'python-shift-left)

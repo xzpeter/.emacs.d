@@ -95,7 +95,6 @@
  ((is-system-p 'darwin) (key-config-darwin))
  ((is-system-p 'cygwin) (key-config-cygwin)))
 
-(define-key evil-insert-state-map (kbd "<backspace>") 'paredit-backward-delete)
 (global-set-key (kbd "C-M-q") 'kill-buffer-and-window)
 
 ;; key buffer thing
@@ -189,5 +188,8 @@
 
 ;;; use ctrl-backspace to delete a tab
 (global-set-key (kbd "<C-backspace>") 'my-delete-previous-tab-stop)
+(when (featurep 'paredit-config)
+  (global-set-key (kbd "<backspace>") 'paredit-backward-delete))
+;; (define-key evil-insert-state-map (kbd "<backspace>") 'paredit-backward-delete)
 
 (provide 'key-config)

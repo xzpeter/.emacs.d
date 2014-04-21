@@ -36,6 +36,16 @@
   (yank)
   (insert m))
 
+(defun my-set-tab-width (width)
+  "set `tab-width' and also `tab-stop-list' the same time"
+  (interactive "nSet tab-width to: ")
+  (setq tab-width width)
+  (let ((i width) (max 120) (output-list nil))
+    (while (<= i max)
+      (setq output-list (cons i output-list))
+      (setq i (+ i width)))
+    (setq tab-stop-list (nreverse output-list))))
+
 (defun wrapper-with-stars (point mark)
   "wrap the selected text with stars. this can be used as HIGHLIGHT TOOL
 in ORG MODE. "
@@ -73,15 +83,32 @@ in ORG MODE. "
   (let ((max-backchar tab-width)
 		(last-point (point))
 		(cur-point (point))
+		(do-delete-region t)
 		(moveon t))
 	 (while moveon
 	   (if (= (char-before cur-point) ?\s)
 		   (setq cur-point (1- cur-point))
 		 (progn
-		   (message "not space")
+		   ;; if this is the first delete action, remove this char and done
+		   (if (= cur-point last-point)
+			   (if (featurep 'paredit-config)
+				   ;; if paredit is loaded, use better remove
+				   (progn
+					 (setq do-delete-region nil)
+					 (paredit-backward-kill-word))
+				 ;; or, use delete-region too
+				 (progn
+				   (message "reach char not space")
+				   (setq cur-point (1- cur-point)))))
 		   (setq moveon nil)))
 	   (when (>= (- last-point cur-point) max-backchar)
 		 (message "reach max backchar")
+		 (setq moveon nil))
+	   (when (in-list (+ (current-column)
+						 (+ cur-point)
+						 (- last-point))
+					  tab-stop-list)
+		 (message "reach tab-stop-list")
 		 (setq moveon nil)))
 	(delete-region cur-point last-point)))
 
