@@ -187,9 +187,9 @@
 			  (define-key vc-svn-log-view-mode-map (kbd "k") 'previous-line)))
 
 ;;; use ctrl-backspace to delete a tab
-(global-set-key (kbd "<C-backspace>") 'my-delete-previous-tab-stop)
+(global-set-key (kbd "<backspace>") 'my-delete-previous-tab-stop)
 (when (featurep 'paredit-config)
-  (global-set-key (kbd "<backspace>") 'paredit-backward-delete))
+  (global-set-key (kbd "<C-backspace>") 'paredit-backward-kill-word))
 ;; (define-key evil-insert-state-map (kbd "<backspace>") 'paredit-backward-delete)
 
 (provide 'key-config)
