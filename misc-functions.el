@@ -110,7 +110,8 @@ in ORG MODE. "
 					  tab-stop-list)
 		 (message "reach tab-stop-list")
 		 (setq moveon nil)))
-	(delete-region cur-point last-point)))
+	 (when (< cur-point last-point)
+	   (delete-region cur-point last-point))))
 
 (require 'my-key-buffer)
 (require 'temp-use-functions)
