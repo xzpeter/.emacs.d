@@ -9,6 +9,7 @@
         st = status
         di = diff --color
         br = branch --color
+        ls-br = log --graph --decorate --oneline --simplify-by-decoration
 [core]
         editor = vim
 [merge]
