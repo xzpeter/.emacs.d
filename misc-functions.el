@@ -95,7 +95,7 @@ in ORG MODE. "
 				   ;; if paredit is loaded, use better remove
 				   (progn
 					 (setq do-delete-region nil)
-					 (paredit-backward-delete))
+					 (evil-delete-backward-word))
 				 ;; or, use delete-region too
 				 (progn
 				   ;; (message "reach char not space")

@@ -3,8 +3,7 @@
   (auto-fill-mode 1)
   ;; whether to use tab
   (setq indent-tabs-mode t)
-  (modify-syntax-entry ?_ "w")
-  (modify-syntax-entry ?- "w"))
+  (modify-syntax-entry ?_ "w"))
 	
 (add-hook 'text-mode-hook 'common-hook-function)
 (add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
@@ -20,6 +19,7 @@
 
 (add-hook 'lisp-mode-hook 'common-hook-function) 
 (add-hook 'perl-mode-hook 'common-hook-function) 
+(add-hook 'minibuffer-inactive-mode-hook 'common-hook-function) 
 (add-hook 'scheme-mode-hook 'common-hook-function) 
 (defun python-hook-function ()
   (common-hook-function)
@@ -48,6 +48,7 @@
   (setq c-basic-offset 8)
   (setq indent-tabs-mode nil)
   (c-set-style "cyphy")
+  (my-set-tab-width 8)
   (which-function-mode 1))
 (add-hook 'c-mode-hook 'c-hook-function)
 (add-hook 'c++-mode-hook 'c-hook-function)
