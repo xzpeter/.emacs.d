@@ -18,7 +18,14 @@
 (add-hook 'shell-script-mode-hook 'sh-hook-function)
 
 (add-hook 'lisp-mode-hook 'common-hook-function) 
-(add-hook 'perl-mode-hook 'common-hook-function) 
+
+(defalias 'perl-mode 'cperl-mode)
+(defun perl-hook-function ()
+  (common-hook-function)
+  (setq indent-tabs-mode t)
+  (setq cperl-indent-level 4))
+(add-hook 'cperl-mode-hook 'perl-hook-function) 
+
 (add-hook 'minibuffer-inactive-mode-hook 'common-hook-function) 
 (add-hook 'scheme-mode-hook 'common-hook-function) 
 (defun python-hook-function ()
