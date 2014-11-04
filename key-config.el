@@ -137,7 +137,8 @@
 (global-set-key (kbd "M-v") 'yank)
 
 ;;; for UNIX, I will possibly need this via X
-(when (is-system-p 'berkeley-unix)
+(when (or (is-system-p 'berkeley-unix)
+		  (is-system-p 'gnu/linux))
 	(setq x-alt-keysym 'meta))
 
 ;;; a quick grep
