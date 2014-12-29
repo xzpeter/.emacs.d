@@ -56,7 +56,11 @@
   (setq indent-tabs-mode nil)
   (c-set-style "cyphy")
   (my-set-tab-width 8)
-  (which-function-mode 1))
+  ;; this poor minor mode bring me bug when I opened *.c before I try to
+  ;; open big *.py files. It will make it damn slow to open the python
+  ;; script.
+  ;; (which-function-mode 1)
+  )
 (add-hook 'c-mode-hook 'c-hook-function)
 (add-hook 'c++-mode-hook 'c-hook-function)
 
