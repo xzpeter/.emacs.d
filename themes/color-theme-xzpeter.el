@@ -5,7 +5,7 @@
    '(color-theme-ld-dark
      ((background-color . "black")
       (background-mode . dark)
-      (border-color . "black")
+      (border-color . "grey")
       (cursor-color . "yellow")
       (foreground-color . "white")
       (mouse-color . "white"))
@@ -96,7 +96,7 @@
      (font-lock-constant-face ((t (:bold t :foreground "Gold" :weight bold))))
      (font-lock-doc-face ((t (:italic t :slant oblique :foreground "BurlyWood"))))
      (font-lock-doc-string-face ((t (:italic t :slant oblique :foreground "BurlyWood"))))
-     (font-lock-function-name-face ((t (:bold t :foreground "gold2" :weight bold :height 1.1 :family "Verdana"))))
+     (font-lock-function-name-face ((t (:bold t :foreground "gold2" :weight bold :height 1.15 :family "Verdana"))))
      (font-lock-keyword-face ((t (:foreground "LightSkyBlue"))))
      (font-lock-preprocessor-face ((t (:bold t :foreground "Gold" :weight bold))))
      (font-lock-reference-face ((t (:foreground "SteelBlue"))))

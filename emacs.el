@@ -41,7 +41,7 @@
 ;; load environment stuff
 (require 'environment-config)
 ;; some config for lisp
-;; (require 'lisp-config)
+(require 'lisp-config)
 ;;; paredit: powerful tool with parenthesis
 (require 'paredit-config)
 ;; something about the org mode
