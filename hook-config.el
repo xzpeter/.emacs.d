@@ -1,7 +1,31 @@
 ;; enabling auto-fill-mode in various modes
+
+;;; detect whether file is to be indented using tab or spaces
+(defvar *indent-tabs-directory-list*
+  (list "/root/git/cyvtl/" "/usr/src/")
+  "List of directories that I would like to indent tabs rather than spaces")
+
+(defun detect-indent-tabs-mode-by-name (file)
+  "Check whether file `file' is to be indented using spaces. By
+default, we do indent using spaces. However, if `file' is stored
+in any of the directory in the `dir-list' parameter, we will use
+tabs rather than spaces"
+  (message "Detecting file '%s' indent type" file)
+  (when file
+    (let ((file-name-len (string-width file)) (result nil))
+      (dolist (dir *indent-tabs-directory-list*)
+        (let ((dir-name-len (string-width dir)))
+          (when (> file-name-len dir-name-len)
+            (let ((file-prefix-name (substring file 0 dir-name-len)))
+              (when (string= dir file-prefix-name)
+                ;; could be better if I know how to break... I am lazy.
+                (message "Detected file '%s' should use tabs when indent" file)
+                (setq result t))))))
+      result)))
+
 (defun common-hook-function ()
   (auto-fill-mode 1)
-  ;; whether to use tab
+  ;; by default, all use tabs
   (setq indent-tabs-mode t)
   (modify-syntax-entry ?_ "w"))
 	
@@ -53,9 +77,10 @@
 (defun c-hook-function ()
   (common-hook-function)
   (setq c-basic-offset 8)
-  (setq indent-tabs-mode nil)
   (c-set-style "cyphy")
   (my-set-tab-width 8)
+  (setq indent-tabs-mode
+        (detect-indent-tabs-mode-by-name buffer-file-name))
   ;; this poor minor mode bring me bug when I opened *.c before I try to
   ;; open big *.py files. It will make it damn slow to open the python
   ;; script.

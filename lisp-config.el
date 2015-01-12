@@ -12,6 +12,11 @@
 (defun my-switch-to-slime-compilation-window ()
   (interactive)
   (switch-to-buffer "*slime-compilation*"))
+
+(defun lisp-common-mode-hook ()
+  (modify-syntax-entry ?_ "w")
+  (modify-syntax-entry ?- "w")
+  (setq indent-tabs-mode nil))
 (defun lisp-mode-key-config ()
   "define the auto complete in Lisp"
   (define-key lisp-mode-map (kbd "TAB") 'slime-fuzzy-complete-symbol)
@@ -25,6 +30,7 @@
   (define-key lisp-mode-map (kbd "C-M-p") 'slime-beginning-of-defun)
   (define-key lisp-mode-map (kbd "C-c C-o") 'my-switch-to-slime-compilation-window))
 (add-hook 'lisp-mode-hook 'lisp-mode-key-config)
+(add-hook 'lisp-mode-hook 'lisp-common-mode-hook)
 
 (defun emacs-lisp-mode-key-config ()
   "some defines for emacs lisp"
@@ -35,14 +41,15 @@
   (define-key emacs-lisp-mode-map (kbd "M-p") 'beginning-of-defun)
   (define-key emacs-lisp-mode-map (kbd "M-n") 'end-of-defun))
 (add-hook 'emacs-lisp-mode-hook 'emacs-lisp-mode-key-config)
+(add-hook 'emacs-lisp-mode-hook 'lisp-common-mode-hook)
 
 ;; all the samme for lisp interaction mode
-;; (define-key lisp-interaction-mode-map (kbd "C-c C-l") 'eval-buffer)
-;; (define-key lisp-interaction-mode-map (kbd "C-c C-r") 'eval-region)
-;; (define-key lisp-interaction-mode-map (kbd "C-c C-c") 'eval-defun)
-;; (define-key lisp-interaction-mode-map (kbd "C-j") 'eval-print-last-sexp)
-;; (define-key lisp-interaction-mode-map (kbd "M-p") 'beginning-of-defun)
-;; (define-key lisp-interaction-mode-map (kbd "M-n") 'end-of-defun)
+(define-key lisp-interaction-mode-map (kbd "C-c C-l") 'eval-buffer)
+(define-key lisp-interaction-mode-map (kbd "C-c C-r") 'eval-region)
+(define-key lisp-interaction-mode-map (kbd "C-c C-c") 'eval-defun)
+(define-key lisp-interaction-mode-map (kbd "C-j") 'eval-print-last-sexp)
+(define-key lisp-interaction-mode-map (kbd "M-p") 'beginning-of-defun)
+(define-key lisp-interaction-mode-map (kbd "M-n") 'end-of-defun)
 
 (defun slime-repl-mode-key-config ()
   (define-key slime-repl-mode-map (kbd "C-a") nil))
