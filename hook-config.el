@@ -1,27 +1,46 @@
 ;; enabling auto-fill-mode in various modes
 
-;;; detect whether file is to be indented using tab or spaces
-(defvar *indent-tabs-directory-list*
-  (list "/root/git/cyvtl/" "/usr/src/")
-  "List of directories that I would like to indent tabs rather than spaces")
+;;; detect whether file is to be indented using tab or spaces, and how many
+;;; spaces to use if we are not using tab.
+(defvar my-c-indent-tabs-hint-list
+  '(("/root/git/cyvtl/" . 8)
+    ("/root/git/CyphyOS-1/" . 8)
+    ("/root/git/cscope/" . 4)
+    ("/usr/src/" . nil))
+  "List of directories that has indent hints. When the hint is `nil', then we
+will use tab for indent. When the hint is non-nil, we will use spaces with
+specific number.")
+(defvar my-c-indent-tabs-default 8
+  "Default value on how to indent in C")
+(defvar my-c-indent-tabs-width 8
+  "Default value of width of a tab")
 
-(defun detect-indent-tabs-mode-by-name (file)
-  "Check whether file `file' is to be indented using spaces. By
-default, we do indent using spaces. However, if `file' is stored
-in any of the directory in the `dir-list' parameter, we will use
-tabs rather than spaces"
+(defun my-c-set-indent-tabs-by-name (file)
+  "Check how C source file `file' should be indented. By default, we aure using
+`my-c-indent-tabs-default' as the default value. But, if the file could be
+  looked up in `my-c-indent-tabs-hint-list', then we will use that customized
+  value rather than default."
   (message "Detecting file '%s' indent type" file)
   (when file
     (let ((file-name-len (string-width file)) (result nil))
-      (dolist (dir *indent-tabs-directory-list*)
-        (let ((dir-name-len (string-width dir)))
+      (dolist (hint my-c-indent-tabs-hint-list)
+        (let* ((dir (car hint))
+               (dir-name-len (string-width dir)))
           (when (> file-name-len dir-name-len)
             (let ((file-prefix-name (substring file 0 dir-name-len)))
               (when (string= dir file-prefix-name)
                 ;; could be better if I know how to break... I am lazy.
-                (message "Detected file '%s' should use tabs when indent" file)
-                (setq result t))))))
-      result)))
+                (message "Detected file '%s' should use '%s' when indent"
+                         file (cdr hint))
+                (setq result (cdr hint)))))))
+      (if result
+          (setq final-tabs-mode nil
+                final-width result)
+        (setq final-tabs-mode t
+              final-width my-c-indent-tabs-width))
+      (setq indent-tabs-mode final-tabs-mode
+            c-basic-offset final-width)
+      (my-set-tab-width final-width))))
 
 (defun common-hook-function ()
   (auto-fill-mode 1)
@@ -79,8 +98,7 @@ tabs rather than spaces"
   (setq c-basic-offset 8)
   (c-set-style "cyphy")
   (my-set-tab-width 8)
-  (setq indent-tabs-mode
-        (detect-indent-tabs-mode-by-name buffer-file-name))
+  (my-c-set-indent-tabs-by-name buffer-file-name)
   ;; this poor minor mode bring me bug when I opened *.c before I try to
   ;; open big *.py files. It will make it damn slow to open the python
   ;; script.
