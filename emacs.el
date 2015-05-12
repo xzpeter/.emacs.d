@@ -54,9 +54,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; just load cscope
-(when (is-system-p 'gnu/linux)
-  (require 'cedet-config)
-  (require 'ecb-config))
+;; (when (is-system-p 'gnu/linux)
+;;   (require 'cedet-config)
+;;   (require 'ecb-config))
 ;; All evil stuffs here
 (require 'evil-config)
 
