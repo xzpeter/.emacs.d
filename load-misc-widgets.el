@@ -55,4 +55,7 @@
 (autoload 'd-mode "d-mode" () t)
 (add-to-list 'auto-mode-alist '("\\.d\\'" . d-mode))
 
+;;; init systemtap mode
+(load "systemtap-init.el")
+
 (provide 'load-misc-widgets)
