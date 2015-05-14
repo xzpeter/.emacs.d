@@ -107,4 +107,6 @@ specific number.")
 (add-hook 'c-mode-hook 'c-hook-function)
 (add-hook 'c++-mode-hook 'c-hook-function)
 
+(add-hook 'asm-mode-hook 'common-hook-function)
+
 (provide 'hook-config)
