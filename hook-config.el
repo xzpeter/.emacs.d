@@ -97,9 +97,10 @@ specific number.")
 (c-add-style "cyphy" c-style-cyphy)
 (defun c-hook-function ()
   (common-hook-function)
-  (setq c-basic-offset 8)
-  (c-set-style "cyphy")
+  (setq c-basic-offset 4)
   (my-set-tab-width 8)
+  (electric-pair-mode 1)
+  (setq indent-tabs-mode nil)
   (my-c-set-indent-tabs-by-name buffer-file-name)
   ;; this poor minor mode bring me bug when I opened *.c before I try to
   ;; open big *.py files. It will make it damn slow to open the python
