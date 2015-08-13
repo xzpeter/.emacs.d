@@ -2,16 +2,6 @@
 
 # need special care on Darwin systems
 system_name=$(uname -s)
-function is_unix ()
-{
-	[ "$system_name" == "Darwin" -o "$system_name" == "FreeBSD" ];
-}
-
-function is_linux ()
-{
-    [ `uname`]
-}
-
 # some aliasing
 case $system_name in
     Darwin|FreeBSD)
