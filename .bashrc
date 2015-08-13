@@ -1,15 +1,27 @@
 # this is the .bashrc file for xzpeter
 
 # need special care on Darwin systems
+system_name=$(uname -s)
 function is_unix ()
 {
-	[ `uname -s` == "Darwin" -o `uname -s` == "FreeBSD" ];
+	[ "$system_name" == "Darwin" -o "$system_name" == "FreeBSD" ];
+}
+
+function is_linux ()
+{
+    [ `uname`]
 }
 
 # some aliasing
-if is_unix; then
-	alias ls='ls -G'
-fi
+case $system_name in
+    Darwin|FreeBSD)
+        alias ls='ls -G'
+        ;;
+    Linux)
+        alias ls='ls --color'
+        ;;
+esac
+
 alias l='ls -lha'
 alias ..='cd ..'
 alias ...='cd ../..'
