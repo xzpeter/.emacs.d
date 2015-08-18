@@ -21,7 +21,7 @@
 (defun org-mode-key-config ()
   (setq org-support-shift-select 1)
   ;; due to org2blog reasons, I am not using auto-fill-mode in org mode
-  (auto-fill-mode 0)
+  (auto-fill-mode t)
   (setq truncate-lines nil)
   ;; some org2blog specific defines
   (define-key org-mode-map (kbd "C-a") nil)	; check key-config.el
