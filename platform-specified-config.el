@@ -2,7 +2,7 @@
 (defun platform-linux-startup ()
   (server-start)
   (setq browse-url-browser-function 'browse-url-generic
-	browse-url-generic-program "chromium-browser"))
+	browse-url-generic-program "firefox"))
 
 ;; (defun darwin-open-url (url &optional new-window)
 ;;   (call-process "ssh" nil 0 nil

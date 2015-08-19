@@ -12,9 +12,9 @@
   "List of directories that has indent hints. When the hint is `nil', then we
 will use tab for indent. When the hint is non-nil, we will use spaces with
 specific number.")
-(defvar my-c-indent-tabs-default 8
+(defvar my-c-indent-tabs-default 4
   "Default value on how to indent in C")
-(defvar my-c-indent-tabs-width 8
+(defvar my-c-indent-tabs-width 4
   "Default value of width of a tab")
 
 (defun my-c-set-indent-tabs-by-name (file)
