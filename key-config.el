@@ -124,6 +124,9 @@
 (define-key 'evil-window-map (kbd "C-k") 'swbuff-kill-this-buffer)
 (define-key 'evil-window-map (kbd "C-a") 'my-switch-to-other-buffer)
 
+;;; it seems that this is needed in latest evil
+(define-key evil-insert-state-map (kbd "C-a") 'evil-window-map)
+
 (global-set-key (kbd "C-c r") 'my-read-tmux-buffer)
 
 ;;; useful when using emacs as git commit editor
