@@ -3,11 +3,8 @@
 ;;; detect whether file is to be indented using tab or spaces, and how many
 ;;; spaces to use if we are not using tab.
 (defvar my-c-indent-tabs-hint-list
-  '(("/root/git/cyvtl/" . nil)
-    ("/root/git/CyphyOS-1/" . 8)
-    ("/root/git/glusterfs/" . 8)
-    ("/root/git/cscope/" . 4)
-    ("/root/git/otree" . 4)
+  '(("/root/git/kvm" . nil)
+    ("/root/git/qemu" . 4)
     ("/usr/src/" . nil))
   "List of directories that has indent hints. When the hint is `nil', then we
 will use tab for indent. When the hint is non-nil, we will use spaces with
