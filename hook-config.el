@@ -106,6 +106,7 @@ specific number.")
   )
 (add-hook 'c-mode-hook 'c-hook-function)
 (add-hook 'c++-mode-hook 'c-hook-function)
+(add-hook 'cscope-list-entry-hook 'common-hook-function)
 
 (add-hook 'asm-mode-hook 'common-hook-function)
 
