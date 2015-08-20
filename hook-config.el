@@ -3,13 +3,15 @@
 ;;; detect whether file is to be indented using tab or spaces, and how many
 ;;; spaces to use if we are not using tab.
 (defvar my-c-indent-tabs-hint-list
-  '(("/root/git/kvm" . nil)
-    ("/root/git/qemu" . 4)
-    ("/usr/src/" . nil))
+  '(
+    ;; format: ( "root_dir_path" . ( use_tab_p . tab_width ))
+    ("/root/git/kvm" . (t . 8))
+    ("/root/git/qemu" . (nil . 4))
+    )
   "List of directories that has indent hints. When the hint is `nil', then we
 will use tab for indent. When the hint is non-nil, we will use spaces with
 specific number.")
-(defvar my-c-indent-tabs-default 4
+(defvar my-c-indent-tabs-default t
   "Default value on how to indent in C")
 (defvar my-c-indent-tabs-width 4
   "Default value of width of a tab")
@@ -21,7 +23,9 @@ specific number.")
   value rather than default."
   (message "Detecting file '%s' indent type" file)
   (when file
-    (let ((file-name-len (string-width file)) (result nil))
+    (let ((file-name-len (string-width file))
+          (final-tabs-mode my-c-indent-tabs-default)
+          (final-tabs-width my-c-indent-tabs-width))
       (dolist (hint my-c-indent-tabs-hint-list)
         (let* ((dir (car hint))
                (dir-name-len (string-width dir)))
@@ -29,17 +33,13 @@ specific number.")
             (let ((file-prefix-name (substring file 0 dir-name-len)))
               (when (string= dir file-prefix-name)
                 ;; could be better if I know how to break... I am lazy.
-                (message "Detected file '%s' should use '%s' when indent"
-                         file (cdr hint))
-                (setq result (cdr hint)))))))
-      (if result
-          (setq final-tabs-mode nil
-                final-width result)
-        (setq final-tabs-mode t
-              final-width my-c-indent-tabs-width))
+                (setq final-tabs-mode (car (cdr hint))
+                      final-tabs-width (cdr (cdr hint)))
+                (message "'%s' identation: tab mode '%s', width '%s'"
+                         file final-tabs-mode final-tabs-width))))))
       (setq indent-tabs-mode final-tabs-mode
-            c-basic-offset final-width)
-      (my-set-tab-width final-width))))
+            c-basic-offset final-tabs-width)
+      (my-set-tab-width final-tabs-width))))
 
 (defun common-hook-function ()
   (auto-fill-mode 1)
@@ -97,7 +97,7 @@ specific number.")
   (setq c-basic-offset 4)
   (my-set-tab-width 8)
   (electric-pair-mode 1)
-  (setq indent-tabs-mode nil)
+  (setq indent-tabs-mode my-c-indent-tabs-default)
   (my-c-set-indent-tabs-by-name buffer-file-name)
   ;; this poor minor mode bring me bug when I opened *.c before I try to
   ;; open big *.py files. It will make it damn slow to open the python
