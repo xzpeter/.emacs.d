@@ -6,6 +6,7 @@
   '(
     ;; format: ( "root_dir_path" . ( use_tab_p . tab_width ))
     ("/root/git/kvm" . (t . 8))
+    ("/root/codes/glib" . (nil . 8))
     ("/root/git/linux" . (t . 8))
     ("/root/git/qemu" . (nil . 4))
     )
