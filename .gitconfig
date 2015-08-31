@@ -1,6 +1,6 @@
 [user]
-        name = xzpeter
-        email = xzpeter@gmail.com
+        name = Peter Xu
+        email = peterx@redhat.com
 [alias]
         lo = log --color --stat --summary
 	ls = log --color --pretty=oneline --graph
