@@ -61,6 +61,7 @@ specific number.")
   (my-set-tab-width 4))
 (add-hook 'sh-mode-hook 'sh-hook-function)
 (add-hook 'shell-script-mode-hook 'sh-hook-function)
+(add-hook 'makefile-mode-hook 'sh-hook-function)
 
 (add-hook 'lisp-mode-hook 'common-hook-function) 
 
