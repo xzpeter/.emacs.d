@@ -80,38 +80,48 @@ in ORG MODE. "
 (defun my-delete-previous-tab-stop ()
   "Remove spaces before point, max to `tab-width' spaces."
   (interactive)
+  ;; hack here: this is used when I am deleting words or path like:
+  ;; (1) "here are SOME WORDS TO BE DELETED"
+  ;; (2) "/root/dir1/DIR2/DIR3/DIR4"
+  ;; when trying to delete the chars with upper cases, I need two
+  ;; C-backspace to delete one single word. It is slow. When found the
+  ;; char is either " " or "/", delete it directly before hand.
+  (let ((last-char (char-before (point))))
+    (when (or (= last-char ?/)
+              (= last-char ? ))
+      (delete-backward-char 1)))
   (let ((max-backchar tab-width)
 		(last-point (point))
 		(cur-point (point))
 		(do-delete-region t)
 		(moveon t))
-	 (while moveon
-	   (if (= (char-before cur-point) ?\s)
-		   (setq cur-point (1- cur-point))
-		 (progn
-		   ;; if this is the first delete action, remove this char and done
-		   (if (= cur-point last-point)
-			   (if (featurep 'paredit-config)
-				   ;; if paredit is loaded, use better remove
-				   (progn
-					 (setq do-delete-region nil)
-					 (evil-delete-backward-word))
-				 ;; or, use delete-region too
-				 (progn
-				   ;; (message "reach char not space")
-				   (setq cur-point (1- cur-point)))))
-		   (setq moveon nil)))
-	   (when (>= (- last-point cur-point) max-backchar)
-		 ;; (message "reach max backchar")
-		 (setq moveon nil))
-	   (when (in-list (+ (current-column)
-						 (+ cur-point)
-						 (- last-point))
-					  tab-stop-list)
-		 ;; (message "reach tab-stop-list")
-		 (setq moveon nil)))
-	 (when (< cur-point last-point)
-	   (delete-region cur-point last-point))))
+    (while moveon
+      (if (= (char-before cur-point) ?\s)
+          (setq cur-point (1- cur-point))
+        (progn
+          ;; if this is the first delete action, remove this char and done
+          (if (= cur-point last-point)
+              (if (featurep 'paredit-config)
+                  ;; if paredit is loaded, use better remove
+                  (progn
+                    (setq do-delete-region nil)
+                    (evil-delete-backward-word))
+                ;; or, use delete-region too
+                (progn
+                  ;; (message "reach char not space")
+                  (setq cur-point (1- cur-point)))))
+          (setq moveon nil)))
+      (when (>= (- last-point cur-point) max-backchar)
+        ;; (message "reach max backchar")
+        (setq moveon nil))
+      (when (in-list (+ (current-column)
+                        (+ cur-point)
+                        (- last-point))
+                     tab-stop-list)
+        ;; (message "reach tab-stop-list")
+        (setq moveon nil)))
+    (when (< cur-point last-point)
+      (delete-region cur-point last-point))))
 
 (require 'my-key-buffer)
 (require 'temp-use-functions)
