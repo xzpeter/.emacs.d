@@ -17,8 +17,8 @@ build_packages:
 	@echo "making org..."
 	@(cd org-7.7; make; cd ..;) &>${makelog}
 	@echo "make sure emacs.el load at emacs startup... "
-	@grep -q '.emacs.d/emacs.el' ${emacsfile} || \
-		echo '(load "~/.emacs.d/emacs.el")' >> ${emacsfile}
+	@grep -q '.emacs.d/lisp/emacs.el' ${emacsfile} || \
+		echo '(load "~/.emacs.d/lisp/emacs.el")' >> ${emacsfile}
 
 cp_user_files:
 	@echo "copying user files (${user_files})..."
