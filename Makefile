@@ -11,12 +11,9 @@ init: install_hyperspec build_packages cp_user_files
 install_hyperspec:
 	@echo "unpacking HyperSpec..."
 	@tar zxvf ${file} &>${makelog}
+	@rm -rf ._HyperSpec
 
 build_packages: 
-	@echo "making cedet..."
-	@(cd cedet-1.1; make; cd ..;) &>${makelog}
-	@echo "making ecb..."
-	@(cd ecb-2.40; make; cd ..;) &>${makelog}
 	@echo "making org..."
 	@(cd org-7.7; make; cd ..;) &>${makelog}
 	@echo "make sure emacs.el load at emacs startup... "
