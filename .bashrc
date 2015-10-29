@@ -29,8 +29,10 @@ alias work2='ssh dev-ub'
 alias cp_r='rsync --progress -ah'
 
 # change PS1 format
-PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+PS1='\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 export EDITOR='vim'
 
 # enable VI mode for command lines
 set -o vi
+# enable clear-screen
+bind -x $'"\C-l":clear;'
