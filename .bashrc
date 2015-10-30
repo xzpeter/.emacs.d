@@ -1,5 +1,10 @@
 # this is the .bashrc file for xzpeter
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
 # need special care on Darwin systems
 system_name=$(uname -s)
 # some aliasing
