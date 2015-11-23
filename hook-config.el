@@ -8,8 +8,10 @@
     ("/root/git/kvm" . (t . 8))
     ("/root/codes/glib" . (nil . 8))
     ("/root/git/linux" . (t . 8))
+    ("/root/git/rh/rhel7" . (t . 8))
     ("/root/codes/emacs" . (nil . 2))
     ("/root/git/qemu" . (nil . 4))
+    ("/root/git/rh/qemu-kvm" . (nil . 4))
     )
   "List of directories that has indent hints. When the hint is `nil', then we
 will use tab for indent. When the hint is non-nil, we will use spaces with

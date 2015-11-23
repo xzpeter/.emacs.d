@@ -194,7 +194,7 @@
 
 ;;; use ctrl-backspace to delete a tab
 (global-set-key (kbd "<C-backspace>") 'my-delete-previous-tab-stop)
-(when (featurep 'paredit-config)
-  (define-key evil-insert-state-map (kbd "<backspace>") 'paredit-backward-delete))
+;; (when (featurep 'paredit-config)
+;;   (define-key evil-insert-state-map (kbd "<backspace>") 'paredit-backward-delete))
 
 (provide 'key-config)
