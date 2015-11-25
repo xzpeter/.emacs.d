@@ -1,19 +1,21 @@
 [user]
-        name = Peter Xu
-        email = peterx@redhat.com
+	name = Peter Xu
+	email = peterx@redhat.com
 [alias]
-        lo = log --color --stat --summary
+	lo = log --color --stat --summary
 	ls = log --color --pretty=oneline --graph
-        ci = commit
-        co = checkout
-        st = status
-        di = diff --color
-        br = branch --color
-        ls-br = log --graph --decorate --oneline --simplify-by-decoration
+	ci = commit -s
+	co = checkout
+	st = status
+	di = diff --color
+	br = branch --color
+	fp = format-patch -s
+	se = send-email
+	ls-br = log --graph --decorate --oneline --simplify-by-decoration
 [core]
-        editor = vim
+	editor = emacsclient
 [merge]
-        tool = meld
+	tool = meld
 
 [color]
 	ui = auto
@@ -32,3 +34,10 @@
 	untracked = red
 [push]
 	default = simple
+[sendemail]
+	smtpserver = smtp.corp.redhat.com
+	smtpencryption = starttls
+	smtpserverport = 25
+	suppresscc = author
+	suppresscc = body
+	annotate = true

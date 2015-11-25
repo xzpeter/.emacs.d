@@ -152,25 +152,26 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; VCS related keys
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define-key magit-mode-map (kbd "C-b") 'scroll-down)
-(define-key magit-mode-map (kbd "C-f") 'scroll-up)
-(define-key magit-mode-map (kbd "j") 'next-line)
-(define-key magit-mode-map (kbd "k") 'previous-line)
+(when (featurep 'magit)
+  (define-key magit-mode-map (kbd "C-b") 'scroll-down)
+  (define-key magit-mode-map (kbd "C-f") 'scroll-up)
+  (define-key magit-mode-map (kbd "j") 'next-line)
+  (define-key magit-mode-map (kbd "k") 'previous-line)
 
-;;; remap magit related keys
-(define-key magit-mode-map (kbd "RET") #'(lambda ()
-										   (interactive)
-										   (magit-visit-item)
-										   (delete-other-windows)))
-(define-key magit-mode-map (kbd "M-1") nil)
-(define-key magit-mode-map (kbd "M-4") nil)
-(global-set-key (kbd "C-c g") #'(lambda ()
-								  (interactive)
-								  (magit-status ".")
-								  (delete-other-windows)))
-;;; magit diff mode
-(define-key magit-diff-mode-map (kbd "M-1") nil)
-(define-key magit-diff-mode-map (kbd "M-4") nil)
+  ;;; remap magit related keys
+  (define-key magit-mode-map (kbd "RET") #'(lambda ()
+                                             (interactive)
+                                             (magit-visit-item)
+                                             (delete-other-windows)))
+  (define-key magit-mode-map (kbd "M-1") nil)
+  (define-key magit-mode-map (kbd "M-4") nil)
+  (global-set-key (kbd "C-c g") #'(lambda ()
+                                    (interactive)
+                                    (magit-status ".")
+                                    (delete-other-windows)))
+  ;;; magit diff mode
+  (define-key magit-diff-mode-map (kbd "M-1") nil)
+  (define-key magit-diff-mode-map (kbd "M-4") nil))
 
 ;;; vc keys
 (global-set-key (kbd "C-c v")
@@ -179,10 +180,6 @@
 					;; only display the last 20 entries
 					(vc-print-root-log 20)
 					(delete-other-windows)))
-;;; diff mode
-(define-key diff-mode-map (kbd "M-1") nil)
-(define-key diff-mode-map (kbd "M-4") nil)
-(define-key diff-mode-map (kbd "M-q") 'kill-buffer)
 
 ;;; svn log view mode
 (add-hook 'vc-svn-log-view-mode-hook

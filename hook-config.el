@@ -55,6 +55,7 @@ specific number.")
 (add-hook 'text-mode-hook 'common-hook-function)
 (add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
 (add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
+(add-hook 'diff-mode-hook 'common-hook-function)
 (defun sh-hook-function ()
   (common-hook-function)
   ;; not using tabs, but spaces
