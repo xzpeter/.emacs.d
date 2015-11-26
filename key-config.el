@@ -194,4 +194,9 @@
 ;; (when (featurep 'paredit-config)
 ;;   (define-key evil-insert-state-map (kbd "<backspace>") 'paredit-backward-delete))
 
+;;; Test modes are used for commit messages, simulating
+;;; git-commit-mode to use C-c C-c to commit.
+(if (featurep 'evil)
+    (define-key text-mode-map (kbd "C-c C-c") 'evil-save-and-close))
+
 (provide 'key-config)
