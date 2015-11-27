@@ -67,6 +67,11 @@ in ORG MODE. "
   (interactive)
   (kill-buffer))
 
+(defun my-save-buffer-and-close ()
+  (interactive)
+  (save-buffer)
+  (kill-buffer))
+
 (defun my-read-tmux-buffer ()
   (interactive)
   (evil-read nil "~/.tmux-buffer"))

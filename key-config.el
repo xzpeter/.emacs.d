@@ -196,7 +196,8 @@
 
 ;;; Test modes are used for commit messages, simulating
 ;;; git-commit-mode to use C-c C-c to commit.
+(require 'diff-mode)
 (if (featurep 'evil)
-    (define-key text-mode-map (kbd "C-c C-c") 'evil-save-and-close))
+  (define-key text-mode-map (kbd "C-c C-c") 'my-save-buffer-and-close))
 
 (provide 'key-config)

@@ -53,9 +53,14 @@ specific number.")
   (modify-syntax-entry ?_ "w"))
 	
 (add-hook 'text-mode-hook 'common-hook-function)
-(add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
-(add-hook 'emacs-lisp-mode-hook 'common-hook-function) 
-(add-hook 'diff-mode-hook 'common-hook-function)
+
+(defun diff-hook-function ()
+  (common-hook-function)
+  (define-key diff-mode-map (kbd "M-1") nil)
+  (define-key diff-mode-map (kbd "M-4") nil)
+  (define-key diff-mode-map (kbd "C-c C-c") 'my-save-buffer-and-close))
+
+(add-hook 'diff-mode-hook 'diff-hook-function)
 (defun sh-hook-function ()
   (common-hook-function)
   ;; not using tabs, but spaces
