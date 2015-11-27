@@ -1,0 +1,69 @@
+# load encrypted message
+source "gpg -dq $HOME/.mutt/.pwd.gpg |"
+
+# IMAP configurations
+set imap_user   = zhexu
+set imap_pass   = $my_rh_pw
+set realname    = "Peter Xu"
+set folder      = imaps://mail.corp.redhat.com
+set spoolfile   = +INBOX
+mailboxes       = +INBOX
+
+# SMTP configurations
+set record = +Sent
+set from = peterx@redhat.com
+set use_from = yes
+set smtp_url=smtp://smtp.corp.redhat.com
+set ssl_force_tls = yes
+set ssl_starttls = yes
+
+set editor = emacsclient
+
+# Store message headers locally to speed things up.
+# If hcache is a folder, Mutt will create sub cache folders for
+# each account which may speeds things up even more.
+set header_cache = "$HOME/.cache/mutt"
+
+# Store messages locally to speed things up, like searching
+# message bodies.
+# Can be the same folder as header_cache.
+# This will cost important disk usage according to your e-mail
+set message_cachedir = "$HOME/.cache/mutt"
+
+# Specify where to save and/or look for postponed messages.
+# set postponed = +Drafts
+
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+
+# Keep IMAP connection alive by polling intermittently (time in
+# seconds).
+set imap_keepalive = 300
+
+# How often to check for new mail (time in seconds).
+set mail_check = 120
+
+# using threads
+set sort = threads
+
+# using UTF-8 all the time
+set send_charset = "utf-8"
+
+# key bindings
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \Cf next-page
+bind attach,index,pager \Cb previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+bind index \Cl imap-fetch-mail
+
+# Address book configurations
+set alias_file = "$HOME/.mutt/aliases"
+set sort_alias = alias
+set reverse_alias = no
+source $alias_file
+
+set sleep_time = 0

@@ -11,6 +11,8 @@
 	br = branch --color
 	fp = format-patch -s
 	se = send-email
+	cp = cherry-pick
+	rb = rebase
 	ls-br = log --graph --decorate --oneline --simplify-by-decoration
 [core]
 	editor = emacsclient

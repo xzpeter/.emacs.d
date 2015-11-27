@@ -3,10 +3,14 @@ emacsfile=~/.emacs
 user_files='.ecb-user-layouts.el .tmux.conf .gitconfig .bashrc .vimrc .inputrc'
 makelog=/tmp/emacs-make.log
 file=$(shell ls HyperSpec*.gz)
-.PHONY: init clean build_packages cp_user_files install_hyperspec
+.PHONY: init clean build_packages cp_user_files install_hyperspec config_mutt
 
-init: install_hyperspec build_packages cp_user_files 
+init: install_hyperspec build_packages cp_user_files config_mutt
 	@echo "### ALL DONE! ###"
+
+config_mutt:
+	@echo "Copy MUTT config"
+	@ln -s ${PWD}/.mutt ${HOME}/
 
 install_hyperspec:
 	@echo "unpacking HyperSpec..."

@@ -8,3 +8,5 @@ tramp
 cedet-1.1/*
 ecb-2.40/*
 HyperSpec/*
+.mutt/.*
+.mutt/aliases
