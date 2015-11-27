@@ -6,8 +6,9 @@ set imap_user   = zhexu
 set imap_pass   = $my_rh_pw
 set realname    = "Peter Xu"
 set folder      = imaps://mail.corp.redhat.com
-set spoolfile   = +INBOX
-mailboxes       = +INBOX
+set spoolfile   = =INBOX
+# mailboxes       = =INBOX
+set imap_check_subscribed
 
 # SMTP configurations
 set record = +Sent
@@ -31,7 +32,7 @@ set header_cache = "$HOME/.cache/mutt"
 set message_cachedir = "$HOME/.cache/mutt"
 
 # Specify where to save and/or look for postponed messages.
-# set postponed = +Drafts
+set postponed = +Drafts
 
 # Allow Mutt to open new imap connection automatically.
 unset imap_passive
@@ -49,21 +50,21 @@ set sort = threads
 # using UTF-8 all the time
 set send_charset = "utf-8"
 
-# key bindings
-bind pager j next-line
-bind pager k previous-line
-bind attach,index,pager \Cf next-page
-bind attach,index,pager \Cb previous-page
-bind pager g top
-bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
-bind index \Cl imap-fetch-mail
-
 # Address book configurations
 set alias_file = "$HOME/.mutt/aliases"
 set sort_alias = alias
 set reverse_alias = no
 source $alias_file
 
+# other UI related
 set sleep_time = 0
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop = yes
+set mark_old = no
+
+# key bindings
+source "$HOME/.mutt/bindings"
+
+# load macros
+source "$HOME/.mutt/macros"
