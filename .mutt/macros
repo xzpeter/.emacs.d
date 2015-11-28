@@ -1,1 +1,6 @@
 macro index A "<tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "Mark all as read"
+# This is hacky. mutt works not well with tmux in many consoles
+# like Konsole. We hack to force refresh screen to aovid
+# incorrect display.
+macro generic,pager q "<exit><refresh>" "Exit and refresh screen"
+macro index <Return> "<display-message><refresh>" "Display message body and refresh"

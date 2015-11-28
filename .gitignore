@@ -10,3 +10,4 @@ ecb-2.40/*
 HyperSpec/*
 .mutt/.*
 .mutt/aliases
+.mutt/mailboxes

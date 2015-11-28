@@ -15,7 +15,7 @@
 	rb = rebase
 	ls-br = log --graph --decorate --oneline --simplify-by-decoration
 [core]
-	editor = emacsclient
+	editor = emacsclient --create-frame
 [merge]
 	tool = meld
 

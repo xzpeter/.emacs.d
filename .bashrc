@@ -18,7 +18,7 @@ case $system_name in
         ;;
     Linux)
         alias ls='ls --color'
-        export PATH=~/bin:~/bin/rh:/usr/local/bin:$PATH
+        export PATH=~/bin:~/bin/rh:/usr/local/bin:~/git/git-tools:$PATH
         ;;
 esac
 
@@ -35,7 +35,8 @@ alias cp_r='rsync --progress -ah'
 
 # change PS1 format
 PS1='\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
-export EDITOR='vim'
+# with create-frame, window could be focused automatically
+export EDITOR='emacsclient --create-frame'
 
 # enable VI mode for command lines
 set -o vi

@@ -8,7 +8,9 @@ set realname    = "Peter Xu"
 set folder      = imaps://mail.corp.redhat.com
 set spoolfile   = =INBOX
 # mailboxes       = =INBOX
-set imap_check_subscribed
+# insdead, use private file for mailboxes
+source "$HOME/.mutt/mailboxes"
+# set imap_check_subscribed
 
 # SMTP configurations
 set record = +Sent
@@ -18,7 +20,7 @@ set smtp_url=smtp://smtp.corp.redhat.com
 set ssl_force_tls = yes
 set ssl_starttls = yes
 
-set editor = emacsclient
+set editor = "emacsclient --create-frame"
 
 # Store message headers locally to speed things up.
 # If hcache is a folder, Mutt will create sub cache folders for
@@ -68,3 +70,6 @@ source "$HOME/.mutt/bindings"
 
 # load macros
 source "$HOME/.mutt/macros"
+
+# load hooks
+source "$HOME/.mutt/hooks"
