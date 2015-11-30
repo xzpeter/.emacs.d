@@ -13,14 +13,14 @@ source "$HOME/.mutt/mailboxes"
 # set imap_check_subscribed
 
 # SMTP configurations
-set record = +Sent
+set record = =Sent
 set from = peterx@redhat.com
 set use_from = yes
 set smtp_url=smtp://smtp.corp.redhat.com
 set ssl_force_tls = yes
 set ssl_starttls = yes
 
-set editor = "emacsclient --create-frame"
+set editor = "emacsclient"
 
 # Store message headers locally to speed things up.
 # If hcache is a folder, Mutt will create sub cache folders for

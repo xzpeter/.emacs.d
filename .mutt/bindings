@@ -1,7 +1,13 @@
 bind pager j next-line
 bind pager k previous-line
-bind attach,index,pager \Cf next-page
-bind attach,index,pager \Cb previous-page
+
+# adding Ctrl prefix for bounce-message and forward-message,
+# leave them to page moves
+bind attach,index,pager f next-page
+bind attach,index,pager b previous-page
+bind attach,index,pager \Cb bounce-message
+bind attach,index,pager \Cf forward-message
+
 bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
@@ -9,6 +15,7 @@ bind attach,index G last-entry
 bind index \Cm imap-fetch-mail
 bind index,pager \Cr group-reply
 bind index \Cx collapse-all
+
 # this might overlap with prev/next when search
 # bind index,pager n next-unread
 # bind index,pager p previous-unread
