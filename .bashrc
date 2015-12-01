@@ -36,7 +36,7 @@ alias cp_r='rsync --progress -ah'
 # change PS1 format
 PS1='\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 # with create-frame, window could be focused automatically
-export EDITOR='emacsclient --create-frame'
+export EDITOR='emacsclient'
 
 # enable VI mode for command lines
 set -o vi
