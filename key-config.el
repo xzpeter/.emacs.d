@@ -157,12 +157,8 @@
   (define-key magit-mode-map (kbd "C-f") 'scroll-up)
   (define-key magit-mode-map (kbd "j") 'next-line)
   (define-key magit-mode-map (kbd "k") 'previous-line)
-
-  ;;; remap magit related keys
-  (define-key magit-mode-map (kbd "RET") #'(lambda ()
-                                             (interactive)
-                                             (magit-visit-item)
-                                             (delete-other-windows)))
+  (define-key magit-diff-mode-map (kbd "j") 'next-line)
+  (define-key magit-diff-mode-map (kbd "k") 'previous-line)
   (define-key magit-mode-map (kbd "M-1") nil)
   (define-key magit-mode-map (kbd "M-4") nil)
   (global-set-key (kbd "C-c g") #'(lambda ()
