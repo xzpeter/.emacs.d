@@ -121,4 +121,11 @@ specific number.")
 
 (add-hook 'asm-mode-hook 'common-hook-function)
 
+(defun magit-hook-function ()
+  ;; this is hacky. i cannot re-define it in 'magit-mode-map. The
+  ;; only working way to do this is to do local-set-key here.
+  (local-set-key (kbd "j") 'next-line))
+(when (featurep 'magit)
+  (add-hook 'magit-mode-hook 'magit-hook-function))
+
 (provide 'hook-config)

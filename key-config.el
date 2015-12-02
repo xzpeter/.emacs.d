@@ -155,10 +155,10 @@
 (when (featurep 'magit)
   (define-key magit-mode-map (kbd "C-b") 'scroll-down)
   (define-key magit-mode-map (kbd "C-f") 'scroll-up)
-  (define-key magit-mode-map (kbd "j") 'next-line)
+  ;; this might not working, better see hook-config.el, searching
+  ;; for magit for the hacking.
+  ;; (define-key magit-mode-map (kbd "j") 'next-line)
   (define-key magit-mode-map (kbd "k") 'previous-line)
-  (define-key magit-diff-mode-map (kbd "j") 'next-line)
-  (define-key magit-diff-mode-map (kbd "k") 'previous-line)
   (define-key magit-mode-map (kbd "M-1") nil)
   (define-key magit-mode-map (kbd "M-4") nil)
   (global-set-key (kbd "C-c g") #'(lambda ()
@@ -167,7 +167,9 @@
                                     (delete-other-windows)))
   ;;; magit diff mode
   (define-key magit-diff-mode-map (kbd "M-1") nil)
-  (define-key magit-diff-mode-map (kbd "M-4") nil))
+  (define-key magit-diff-mode-map (kbd "M-4") nil)
+  (define-key magit-diff-mode-map (kbd "j") 'next-line)
+  (define-key magit-diff-mode-map (kbd "k") 'previous-line))
 
 ;;; vc keys
 (global-set-key (kbd "C-c v")
