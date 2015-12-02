@@ -9,6 +9,7 @@
 	co = checkout
 	st = status
 	di = diff --color
+	d = "!f() { git di $1~ $1; }; f"
 	br = branch --color
 	fp = format-patch -s
 	se = send-email
