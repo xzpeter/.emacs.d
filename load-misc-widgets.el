@@ -47,6 +47,9 @@
 ;; (add-to-list 'load-path (emacs-path "elpa/git-rebase-mode-20131124.1840"))
 ;; (load "cl-lib-0.3.el")
 ;; (require 'magit)
+(add-to-list 'load-path (emacs-path "dash"))
+(add-to-list 'load-path (emacs-path "magit/lisp"))
+(require 'magit)
 
 ;;; for reading logs
 ;; (require 'log4j-mode)
