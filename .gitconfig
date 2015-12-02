@@ -3,7 +3,8 @@
 	email = peterx@redhat.com
 [alias]
 	lo = log --color --stat --summary
-	ls = log --color --pretty=oneline --graph
+	ls = log --oneline
+	ls-tr = log --color --pretty=oneline --graph
 	ci = commit -s
 	co = checkout
 	st = status
@@ -13,9 +14,10 @@
 	se = send-email
 	cp = cherry-pick
 	rb = rebase
+	rbc = rebase --continue
 	ls-br = log --graph --decorate --oneline --simplify-by-decoration
 [core]
-	editor = emacsclient --create-frame
+	editor = emacsclient
 [merge]
 	tool = meld
 
