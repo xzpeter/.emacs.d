@@ -163,7 +163,7 @@
   (define-key magit-mode-map (kbd "M-4") nil)
   (global-set-key (kbd "C-c g") #'(lambda ()
                                     (interactive)
-                                    (magit-status ".")
+                                    (magit-status)
                                     (delete-other-windows)))
   ;;; magit diff mode
   (define-key magit-diff-mode-map (kbd "M-1") nil)

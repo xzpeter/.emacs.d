@@ -1,0 +1,25 @@
+[general]
+accounts = redhat
+pythonfile = ~/.offlineimap.py
+
+[Account redhat]
+localrepository = rh-local
+remoterepository = rh-remote
+# refresh for every 2 minutes
+autorefresh = 2
+status_backend = sqlite
+
+[Repository rh-local]
+type = Maildir
+localfolders = ~/Mail/RH
+
+[Repository rh-remote]
+type = IMAP
+remotehost = mail.corp.redhat.com
+remoteuser = zhexu
+remotepasseval = get_pass()
+auth_mechanisms = PLAIN
+ssl = yes
+keepalive = 60
+holdconnectionopen = yes
+cert_fingerprint = 1e7fc6fd232459fb2cb3cf5430f38916a39b780e

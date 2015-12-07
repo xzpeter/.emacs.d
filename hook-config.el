@@ -10,9 +10,9 @@
     ("/root/git/linux" . (t . 8))
     ("/root/git/rh/rhel7" . (t . 8))
     ("/root/codes/emacs" . (nil . 2))
+    ("/root/codes/mutt" . (nil . 2))
     ("/root/git/qemu" . (nil . 4))
-    ("/root/git/rh/qemu-kvm" . (nil . 4))
-    )
+    ("/root/git/rh/qemu-kvm" . (nil . 4)))
   "List of directories that has indent hints. When the hint is `nil', then we
 will use tab for indent. When the hint is non-nil, we will use spaces with
 specific number.")
@@ -50,6 +50,7 @@ specific number.")
   (auto-fill-mode 1)
   ;; by default, all use tabs
   (setq indent-tabs-mode t)
+  (modify-syntax-entry ?- "w")
   (modify-syntax-entry ?_ "w"))
 	
 (add-hook 'text-mode-hook 'common-hook-function)

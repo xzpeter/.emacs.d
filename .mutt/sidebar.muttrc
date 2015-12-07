@@ -1,0 +1,13 @@
+# this configures the sidebar (if it's supported)
+set sidebar_width=32
+set sidebar_visible=yes
+set sidebar_delim='|'
+set sidebar_sort=yes
+color sidebar_new yellow default
+
+# bindings for sidebar
+bind index,pager \Cp sidebar-prev
+bind index,pager \Cn sidebar-next
+bind index,pager <space> sidebar-open
+
+macro index,pager b "<enter-command>toggle sidebar_visible<enter>"
