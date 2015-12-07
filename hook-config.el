@@ -50,7 +50,6 @@ specific number.")
   (auto-fill-mode 1)
   ;; by default, all use tabs
   (setq indent-tabs-mode t)
-  (modify-syntax-entry ?- "w")
   (modify-syntax-entry ?_ "w"))
 	
 (add-hook 'text-mode-hook 'common-hook-function)
@@ -81,6 +80,10 @@ specific number.")
   (setq cperl-indent-level 4))
 (add-hook 'cperl-mode-hook 'perl-hook-function) 
 
+(defun minibuffer-hook-function ()
+  (common-hook-function)
+  ;; TODO: this is still not working. not sure why.
+  (modify-syntax-entry ?- "w"))
 (add-hook 'minibuffer-inactive-mode-hook 'common-hook-function) 
 (add-hook 'scheme-mode-hook 'common-hook-function) 
 (defun python-hook-function ()
