@@ -7,3 +7,6 @@ macro index A "<tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>~T<
 macro generic,pager q "<exit><refresh>" "Exit and refresh screen"
 macro index <Return> "<display-message><refresh>" "Display message body and refresh"
 macro pager s "<skip-quoted><redraw-screen>" "Skip quoted content and refresh"
+# These two are very commonly used. Hack them too.
+macro pager J "<next-entry><redraw-screen>" "Read next entry and refresh"
+macro pager K "<previous-entry><redraw-screen>" "Read previous entry and refresh"
