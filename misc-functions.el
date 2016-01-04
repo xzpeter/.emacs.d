@@ -37,9 +37,12 @@
   (insert m))
 
 (defun my-set-tab-width (width)
-  "set `tab-width' and also `tab-stop-list' the same time"
+  """There are lots of variables related to tab width. Use this
+     would be quicker."""
   (interactive "nSet tab-width to: ")
   (setq tab-width width)
+  (when (featurep 'evil)
+    (setq evil-shift-width width))
   (let ((i width) (max 120) (output-list nil))
     (while (<= i max)
       (setq output-list (cons i output-list))

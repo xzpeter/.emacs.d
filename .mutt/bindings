@@ -11,6 +11,7 @@ bind attach,index G last-entry
 bind index \Cm imap-fetch-mail
 bind index,pager \Cr group-reply
 bind index \Cx collapse-all
+bind index,pager p save-message
 
 # this might overlap with prev/next when search
 # bind index,pager n next-unread

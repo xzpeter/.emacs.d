@@ -10,3 +10,5 @@ macro pager s "<skip-quoted><redraw-screen>" "Skip quoted content and refresh"
 # These two are very commonly used. Hack them too.
 macro pager J "<next-entry><redraw-screen>" "Read next entry and refresh"
 macro pager K "<previous-entry><redraw-screen>" "Read previous entry and refresh"
+macro pager \CB "<previous-page><refresh>" "Previous page and refresh"
+macro pager \CF "<next-page><refresh>" "Next page and refresh"

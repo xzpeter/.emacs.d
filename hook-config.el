@@ -12,6 +12,7 @@
     ("/root/codes/emacs" . (nil . 2))
     ("/root/codes/mutt" . (nil . 2))
     ("/root/git/qemu" . (nil . 4))
+    ("/root/git/dpdk" . (t . 4))
     ("/root/git/rh/qemu-kvm" . (nil . 4)))
   "List of directories that has indent hints. When the hint is `nil', then we
 will use tab for indent. When the hint is non-nil, we will use spaces with
@@ -131,5 +132,13 @@ specific number.")
   (local-set-key (kbd "j") 'next-line))
 (when (featurep 'magit)
   (add-hook 'magit-mode-hook 'magit-hook-function))
+
+(defun lua-hook-function ()
+  (common-hook-function)
+  (setq indent-tabs-mode nil
+        lua-indent-level 2)
+  (my-set-tab-width 2))
+(when (featurep 'lua-mode)
+  (add-hook 'lua-mode-hook 'lua-hook-function))
 
 (provide 'hook-config)
