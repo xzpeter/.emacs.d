@@ -9,6 +9,7 @@
     ("/root/codes/glib" . (nil . 8))
     ("/root/git/linux" . (t . 8))
     ("/root/git/rh/rhel7" . (t . 8))
+    ("/root/git/rh/kernel-rt" . (t . 8))
     ("/root/codes/emacs" . (nil . 2))
     ("/root/codes/mutt" . (nil . 2))
     ("/root/git/qemu" . (nil . 4))
