@@ -14,6 +14,7 @@
     ("/root/codes/mutt" . (nil . 2))
     ("/root/git/qemu" . (nil . 4))
     ("/root/git/dpdk" . (t . 4))
+    ("/root/git/trace-cmd" . (t . 8))
     ("/root/git/rh/qemu-kvm" . (nil . 4)))
   "List of directories that has indent hints. When the hint is `nil', then we
 will use tab for indent. When the hint is non-nil, we will use spaces with
@@ -54,7 +55,11 @@ specific number.")
   (setq indent-tabs-mode t)
   (modify-syntax-entry ?_ "w"))
 	
-(add-hook 'text-mode-hook 'common-hook-function)
+(defun text-hook-function ()
+  (common-hook-function)
+  (setq indent-tabs-mode nil)
+  (my-set-tab-width 4))
+(add-hook 'text-mode-hook 'text-hook-function)
 
 (defun diff-hook-function ()
   (common-hook-function)

@@ -66,6 +66,7 @@ set pager_context = 3
 set pager_stop = yes
 set mark_old = no
 set sort = threads
+# set sort_aux=last-date-received
 set forward_format = "Fwd: %s"
 
 # key bindings

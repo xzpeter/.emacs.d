@@ -118,4 +118,9 @@
 ;; remove the boring tempt when trying to kill a buffer invoked by emacsclient
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
+;;; this can fix the bug that paste hang for tens of seconds:
+;;; http://ergoemacs.org/misc/emacs_bug_cant_paste_2015.html
+;;; before I got to know better solution, let's use this
+(setq x-selection-timeout 100)
+
 (provide 'environment-config)

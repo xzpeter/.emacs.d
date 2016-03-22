@@ -3,7 +3,8 @@
 ;; This is used in this global tag system as CSCOPE mode
 (require 'xcscope)
 ;; default, we don't display the cscope buffer
-(setq cscope-display-cscope-buffer nil)
+(setq cscope-display-cscope-buffer nil
+      cscope-do-not-update-database t)
 ;; setting default cscope index to linux kernel source
 ;; (setq cscope-initial-directory "/usr/src/linux-source-3.2.0/")
 
