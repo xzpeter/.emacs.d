@@ -136,8 +136,14 @@ specific number.")
   ;; this is hacky. i cannot re-define it in 'magit-mode-map. The
   ;; only working way to do this is to do local-set-key here.
   (local-set-key (kbd "j") 'next-line))
+(defun magit-revision-hook-function ()
+  (define-key magit-revision-mode-map (kbd "C-]") 'my-global-find-tag)
+  (define-key magit-revision-mode-map (kbd "0") 'beginning-of-line)
+  (define-key magit-revision-mode-map (kbd "l") 'forward-char)
+  (define-key magit-revision-mode-map (kbd "h") 'backward-char))
 (when (featurep 'magit)
-  (add-hook 'magit-mode-hook 'magit-hook-function))
+  (add-hook 'magit-mode-hook 'magit-hook-function)
+  (add-hook 'magit-revision-mode-hook 'magit-revision-hook-function))
 
 (defun lua-hook-function ()
   (common-hook-function)
