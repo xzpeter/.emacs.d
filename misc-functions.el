@@ -131,6 +131,16 @@ in ORG MODE. "
     (when (< cur-point last-point)
       (delete-region cur-point last-point))))
 
+(defvar *my-email-full* "Peter Xu <peterx@redhat.com>")
+
+(defun my-insert-reviewed-by ()
+  (interactive)
+  (insert (format "Reviewed-by: %s" *my-email-full*)))
+
+(defun my-insert-acked-by ()
+  (interactive)
+  (insert (format "Acked-by: %s" *my-email-full*)))
+
 (require 'my-key-buffer)
 (require 'temp-use-functions)
 

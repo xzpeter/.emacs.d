@@ -62,10 +62,6 @@
 ;; set print to ps shortcut
 (global-set-key (kbd "C-M-S-p") 'ps-spool-buffer)
 
-;; I defined the jumping of tags more like in Vims
-;; (global-set-key "\M-]" 'find-tag)
-;; (global-set-key "\M-[" 'pop-tag-mark)
-
 ;; a more quicker way to kill the buffer, replacing the default "kill-word"
 (global-set-key (kbd "<C-delete>") 'kill-buffer)
 (global-set-key (kbd "<C-kp-delete>") 'kill-buffer)
@@ -146,9 +142,6 @@
 		  (is-system-p 'gnu/linux))
 	(setq x-alt-keysym 'meta))
 
-;;; a quick grep
-;; (global-set-key (kbd "C-c e") 'my-grep-find)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; VCS related keys
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -203,5 +196,9 @@
   (define-key lua-mode-map (kbd ")") nil)
   (define-key lua-mode-map (kbd "}") nil)
   (define-key lua-mode-map (kbd "]") nil))
+
+;;; quick insertion of my r-b and a-b lines
+(global-set-key (kbd "C-c k") 'my-insert-acked-by)
+(global-set-key (kbd "C-c s") 'my-insert-reviewed-by)
 
 (provide 'key-config)
