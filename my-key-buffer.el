@@ -19,7 +19,15 @@
   some plugins like cscope. "
   (interactive)
   (setq *my-key-buffer-old-buffer* (buffer-name (current-buffer)))
-  (switch-to-buffer *my-key-buffer-name*))
+  (let ((all-buffer-list (mapcar 'buffer-name (buffer-list))))
+    (if (member *my-key-buffer-name* all-buffer-list)
+        (switch-to-buffer *my-key-buffer-name*)
+      (message "Target buffer '%s' does not exist, please re-specify."
+               *my-key-buffer-name*))))
+
+(defun my-switch-to-old-buffer ()
+  "Switch to old buffer"
+  (switch-to-buffer (or *my-key-buffer-old-buffer* (other-buffer))))
 
 (defun my-switch-between-key-buffer-and-latest ()
   "this is a very important buffer for me always. Can be set by user,
@@ -28,7 +36,7 @@ using `my-set-current-as-key-buffer'. "
   (if (null *my-key-buffer-name*)
       (message "Please set key buffer first. ")
     (if (string= (buffer-name) *my-key-buffer-name*)
-	(switch-to-buffer (or *my-key-buffer-old-buffer* (other-buffer)))
+        (my-switch-to-old-buffer)
       (my-switch-to-key-buffer-and-store))))
 
 (provide 'my-key-buffer)
