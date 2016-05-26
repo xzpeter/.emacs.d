@@ -100,6 +100,7 @@
 
 ;; some <ctrl+fn> settings
 (global-set-key (kbd "<M-f5>") 'my-set-current-as-key-buffer)
+(global-set-key (kbd "<M-f6>") 'my-set-current-as-key-buffer)
 (global-set-key (kbd "<C-f7>") 'eshell)
 (global-set-key (kbd "<C-f9>") 'cscope-display-buffer)
 (global-set-key (kbd "<C-f10>") 'cscope-display-buffer-toggle)
@@ -199,6 +200,6 @@
 
 ;;; quick insertion of my r-b and a-b lines
 (global-set-key (kbd "C-c k") 'my-insert-acked-by)
-(global-set-key (kbd "C-c s") 'my-insert-reviewed-by)
+(global-set-key (kbd "C-c i") 'my-insert-reviewed-by)
 
 (provide 'key-config)

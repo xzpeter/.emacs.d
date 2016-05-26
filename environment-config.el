@@ -25,7 +25,7 @@
 
 ;; some other defines
 (setq default-line-spacing 0)
-(setq default-fill-column 68)
+(setq fill-column 72)
 (setq default-major-mode 'text-mode)
 (setq kill-ring-max 200)
 (setq require-final-newline t) 
@@ -67,7 +67,7 @@
 
 ;; settings for mouse wheels
 (setq mouse-wheel-progressive-speed nil)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control))))
+(setq mouse-wheel-scroll-amount '(-1 ((shift) . -1) ((control))))
 
 (global-hl-line-mode 0)
 
