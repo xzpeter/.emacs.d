@@ -202,4 +202,7 @@
 (global-set-key (kbd "C-c k") 'my-insert-acked-by)
 (global-set-key (kbd "C-c i") 'my-insert-reviewed-by)
 
+;;; dump git commit of current line
+(global-set-key (kbd "C-c C-j") 'my-git-blame-current-line)
+
 (provide 'key-config)

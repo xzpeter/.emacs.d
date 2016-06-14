@@ -141,6 +141,16 @@ in ORG MODE. "
   (interactive)
   (insert (format "Acked-by: %s" *my-email-full*)))
 
+(defun my-git-blame-current-line ()
+  (interactive)
+  (let ((commit-number
+         (shell-command-to-string
+          (format "git blame -L %s,+1 %s | awk '{print $1}'"
+                  (line-number-at-pos) (buffer-name)))))
+    (if (string= commit-number "00000000\n")
+        (message "Current line is not commited yet.")
+      (shell-command (format "git log -1 %s" commit-number)))))
+
 (require 'my-key-buffer)
 (require 'temp-use-functions)
 
