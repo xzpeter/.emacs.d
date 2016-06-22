@@ -96,7 +96,7 @@
 ;; key buffer thing
 (global-set-key (kbd "C-=") 'my-switch-between-key-buffer-and-latest)
 ;;; it seems that xfce may capture C-=, provide a quicker way to switch.
-(global-set-key (kbd "C-;") 'my-switch-between-key-buffer-and-latest)
+(global-set-key (kbd "C-;") 'my-omit-lines)
 
 ;; some <ctrl+fn> settings
 (global-set-key (kbd "<M-f5>") 'my-set-current-as-key-buffer)

@@ -123,4 +123,8 @@
 ;;; before I got to know better solution, let's use this
 (setq x-selection-timeout 100)
 
+;;; We should allow single space for sentence (guessing this is the
+;;; new style)
+(setq sentence-end-double-space nil)
+
 (provide 'environment-config)

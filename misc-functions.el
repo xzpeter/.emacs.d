@@ -151,6 +151,11 @@ in ORG MODE. "
         (message "Current line is not commited yet.")
       (shell-command (format "git log -1 %s" commit-number)))))
 
+(defun my-omit-lines ()
+  (interactive)
+  (delete-region (region-beginning) (region-end))
+  (insert "\n[...]\n\n"))
+
 (require 'my-key-buffer)
 (require 'temp-use-functions)
 
