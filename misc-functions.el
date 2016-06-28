@@ -145,8 +145,8 @@ in ORG MODE. "
   (interactive)
   (let ((commit-number
          (shell-command-to-string
-          (format "git blame -L %s,+1 %s | awk '{print $1}'"
-                  (line-number-at-pos) (buffer-name)))))
+          (format "echo '%s' | sed 's/<.*>$//' | xargs git blame -L %s,+1 | awk '{print $1}'"
+                  (buffer-name) (line-number-at-pos)))))
     (if (string= commit-number "00000000\n")
         (message "Current line is not commited yet.")
       (shell-command (format "git log -1 %s" commit-number)))))
