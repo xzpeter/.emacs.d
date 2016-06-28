@@ -9,9 +9,10 @@
 	co = checkout
 	st = status
 	di = diff --color
+	bi = bisect
 	d = "!f() { git di $1~ $1; }; f"
 	br = branch --color
-	fp = format-patch -s
+	fp = format-patch --cover-letter
 	se = send-email
 	cp = cherry-pick
 	rb = rebase
@@ -21,7 +22,8 @@
 	editor = emacsclient
 [merge]
 	tool = meld
-
+[rebase]
+	autosquash = true
 [color]
 	ui = auto
 [color "branch"]
@@ -43,6 +45,7 @@
 	smtpserver = smtp.corp.redhat.com
 	smtpencryption = starttls
 	smtpserverport = 25
-	suppresscc = author
-	suppresscc = body
-	annotate = true
+	confirm = never
+	#suppresscc = 
+[diff]
+	renames = true
