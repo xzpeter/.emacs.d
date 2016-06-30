@@ -149,7 +149,8 @@ in ORG MODE. "
                   (buffer-name) (line-number-at-pos)))))
     (if (string= commit-number "00000000\n")
         (message "Current line is not commited yet.")
-      (shell-command (format "git log -1 %s" commit-number)))))
+      (shell-command (format "echo '%s' | sed 's/^\\^*//' | xargs git log -1"
+                             commit-number)))))
 
 (defun my-omit-lines ()
   (interactive)

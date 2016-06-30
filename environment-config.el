@@ -127,4 +127,7 @@
 ;;; new style)
 (setq sentence-end-double-space nil)
 
+;;; auto enable makefile-mode for Makefile* filenames
+(add-to-list 'auto-mode-alist '("[Mm]akefile.*" . makefile-mode))
+
 (provide 'environment-config)
