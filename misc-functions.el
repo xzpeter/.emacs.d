@@ -141,16 +141,38 @@ in ORG MODE. "
   (interactive)
   (insert (format "Acked-by: %s" *my-email-full*)))
 
+(defun my-git-fetch-current-line-commit ()
+  (let ((commit (shell-command-to-string
+                 (format "echo '%s' | sed 's/<.*>$//' | xargs git blame -L %s,+1 | awk '{print $1}'"
+                         (buffer-name) (line-number-at-pos)))))
+    (when (string= commit "00000000\n")
+      (message "Current line is not commited yet.")
+      (setq commit nil))
+    commit))
+
 (defun my-git-blame-current-line ()
+  """Display commit information pointing to current line of
+  codes. This file should be under git control."""
   (interactive)
-  (let ((commit-number
-         (shell-command-to-string
-          (format "echo '%s' | sed 's/<.*>$//' | xargs git blame -L %s,+1 | awk '{print $1}'"
-                  (buffer-name) (line-number-at-pos)))))
-    (if (string= commit-number "00000000\n")
-        (message "Current line is not commited yet.")
+  (let ((commit-number (my-git-fetch-current-line-commit)))
+    (when commit-number
       (shell-command (format "echo '%s' | sed 's/^\\^*//' | xargs git log -1"
                              commit-number)))))
+
+(defun my-git-diff-current-commit ()
+  """Open extra buffer to display git-diff for specific commit.
+  If current word is a full commit number, diff will be the
+  changes introduced by this commit. Otherwise, will show diff
+  for commit that introduced current line of change."""
+  (interactive)
+  (let ((commit (current-word)))
+    (when (!= (string-width commit 40))
+      ;; current word is not pointing to a full commit number, we will
+      ;; try to fetch commit that introduce current line
+      (setq commit (my-git-fetch-current-line-commit)))
+    (when commit
+      (magit-diff (concat (format "%s" (current-word))
+                          (format "~..%s" (current-word)))))))
 
 (defun my-omit-lines ()
   (interactive)

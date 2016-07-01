@@ -14,6 +14,7 @@
   (switch-to-buffer "*slime-compilation*"))
 
 (defun lisp-common-mode-hook ()
+  (auto-fill-mode 1)
   (modify-syntax-entry ?_ "w")
   (modify-syntax-entry ?- "w")
   (setq indent-tabs-mode nil))
