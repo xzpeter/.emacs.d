@@ -143,9 +143,10 @@ in ORG MODE. "
 
 (defun my-git-fetch-current-line-commit ()
   (let ((commit (shell-command-to-string
-                 (format "echo '%s' | sed 's/<.*>$//' | xargs git blame -L %s,+1 | awk '{print $1}'"
+                 (format "echo '%s' | sed 's/<.*>$//' | xargs git blame -L %s,+1 | awk '{print $1}' | sed 's/\\^//'"
                          (buffer-name) (line-number-at-pos)))))
-    (when (string= commit "00000000\n")
+    (setq commit (replace-regexp-in-string "\n$" "" commit))
+    (when (and (equal commit "00000000\n"))
       (message "Current line is not commited yet.")
       (setq commit nil))
     commit))
@@ -156,8 +157,7 @@ in ORG MODE. "
   (interactive)
   (let ((commit-number (my-git-fetch-current-line-commit)))
     (when commit-number
-      (shell-command (format "echo '%s' | sed 's/^\\^*//' | xargs git log -1"
-                             commit-number)))))
+      (shell-command (format "git log -1 %s" commit-number)))))
 
 (defun my-git-diff-current-commit ()
   """Open extra buffer to display git-diff for specific commit.
@@ -166,13 +166,14 @@ in ORG MODE. "
   for commit that introduced current line of change."""
   (interactive)
   (let ((commit (current-word)))
-    (when (!= (string-width commit 40))
+    (when (or (not commit)
+              (not (= (string-width commit) 40)))
       ;; current word is not pointing to a full commit number, we will
       ;; try to fetch commit that introduce current line
       (setq commit (my-git-fetch-current-line-commit)))
     (when commit
-      (magit-diff (concat (format "%s" (current-word))
-                          (format "~..%s" (current-word)))))))
+      (magit-diff (concat (format "%s" commit)
+                          (format "~..%s" commit))))))
 
 (defun my-omit-lines ()
   (interactive)
