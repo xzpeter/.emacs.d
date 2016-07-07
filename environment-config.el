@@ -67,7 +67,9 @@
 
 ;; settings for mouse wheels
 (setq mouse-wheel-progressive-speed nil)
-(setq mouse-wheel-scroll-amount '(-1 ((shift) . -1) ((control))))
+;;; set this when we want natural scrolling
+;; (setq mouse-wheel-scroll-amount '(-1 ((shift) . -1) ((control))))
+(setq mouse-wheel-scroll-amount '(1 ((shift) . -1) ((control))))
 
 (global-hl-line-mode 0)
 
