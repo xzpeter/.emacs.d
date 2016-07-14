@@ -132,4 +132,7 @@
 ;;; auto enable makefile-mode for Makefile* filenames
 (add-to-list 'auto-mode-alist '("[Mm]akefile.*" . makefile-mode))
 
+;;; don't prompt when killing buffer with client.
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+
 (provide 'environment-config)
