@@ -140,6 +140,8 @@ specific number.")
   ;; only working way to do this is to do local-set-key here.
   (local-set-key (kbd "j") 'next-line))
 (defun magit-common-diff-hook-function (map)
+  (modify-syntax-entry ?- "w")
+  (modify-syntax-entry ?_ "w")
   (define-key map (kbd "C-]") 'my-global-find-tag)
   (define-key map (kbd "/") 'search-forward)
   (define-key map (kbd "0") 'beginning-of-line)

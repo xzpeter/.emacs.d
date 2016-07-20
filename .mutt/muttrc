@@ -68,6 +68,8 @@ set mark_old = no
 set sort = threads
 # set sort_aux=last-date-received
 set forward_format = "Fwd: %s"
+set sig_dashes = no
+set signature = "$HOME/.mutt/signature"
 
 # key bindings
 source "$HOME/.mutt/bindings"
