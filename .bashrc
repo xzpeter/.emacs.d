@@ -33,10 +33,20 @@ alias work='ssh dev2'
 alias work2='ssh dev-ub'
 alias cp_r='rsync --progress -ah'
 
+function __ps1_git_prefix()
+{
+    local branch
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [[ $? == 0 ]]; then
+        echo -e "\033[01;32m[${branch}]"
+    fi
+}
+
 # change PS1 format
-PS1='\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+PS1='\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\W$(__ps1_git_prefix)\[\033[00m\]\$ '
 # with create-frame, window could be focused automatically
 export EDITOR='emacsclient'
+export ALTERNATE_EDITOR='vim'
 
 # enable VI mode for command lines
 set -o vi
