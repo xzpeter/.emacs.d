@@ -38,7 +38,7 @@ function __ps1_git_prefix()
     local branch
     branch=$(git symbolic-ref --short HEAD 2>/dev/null)
     if [[ $? == 0 ]]; then
-        echo -e "\033[01;32m[${branch}]"
+        echo -e "\033[01;32m [${branch}]"
     fi
 }
 
