@@ -1,0 +1,2 @@
+text/html; cp %s /tmp/mutt.html && firefox /tmp/mutt.html;
+application/pdf; evince %s;

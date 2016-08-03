@@ -46,6 +46,6 @@
 	smtpencryption = starttls
 	smtpserverport = 25
 	confirm = never
-	#suppresscc = 
+	suppresscc = all
 [diff]
 	renames = true
