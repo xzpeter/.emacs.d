@@ -157,7 +157,7 @@ in ORG MODE. "
   (interactive)
   (let ((commit-number (my-git-fetch-current-line-commit)))
     (when commit-number
-      (shell-command (format "git log -1 %s" commit-number)))))
+      (shell-command (format "git log --stat -1 %s" commit-number)))))
 
 (defun my-git-diff-current-commit ()
   """Open extra buffer to display git-diff for specific commit.
