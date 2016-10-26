@@ -50,6 +50,7 @@
 (global-set-key (kbd "<f5>") 'find-file-at-point)
 (global-set-key (kbd "<f6>") 'ff-find-other-file)
 (global-set-key (kbd "<f7>") 'shell)
+(global-set-key (kbd "<f8>") 'my-c-switch-indent-type)
 ;; (global-set-key (kbd "<f8>") 'insert-current-timestamp)
 ;; some issue when remotely run emacs using xwing. Giving up F8 shortcuts.
 ;; (global-set-key (kbd "<f8>") 'eshell)

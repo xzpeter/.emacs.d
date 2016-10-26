@@ -49,6 +49,30 @@
       (setq i (+ i width)))
     (setq tab-stop-list (nreverse output-list))))
 
+(defun my-c-set-indent-type-qemu ()
+  (interactive)
+  (my-set-tab-width 4)
+  (setq indent-tabs-mode nil
+        c-basic-offset 4)
+  (message "Switched to QEMU indent type"))
+
+(defun my-c-set-indent-type-kernel ()
+  (interactive)
+  (my-set-tab-width 8)
+  (setq indent-tabs-mode t
+        c-basic-offset 8)
+  (message "Switched to kernel indent type"))
+
+(defun my-c-switch-indent-type ()
+  """ I usually use two kinds of C indents:
+    - tab indent, tabwidth=8 (e.g., kernel)
+    - space indent, tabwidth=4 (e.g., QEMU)
+    I need something faster to switch local buffer type"""
+    (interactive)
+    (cond
+     ((= tab-width 4) (my-c-set-indent-type-kernel))
+     (t (my-c-set-indent-type-qemu))))
+
 (defun wrapper-with-stars (point mark)
   "wrap the selected text with stars. this can be used as HIGHLIGHT TOOL
 in ORG MODE. "
