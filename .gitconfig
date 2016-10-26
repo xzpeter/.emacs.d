@@ -19,6 +19,7 @@
 	rb = rebase
 	rbc = rebase --continue
 	ls-br = log --graph --decorate --oneline --simplify-by-decoration
+	publish = !/root/bin/git-publish
 [core]
 	editor = emacsclient
 [merge]
@@ -50,3 +51,11 @@
 	suppresscc = all
 [diff]
 	renames = true
+[gitpublishprofile "qemu"]
+	to = qemu-devel@nongnu.org
+	#cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
+[gitpublishprofile "kvm"]
+	to = kvm@vger.kernel.org
+[gitpublishprofile "kvm-unit-tests"]
+	to = kvm@vger.kernel.org
+	prefix = PATCH kvm-unit-tests
