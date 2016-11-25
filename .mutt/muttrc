@@ -82,3 +82,6 @@ source "$HOME/.mutt/hooks"
 
 # load sidebar conf
 source "$HOME/.mutt/sidebar.muttrc"
+
+# load GPG configs
+source "$HOME/.mutt/gpg.rc"
