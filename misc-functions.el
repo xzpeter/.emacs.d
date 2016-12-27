@@ -165,11 +165,14 @@ in ORG MODE. "
   (interactive)
   (insert (format "Acked-by: %s" *my-email-full*)))
 
+(defun my-strip-return (str)
+  (replace-regexp-in-string "\n$" "" str))
+
 (defun my-git-fetch-current-line-commit ()
   (let ((commit (shell-command-to-string
                  (format "echo '%s' | sed 's/<.*>$//' | xargs git blame -L %s,+1 | awk '{print $1}' | sed 's/\\^//'"
                          (buffer-name) (line-number-at-pos)))))
-    (setq commit (replace-regexp-in-string "\n$" "" commit))
+    (setq commit (my-strip-return commit))
     (when (and (equal commit "00000000\n"))
       (message "Current line is not commited yet.")
       (setq commit nil))
@@ -203,6 +206,20 @@ in ORG MODE. "
   (interactive)
   (delete-region (region-beginning) (region-end))
   (insert "\n[...]\n\n"))
+
+(defvar *my-alias-book* "/root/.mutt/aliases")
+
+(defun my-alias-lookup ()
+  (interactive)
+  (let* ((name (current-word))
+         (addr (my-strip-return
+                (shell-command-to-string
+                 (format "grep -w '%s' %s | cut -d ' ' -f 3-"
+                         name *my-alias-book*)))))
+    (if (string-equal addr "")
+        (message (format "Failed to lookup alias '%s'" name))
+      (progn (kill-word -1)
+             (insert addr)))))
 
 (require 'my-key-buffer)
 (require 'temp-use-functions)

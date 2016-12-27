@@ -85,3 +85,4 @@ source "$HOME/.mutt/sidebar.muttrc"
 
 # load GPG configs
 source "$HOME/.mutt/gpg.rc"
+source "$HOME/.mutt/gpg.custom.rc"

@@ -207,4 +207,7 @@
 (global-set-key (kbd "C-c C-j") 'my-git-blame-current-line)
 (global-set-key (kbd "C-c C-k") 'my-git-diff-current-commit)
 
+;;; address book lookups
+(global-set-key (kbd "C-c C-;") 'my-alias-lookup)
+
 (provide 'key-config)
