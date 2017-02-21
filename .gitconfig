@@ -14,7 +14,7 @@
 	br = branch --color
 	fp = format-patch --cover-letter
 	se = send-email
-	author = "!f() { git shortlog --format=\"%ai %s\" --author=\"$@\"; }; f"
+	author = "!f() { git shortlog --format=\"%ai %h %s\" --author=\"$@\"; }; f"
 	cp = cherry-pick
 	rb = rebase
 	rbc = rebase --continue
