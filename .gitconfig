@@ -49,7 +49,6 @@
 	smtpencryption = starttls
 	smtpserverport = 25
 	confirm = never
-	suppresscc = all
 [diff]
 	renames = true
 [gitpublishprofile "qemu"]
