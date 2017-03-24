@@ -62,3 +62,6 @@
 	to = kvm@vger.kernel.org
 	prefix = PATCH kvm-unit-tests
 	cc = peterx@redhat.com
+[gitpublishprofile "rhev"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
