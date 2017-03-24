@@ -110,7 +110,7 @@ specific number.")
 (add-hook 'python-mode-hook 'python-hook-function)
 
 ;; c defines
-(defconst c-style-cyphy
+(defconst c-style-peterxu
   '((c-basic-offset . 8)
 	(c-offsets-alist . ((statement-cont . 4)
 						(arglist-intro . 4)
@@ -118,12 +118,11 @@ specific number.")
 						(arglist-close . c-lineup-arglist-intro-after-paren)
 						(label . 0)
 						(case-label . 0)))))
-(c-add-style "cyphy" c-style-cyphy)
+(c-add-style "peterxu" c-style-peterxu)
 (defun c-hook-function ()
   (common-hook-function)
-  (setq c-basic-offset 4)
-  (my-set-tab-width 8)
   (electric-pair-mode 1)
+  (c-set-style "peterxu")
   (my-c-set-indent-tabs-by-name buffer-file-name)
   ;; this poor minor mode bring me bug when I opened *.c before I try to
   ;; open big *.py files. It will make it damn slow to open the python
