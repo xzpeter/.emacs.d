@@ -61,4 +61,6 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
+(require 'go-mode-autoloads)
+
 (provide 'load-misc-widgets)
