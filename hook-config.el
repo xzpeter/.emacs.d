@@ -58,7 +58,7 @@ specific number.")
 (defun text-hook-function ()
   (common-hook-function)
   (setq indent-tabs-mode nil)
-  (my-set-tab-width 4))
+  (my-set-tab-width 8))
 (add-hook 'text-mode-hook 'text-hook-function)
 
 (defun diff-hook-function ()

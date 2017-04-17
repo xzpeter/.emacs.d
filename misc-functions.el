@@ -214,7 +214,7 @@ in ORG MODE. "
   (let* ((name (current-word))
          (addr (my-strip-return
                 (shell-command-to-string
-                 (format "grep -w '%s' %s | cut -d ' ' -f 3- | sed 's/\\\"//g'"
+                 (format "grep -w '%s' %s | cut -d ' ' -f 3- | sed 's/\\\\\\\"//g'"
                          name *my-alias-book*)))))
     (if (string-equal addr "")
         (message (format "Failed to lookup alias '%s'" name))
