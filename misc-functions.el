@@ -1,5 +1,14 @@
 ;; I will put some misc functions that will be used in the config process here
 
+(defvar *my-alias-book* "/root/.mutt/aliases")
+(defvar *current-work-note-org* "2012-Q3.org")
+(defvar *my-name-alias* "peterx")
+
+(defun my-alias-get-keys ()
+  (split-string
+   (shell-command-to-string
+    (format "awk '{print $2}' %s" *my-alias-book*)) "\n"))
+
 (defun in-list (element mylist)
   "Check whether element is in the list. "
   (let (e)
@@ -79,7 +88,6 @@ in ORG MODE. "
   (interactive "r")
   (wrapper-with point mark "*"))
 
-(defvar *current-work-note-org* "2012-Q3.org")
 (defun work ()
   (interactive)
   (find-file
@@ -155,15 +163,23 @@ in ORG MODE. "
     (when (< cur-point last-point)
       (delete-region cur-point last-point))))
 
-(defvar *my-email-full* "Peter Xu <peterx@redhat.com>")
+(defun my-alias-lookup-internal (name)
+  (my-strip-return
+   (shell-command-to-string
+    (format "grep -w '%s' %s | cut -d ' ' -f 3- | sed 's/\\\\\\\"//g'"
+            name *my-alias-book*))))))
 
-(defun my-insert-reviewed-by ()
-  (interactive)
-  (insert (format "Reviewed-by: %s" *my-email-full*)))
+(defun my-insert-reviewed-by (name)
+  (interactive (list (completing-read "Reviewed-by: " (my-alias-get-keys))))
+  (when (string-equal name "")
+    (setq name *my-name-alias*))
+  (insert (format "Reviewed-by: %s" (my-alias-lookup-internal name))))
 
-(defun my-insert-acked-by ()
-  (interactive)
-  (insert (format "Acked-by: %s" *my-email-full*)))
+(defun my-insert-acked-by (name)
+  (interactive (list (completing-read "Acked-by: " (my-alias-get-keys))))
+  (when (string-equal name "")
+    (setq name *my-name-alias*))
+  (insert (format "Acked-by: %s" (my-alias-lookup-internal name))))
 
 (defun my-strip-return (str)
   (replace-regexp-in-string "\n$" "" str))
@@ -207,15 +223,9 @@ in ORG MODE. "
   (delete-region (region-beginning) (region-end))
   (insert "\n[...]\n\n"))
 
-(defvar *my-alias-book* "/root/.mutt/aliases")
-
 (defun my-alias-lookup ()
   (interactive)
-  (let* ((name (current-word))
-         (addr (my-strip-return
-                (shell-command-to-string
-                 (format "grep -w '%s' %s | cut -d ' ' -f 3- | sed 's/\\\\\\\"//g'"
-                         name *my-alias-book*)))))
+  (let ((addr (my-alias-lookup-internal (current-word))))
     (if (string-equal addr "")
         (message (format "Failed to lookup alias '%s'" name))
       (progn (kill-word -1)
