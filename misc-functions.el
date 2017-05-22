@@ -167,7 +167,7 @@ in ORG MODE. "
   (my-strip-return
    (shell-command-to-string
     (format "grep -w '%s' %s | cut -d ' ' -f 3- | sed 's/\\\\\\\"//g'"
-            name *my-alias-book*))))))
+            name *my-alias-book*))))
 
 (defun my-insert-reviewed-by (name)
   (interactive (list (completing-read "Reviewed-by: " (my-alias-get-keys))))
