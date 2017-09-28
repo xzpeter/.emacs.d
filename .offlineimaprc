@@ -1,6 +1,7 @@
 [general]
 accounts = redhat
 pythonfile = ~/.offlineimap.py
+socktimeout = 30
 
 [Account redhat]
 localrepository = rh-local
@@ -22,4 +23,6 @@ auth_mechanisms = PLAIN
 ssl = yes
 keepalive = 60
 holdconnectionopen = yes
-cert_fingerprint = 1e7fc6fd232459fb2cb3cf5430f38916a39b780e
+#cert_fingerprint = 1e7fc6fd232459fb2cb3cf5430f38916a39b780e
+#cert_fingerprint = 626a34b8ced4fee8d1c9f0625b959006e16819da
+cert_fingerprint = 7c8c69962e49d3afb1d9d70979763d25512702ee

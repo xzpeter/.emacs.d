@@ -135,4 +135,7 @@
 ;;; don't prompt when killing buffer with client.
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
+;;; Allow to use double spaces for the end of sentences
+(setq sentence-end-double-space t)
+
 (provide 'environment-config)
