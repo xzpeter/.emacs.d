@@ -123,6 +123,11 @@
 (define-key 'evil-window-map (kbd "C-l") 'swbuff-switch-to-next-buffer)
 (define-key 'evil-window-map (kbd "C-k") 'swbuff-kill-this-buffer)
 (define-key 'evil-window-map (kbd "C-a") 'my-switch-to-other-buffer)
+;;; magit is used alot; let's provide a super single key for it
+(global-set-key (kbd "C-'") 'magit-status)
+
+;;; Use this to modify evil mode default key bindings (an example only)
+;;; (define-key evil-normal-state-map (kbd "") 'magit-status).
 
 ;;; it seems that this is needed in latest evil
 (define-key evil-insert-state-map (kbd "C-a") 'evil-window-map)
@@ -154,6 +159,9 @@
   ;; for magit for the hacking.
   ;; (define-key magit-mode-map (kbd "j") 'next-line)
   (define-key magit-mode-map (kbd "k") 'previous-line)
+  ;; I replaced the old "k" which should be "magit-discard", so I'd
+  ;; better find another key for it
+  (define-key magit-mode-map (kbd "C-d") 'magit-discard)
   (define-key magit-mode-map (kbd "M-1") nil)
   (define-key magit-mode-map (kbd "M-4") nil)
   (global-set-key (kbd "C-c g") #'(lambda ()
