@@ -21,6 +21,7 @@
 	ls-br = log --graph --decorate --oneline --simplify-by-decoration
 	publish = !/root/bin/git-publish
 	go = rebase --continue
+	whatis = "show -s --pretty='tformat:%h (\"%s\", %cd)' --date=short"
 [core]
 	editor = emacsclient
 [merge]
@@ -58,6 +59,10 @@
 [gitpublishprofile "kvm"]
 	to = kvm@vger.kernel.org
 	cc = peterx@redhat.com
+[gitpublishprofile "iommu"]
+	to = iommu@lists.linux-foundation.org
+	cc = linux-kernel@vger.kernel.org
+	cc = peterx@redhat.com
 [gitpublishprofile "kvm-unit-tests"]
 	to = kvm@vger.kernel.org
 	prefix = PATCH kvm-unit-tests
@@ -65,3 +70,15 @@
 [gitpublishprofile "rhev"]
 	to = rhvirt-patches@redhat.com
 	cc = peterx@redhat.com
+	prefix = RHEL-7.5 qemu-kvm-rhev PATCH
+	base = origin/pegas/master-2.9.0
+[gitpublishprofile "rhev74"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.4.z qemu-kvm-rhev PATCH
+	base = origin/rhv7/master-2.9.0
+[gitpublishprofile "rhev75"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEV-7.5 qemu-kvm-rhev PATCH
+	base = origin/rhv7/master-2.10.0
