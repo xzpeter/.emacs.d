@@ -6,10 +6,16 @@
   ;; check whether current system is system TYPE
   (eq system-type type))
 
+(setq home-dir
+      (if (string-equal user-login-name "root")
+	  "/root"
+	(format "/home/%s" user-login-name)))
+(setq linux-working-dir (format "%s/.emacs.d/lisp/" home-dir))
+
 ;; set the default directory. This is the start of all things else
 (setq emacs-working-dir
       (cond
-       ((is-system-p 'gnu/linux) "/root/.emacs.d/lisp/")
+       ((is-system-p 'gnu/linux) linux-working-dir)
        ((is-system-p 'darwin) "/Users/xz/.emacs.d/lisp/")
        ((is-system-p 'berkeley-unix) "/root/.emacs.d/")
        ((is-system-p 'windows-nt) "C:/xuzhe/softs/.emacs.d/")
