@@ -71,6 +71,9 @@ set forward_format = "Fwd: %s"
 set sig_dashes = no
 set signature = "$HOME/.mutt/signature"
 
+# to read HTML emails
+auto_view text/html
+
 # key bindings
 source "$HOME/.mutt/bindings"
 
