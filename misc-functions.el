@@ -1,6 +1,6 @@
 ;; I will put some misc functions that will be used in the config process here
 
-(defvar *my-alias-book* "/root/.mutt/aliases")
+(defvar *my-alias-book* (format "%s/.mutt/aliases" home-dir))
 (defvar *current-work-note-org* "2012-Q3.org")
 (defvar *my-name-alias* "peterx")
 
