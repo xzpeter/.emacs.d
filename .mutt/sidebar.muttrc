@@ -1,10 +1,10 @@
 # this configures the sidebar (if it's supported)
-set sidebar_width=36
+set sidebar_width=40
 set sidebar_visible=yes
 #set sidebar_delim='|'
 #set sidebar_sort=yes
 set mail_check_stats=yes
-set sidebar_format="%B%*  %N/%S"
+set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
 color sidebar_new yellow default
 
 # bindings for sidebar
