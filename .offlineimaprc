@@ -25,4 +25,5 @@ keepalive = 60
 holdconnectionopen = yes
 #cert_fingerprint = 1e7fc6fd232459fb2cb3cf5430f38916a39b780e
 #cert_fingerprint = 626a34b8ced4fee8d1c9f0625b959006e16819da
-cert_fingerprint = 7c8c69962e49d3afb1d9d70979763d25512702ee
+#cert_fingerprint = 7c8c69962e49d3afb1d9d70979763d25512702ee
+cert_fingerprint = f8e6bf248991f858a13b89d408e2c85d7283a5a0
