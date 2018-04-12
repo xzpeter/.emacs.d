@@ -65,6 +65,11 @@
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
+;;; rpm-spec mode
+(autoload 'rpm-spec-mode "rpm-spec-mode.el" "RPM spec mode." t)
+(setq auto-mode-alist (append '(("\\.spec" . rpm-spec-mode))
+                              auto-mode-alist))
+
 (require 'go-mode-autoloads)
 
 (provide 'load-misc-widgets)
