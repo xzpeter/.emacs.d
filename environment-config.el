@@ -106,16 +106,11 @@
   (nth (random (list-length alist)) alist))
 ;; reset the initial-scratch-message
 (setq initial-scratch-message
-      (concat
 ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; " (get-random-list-item *global-idioms*) "
-;; 
-;; Current Emacs starts working at " (format-time-string "%D %T") "
 ;;
 ;; This is the scratchpad just for you! Have a nice day!
 ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;")
 
 ;; remove the boring tempt when trying to kill a buffer invoked by emacsclient
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
