@@ -71,3 +71,9 @@
 ;; functions are referenced here
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'key-config)
+
+;;; HACK: THIS MUST BE DONE AT THE END OF THE CONFIGURATION FILE!
+;;; Use text mode by default (otherwise fundamental mode will be
+;;; used).  This is needed after Emacs version 26.1 since text-mode is
+;;; not the default mode any more.
+(setq auto-mode-alist (append auto-mode-alist '(("" . text-mode))))
