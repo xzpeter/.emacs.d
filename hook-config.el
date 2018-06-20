@@ -125,6 +125,7 @@ specific number.")
   (electric-pair-mode 1)
   (c-set-style "peterxu")
   (my-c-set-indent-tabs-by-name buffer-file-name)
+  (define-key c-mode-map (kbd "C-c C-k") nil)
   ;; this poor minor mode bring me bug when I opened *.c before I try to
   ;; open big *.py files. It will make it damn slow to open the python
   ;; script.

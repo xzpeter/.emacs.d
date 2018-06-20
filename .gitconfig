@@ -59,26 +59,41 @@
 [gitpublishprofile "kvm"]
 	to = kvm@vger.kernel.org
 	cc = peterx@redhat.com
+[gitpublishprofile "kernel"]
+	to = linux-kernel@vger.kernel.org
+	cc = peterx@redhat.com
 [gitpublishprofile "iommu"]
 	to = iommu@lists.linux-foundation.org
-	cc = linux-kernel@vger.kernel.org
+	to = linux-kernel@vger.kernel.org
 	cc = peterx@redhat.com
+	cc = joro@8bytes.org
 [gitpublishprofile "kvm-unit-tests"]
 	to = kvm@vger.kernel.org
 	prefix = PATCH kvm-unit-tests
 	cc = peterx@redhat.com
-[gitpublishprofile "rhev"]
-	to = rhvirt-patches@redhat.com
-	cc = peterx@redhat.com
-	prefix = RHEL-7.5 qemu-kvm-rhev PATCH
-	base = origin/pegas/master-2.9.0
-[gitpublishprofile "rhev74"]
+[gitpublishprofile "rhel74-qemu-kvm-rhev"]
 	to = rhvirt-patches@redhat.com
 	cc = peterx@redhat.com
 	prefix = RHEL-7.4.z qemu-kvm-rhev PATCH
 	base = origin/rhv7/master-2.9.0
-[gitpublishprofile "rhev75"]
+[gitpublishprofile "rhel75-qemu-kvm-rhev"]
 	to = rhvirt-patches@redhat.com
 	cc = peterx@redhat.com
-	prefix = RHEV-7.5 qemu-kvm-rhev PATCH
+	prefix = RHEL-7.5.z qemu-kvm-rhev PATCH
 	base = origin/rhv7/master-2.10.0
+[gitpublishprofile "rhel75-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.5.z kernel PATCH
+	base = origin/master
+[gitpublishprofile "rhel76-qemu-kvm-rhev"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.6 qemu-kvm-rhev PATCH
+	# TODO: need to fix this after the branch settles
+	base = origin/rhv7/master-2.10.0
+[gitpublishprofile "rhel76-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.6 kernel PATCH
+	base = origin/master
