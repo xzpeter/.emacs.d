@@ -23,9 +23,9 @@
 (color-theme-xzpeter-dark)
 
 ;; loading linum+ module to show line numbers
-(require 'linum+)
+;; (require 'linum+)
 ;; show line number
-(global-linum-mode 1)
+;; (global-linum-mode 1)
 
 ;; using swbuff, it seems that this is the best
 (require 'swbuff)
