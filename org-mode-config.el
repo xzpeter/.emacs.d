@@ -16,7 +16,7 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (setq org-log-done t)
 (setq org-todo-keywords
-	  '((sequence "TODO" "DOING" "|" "DONE" "CANCEL")))
+	  '((sequence "TODO" "DOING" "PENDING" "|" "DONE" "CANCEL")))
 
 (defun org-mode-key-config ()
   (setq org-support-shift-select 1)
