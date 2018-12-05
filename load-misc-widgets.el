@@ -43,6 +43,11 @@
 
 ;; loading magit, the git client under emacs
 (add-to-list 'load-path (emacs-path "dash"))
+(add-to-list 'load-path (emacs-path "with-editor"))
+(add-to-list 'load-path (emacs-path "magit-popup"))
+(add-to-list 'load-path (emacs-path "graphql"))
+(add-to-list 'load-path (emacs-path "treepy"))
+(add-to-list 'load-path (emacs-path "ghub"))
 (add-to-list 'load-path (emacs-path "magit/lisp"))
 (require 'magit)
 

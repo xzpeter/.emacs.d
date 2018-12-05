@@ -1,0 +1,21 @@
+[submodule "magit"]
+	path = magit
+	url = https://github.com/magit/magit.git
+[submodule "with-editor"]
+	path = with-editor
+	url = https://github.com/magit/with-editor.git
+[submodule "magit-popup"]
+	path = magit-popup
+	url = https://github.com/magit/magit-popup.git
+[submodule "ghub"]
+	path = ghub
+	url = https://github.com/magit/ghub.git
+[submodule "graphql"]
+	path = graphql
+	url = https://github.com/vermiculus/graphql.el.git
+[submodule "treepy"]
+	path = treepy
+	url = https://github.com/volrath/treepy.el.git
+[submodule "dash"]
+	path = dash
+	url = https://github.com/magnars/dash.el.git
