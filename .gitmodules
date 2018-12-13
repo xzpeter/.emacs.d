@@ -19,3 +19,6 @@
 [submodule "dash"]
 	path = dash
 	url = https://github.com/magnars/dash.el.git
+[submodule "evil"]
+	path = evil
+	url = https://github.com/emacs-evil/evil.git
