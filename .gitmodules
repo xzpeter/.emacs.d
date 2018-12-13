@@ -22,3 +22,6 @@
 [submodule "evil"]
 	path = evil
 	url = https://github.com/emacs-evil/evil.git
+[submodule "evil-magit"]
+	path = evil-magit
+	url = https://github.com/emacs-evil/evil-magit.git

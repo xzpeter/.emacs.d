@@ -65,6 +65,9 @@
 ;;   (require 'ecb-config))
 ;; All evil stuffs here
 (require 'evil-config)
+;;; Some more to come when with evil+magit
+(add-to-list 'load-path (emacs-path "evil-magit"))
+(require 'evil-magit)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; key bindings should be the last one, since many
