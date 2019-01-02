@@ -135,6 +135,11 @@ specific number.")
 (add-hook 'c++-mode-hook 'c-hook-function)
 (add-hook 'cscope-list-entry-hook 'common-hook-function)
 
+(defun rust-hook-function ()
+  (common-hook-function)
+  (setq indent-tabs-mode nil))
+(add-hook 'rust-mode-hook 'rust-hook-function)
+
 (add-hook 'asm-mode-hook 'common-hook-function)
 
 (defun magit-hook-function ()

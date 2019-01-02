@@ -57,8 +57,7 @@
 
 (global-set-key (kbd "<f9>") 'compile)
 (global-set-key (kbd "<f10>") 'my-switch-code-tag-mode)
-;; in windows, there is no guake here, then I have to use eshell instead. 
-;; (global-set-key (kbd "<f12>") 'work-note)
+(global-set-key (kbd "<f12>") 'cscope-set-initial-directory)
 
 ;; set print to ps shortcut
 (global-set-key (kbd "C-M-S-p") 'ps-spool-buffer)
