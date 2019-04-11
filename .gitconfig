@@ -62,6 +62,10 @@
 [gitpublishprofile "kernel"]
 	to = linux-kernel@vger.kernel.org
 	cc = peterx@redhat.com
+[gitpublishprofile "mm"]
+	to = linux-kernel@vger.kernel.org
+	to = linux-mm@kvack.org
+	cc = peterx@redhat.com
 [gitpublishprofile "iommu"]
 	to = iommu@lists.linux-foundation.org
 	to = linux-kernel@vger.kernel.org
@@ -84,7 +88,7 @@
 [gitpublishprofile "rhel75-kernel"]
 	to = rhkernel-list@redhat.com
 	cc = peterx@redhat.com
-	prefix = RHEL-7.5.z kernel PATCH
+	prefix = RHEL-7.5.z PATCH
 	base = origin/master
 [gitpublishprofile "rhel76-qemu-kvm-rhev"]
 	to = rhvirt-patches@redhat.com
@@ -92,8 +96,28 @@
 	prefix = RHEL-7.6 qemu-kvm-rhev PATCH
 	# TODO: need to fix this after the branch settles
 	base = origin/rhv7/master-2.10.0
+[gitpublishprofile "rhel81-slow"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-8.1 qemu-kvm PATCH
+	base = origin/rhel-8.1.0
+[gitpublishprofile "rhel8-fast"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-8 qemu-kvm PATCH
+	base = origin/rhel8/master-3.1.0
 [gitpublishprofile "rhel76-kernel"]
 	to = rhkernel-list@redhat.com
 	cc = peterx@redhat.com
-	prefix = RHEL-7.6 kernel PATCH
+	prefix = RHEL-7.6 PATCH
 	base = origin/master
+[gitpublishprofile "rhel77-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.7 PATCH
+	base = origin/master
+[gitpublishprofile "rhel81-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-8.1 PATCH
+	base = origin/rhel-8.1.0

@@ -43,7 +43,7 @@ function __ps1_git_prefix()
 }
 
 # change PS1 format
-PS1='\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[\033[01;32m\]$(__ps1_git_prefix)\[\033[00m\]\$ '
+PS1='\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[\033[01;32m\]$(__ps1_git_prefix)\[\033[00m\]\$ '
 # with create-frame, window could be focused automatically
 export EDITOR='emacsclient'
 export ALTERNATE_EDITOR='vim'
@@ -52,3 +52,9 @@ export ALTERNATE_EDITOR='vim'
 set -o vi
 # enable clear-screen
 bind -x $'"\C-l":clear;'
+
+PATH="/home/xz/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/xz/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/xz/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/xz/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/xz/perl5"; export PERL_MM_OPT;
