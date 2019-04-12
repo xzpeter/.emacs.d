@@ -52,6 +52,6 @@
 
 ;;; This will allow me to write function names without being
 ;;; identified as subscripts, instead I'll need to use a_{b}
-(setq org-export-with-sub-superscript "{}")
+(setq org-export-with-sub-superscripts '{})
 
 (provide 'org-mode-config)
