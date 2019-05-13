@@ -3,6 +3,10 @@
 ;; load cscope
 (require 'cscope-config)
 
+;;; OK I don't use etags recently besides rusty-tags.  So be simple.
+(defvar my-etags-file "rusty-tags.emacs"
+  "The default name of the etags file to search for.")
+
 ;; This is a further plugin for find-tag, that can list tags, and it's
 ;; used in my global tag system
 (require 'etags-select)
@@ -47,6 +51,20 @@ default value is 'etags ")
   (cond
    ((eq my-tag-mode 'etags) (my-switch-to-cscope-tag-mode))
    ((eq my-tag-mode 'cscope) (my-switch-to-etags-tag-mode))))
+
+(defun my-init-etags-TAGS (init-dir)
+  (let ((output
+         (split-string
+          (shell-command-to-string
+           (format "find %s -name %s" init-dir my-etags-file)))))
+    (setq tags-table-list output)
+    (message "Initialized ETAGS with %s" tags-table-list)))
+
+(defun my-set-init-tags (init-dir)
+  (interactive "DInitial Directory: ")
+  (cond
+   ((eq my-tag-mode 'etags) (my-init-etags-TAGS init-dir))
+   ((eq my-tag-mode 'cscope) (cscope-set-initial-directory init-dir))))
 
 ;; These two functions handle all tag push/pop
 (defun my-global-find-tag ()

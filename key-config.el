@@ -57,7 +57,7 @@
 
 (global-set-key (kbd "<f9>") 'compile)
 (global-set-key (kbd "<f10>") 'my-switch-code-tag-mode)
-(global-set-key (kbd "<f12>") 'cscope-set-initial-directory)
+(global-set-key (kbd "<f12>") 'my-set-init-tags)
 
 ;; set print to ps shortcut
 (global-set-key (kbd "C-M-S-p") 'ps-spool-buffer)
