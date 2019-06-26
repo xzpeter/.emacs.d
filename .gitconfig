@@ -114,7 +114,7 @@
 [gitpublishprofile "rhel77-kernel"]
 	to = rhkernel-list@redhat.com
 	cc = peterx@redhat.com
-	prefix = RHEL-7.7 PATCH
+	prefix = RHEL7.7 PATCH
 	base = origin/master
 [gitpublishprofile "rhel81-kernel"]
 	to = rhkernel-list@redhat.com

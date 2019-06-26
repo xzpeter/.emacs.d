@@ -103,6 +103,8 @@ specific number.")
   (setq indent-tabs-mode nil)
   (my-set-tab-width 4)
   (setq python-indent 4)
+  ;; with pycscope I can use cscope with python now!
+  (cscope-minor-mode)
   ;; (define-key python-mode-map "\C-ch" 'pylookup-lookup)
   (define-key python-mode-map (kbd "C-c !") 'run-python)
   (define-key python-mode-map (kbd "C-c C-j") 'nil)
