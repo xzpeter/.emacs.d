@@ -1,0 +1,83 @@
+[user]
+	name = Peter Xu
+	email = peterx@redhat.com
+[alias]
+	lo = log --color --stat --summary
+	ls = log --oneline
+	ls-tr = log --color --pretty=oneline --graph
+	ci = commit -s
+	co = checkout
+	st = status
+	di = diff --color
+	bi = bisect
+	d = "!f() { git di $1~ $1; }; f"
+	br = branch --color
+	fp = format-patch --cover-letter
+	se = send-email
+	author = "!f() { git shortlog --format=\"%ai %h %s\" --author=\"$@\"; }; f"
+	cp = cherry-pick
+	rb = rebase
+	rbc = rebase --continue
+	ls-br = log --graph --decorate --oneline --simplify-by-decoration
+	publish = !/root/bin/git-publish
+	go = rebase --continue
+	whatis = "show -s --pretty='tformat:%h (\"%s\", %cd)' --date=short"
+[core]
+	editor = emacsclient
+[merge]
+	tool = meld
+[rebase]
+	autosquash = true
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red
+[push]
+	default = simple
+[sendemail]
+	#smtpserver = smtp.corp.redhat.com
+	#smtpencryption = starttls
+	#smtpserverport = 25
+	confirm = never
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpUser = zhexu@redhat.com
+	#smtpPass =
+	smtpServerPort = 587
+
+[diff]
+	renames = true
+[gitpublishprofile "qemu"]
+	to = qemu-devel@nongnu.org
+	cc = peterx@redhat.com
+	#cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
+[gitpublishprofile "kvm"]
+	to = kvm@vger.kernel.org
+	cc = peterx@redhat.com
+[gitpublishprofile "kernel"]
+	to = linux-kernel@vger.kernel.org
+	cc = peterx@redhat.com
+[gitpublishprofile "mm"]
+	to = linux-kernel@vger.kernel.org
+	to = linux-mm@kvack.org
+	cc = peterx@redhat.com
+[gitpublishprofile "iommu"]
+	to = iommu@lists.linux-foundation.org
+	to = linux-kernel@vger.kernel.org
+	cc = peterx@redhat.com
+	cc = joro@8bytes.org
+[gitpublishprofile "kvm-unit-tests"]
+	to = kvm@vger.kernel.org
+	prefix = PATCH kvm-unit-tests
+	cc = peterx@redhat.com
