@@ -16,21 +16,24 @@ source "$HOME/.mutt/fc.muttrc"
 
 # offlineimap configuration
 set mbox_type = Maildir
-set folder = "$HOME/Mail/RH"
+#set folder = "$HOME/Mail/RH"
+set folder = "$HOME/Mail/RHGmail"
 
 # shared configurations
 set spoolfile   = +INBOX
-set record = +Sent
-set postponed = +Drafts
+set record = +[Gmail].Sent\ Mail
+set postponed = +[Gmail].Drafts
 set realname    = "Peter Xu"
 # use private file for mailboxes
-source "$HOME/.mutt/mailboxes"
+ source "$HOME/.mutt/mailboxes"
 # set imap_check_subscribed
 
 # SMTP configurations
 set from = peterx@redhat.com
 set use_from = yes
-set smtp_url = smtp://smtp.corp.redhat.com
+set smtp_url = smtps://zhexu@redhat.com@smtp.gmail.com:465
+# SHOULD SET THIS WITH PASSWORD
+set smtp_pass = xxx
 set ssl_force_tls = yes
 set ssl_starttls = yes
 
@@ -49,6 +52,7 @@ set message_cachedir = "$HOME/.cache/mutt"
 
 # How often to check for new mail (time in seconds).
 set mail_check = 120
+set mail_check_stats = yes
 
 # using UTF-8 all the time
 set send_charset = "utf-8"
@@ -61,7 +65,7 @@ source $alias_file
 
 # other UI related
 set sleep_time = 0
-set pager_index_lines = 10
+set pager_index_lines = 5
 set pager_context = 3
 set pager_stop = yes
 set mark_old = no
@@ -72,7 +76,7 @@ set sig_dashes = no
 set signature = "$HOME/.mutt/signature"
 
 # to read HTML emails
-auto_view text/html
+# auto_view text/html
 
 # key bindings
 source "$HOME/.mutt/bindings"

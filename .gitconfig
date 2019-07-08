@@ -46,10 +46,15 @@
 [push]
 	default = simple
 [sendemail]
-	smtpserver = smtp.corp.redhat.com
-	smtpencryption = starttls
-	smtpserverport = 25
+	#smtpserver = smtp.corp.redhat.com
+	#smtpencryption = starttls
+	#smtpserverport = 25
 	confirm = never
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpUser = zhexu@redhat.com
+	smtpServerPort = 587
+
 [diff]
 	renames = true
 [gitpublishprofile "qemu"]
