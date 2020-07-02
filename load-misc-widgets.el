@@ -76,5 +76,6 @@
                               auto-mode-alist))
 
 (require 'go-mode-autoloads)
+(require 'bpftrace-mode)
 
 (provide 'load-misc-widgets)

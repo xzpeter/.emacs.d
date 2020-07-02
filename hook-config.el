@@ -11,10 +11,12 @@
     ("git/linux" . (t . 8))
     ("git/rh/rhel7" . (t . 8))
     ("git/rh/kernel-rt" . (t . 8))
+    ("git/rh/kernel-rhel" . (t . 8))
     ("codes/emacs" . (nil . 2))
     ("codes/mutt" . (nil . 2))
     ("git/qemu" . (nil . 4))
     ("git/dpdk" . (t . 4))
+    ("git/jitterz" . (t . 4))
     ("git/trace-cmd" . (t . 8))
     ("git/rh/qemu-kvm" . (nil . 4)))
   "List of directories that has indent hints. When the hint is `nil', then we
@@ -53,7 +55,8 @@ specific number.")
 (defun common-hook-function ()
   (auto-fill-mode 1)
   ;; by default, all use tabs
-  (setq indent-tabs-mode t)
+  (setq indent-tabs-mode t
+        fill-column 79)
   (modify-syntax-entry ?_ "w"))
 	
 (defun text-hook-function ()

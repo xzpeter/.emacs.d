@@ -25,7 +25,7 @@
 
 ;; some other defines
 (setq default-line-spacing 0)
-(setq fill-column 72)
+(setq fill-column 78)
 (setq default-major-mode 'text-mode)
 (setq kill-ring-max 200)
 (setq require-final-newline t) 

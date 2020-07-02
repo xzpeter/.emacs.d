@@ -32,6 +32,8 @@ alias grep='grep --color'
 alias work='ssh dev2'
 alias work2='ssh dev-ub'
 alias cp_r='rsync --progress -ah'
+alias run='cargo run'
+alias build='cargo build'
 
 function __ps1_git_prefix()
 {
@@ -42,6 +44,8 @@ function __ps1_git_prefix()
     fi
 }
 
+# let's have this to workaround an issue with tmux on Fedora 31
+PS0=""
 # change PS1 format
 PS1='\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[\033[01;32m\]$(__ps1_git_prefix)\[\033[00m\]\$ '
 # with create-frame, window could be focused automatically
