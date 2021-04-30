@@ -1993,7 +1993,7 @@ using the mouse."
 	      (set-process-filter cscope-process cscope-filter-func)
 	      (set-process-sentinel cscope-process cscope-sentinel-func)
 	      (set-marker (process-mark cscope-process) (point))
-	      (process-kill-without-query cscope-process)
+	      (set-process-query-on-exit-flag cscope-process nil)
 	      (if cscope-running-in-xemacs
 		  (setq modeline-process ": Searching ..."))
 	      (setq buffer-read-only t)
@@ -2126,7 +2126,7 @@ SENTINEL-FUNC are optional process filter and sentinel, respectively."
 		   cscope-indexing-script args))
       (set-process-sentinel cscope-unix-index-process
 			    'cscope-unix-index-files-sentinel)
-      (process-kill-without-query cscope-unix-index-process)
+      (set-process-query-on-exit-flag cscope-unix-index-process nil)
       )
     ))
 
