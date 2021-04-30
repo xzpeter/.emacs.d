@@ -1,1 +1,35 @@
 TODO LIST
+
+* Filter unwanted messages
+
+Polling mode now at least filters _some_ messages, but not all.
+
+Ideally we should be able to define "what kind of messages we don't care" then
+don't collect them when dumping the result.  E.g. when --quiet enabled, we can
+see messages like this when quits:
+
+         "name": "smp_call_function_many_cond",
+         "count": 1,
+         "funcptr": "do_flush_tlb_all",
+         "stack": [
+             "smp_call_function_many_cond+0x1",
+             "smp_call_function+0x39",
+             "on_each_cpu+0x2a",
+             "flush_tlb_kernel_range+0x48",
+             "__purge_vmap_area_lazy+0x70",
+             "_vm_unmap_aliases.part.42+0xdf",
+             "__vunmap+0x11d",
+             "bpf_jit_binary_free+0xd",
+             "bpf_jit_free+0x28",
+             "process_one_work+0x18f",
+             "worker_thread+0x30",
+             "kthread+0x15d",
+             "ret_from_fork+0x35"
+         ]
+
+* Filter messages triggered at the start of RT app
+
+When RT application starts, it could trigger things like vmstat_update which is
+legal.  It'll become illegal when RT workload starts.
+
+Need some facility to filter those ones too.

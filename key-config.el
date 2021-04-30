@@ -206,6 +206,9 @@
   (define-key lua-mode-map (kbd "}") nil)
   (define-key lua-mode-map (kbd "]") nil))
 
+(when (featurep 'go-mode)
+  (define-key go-mode-map (kbd "C-c C-j") nil))
+
 ;;; quick insertion of my r-b and a-b lines
 (global-set-key (kbd "C-c k") 'my-insert-acked-by)
 (global-set-key (kbd "C-c i") 'my-insert-reviewed-by)

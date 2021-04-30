@@ -18,6 +18,7 @@
     ("git/dpdk" . (t . 4))
     ("git/jitterz" . (t . 4))
     ("git/trace-cmd" . (t . 8))
+    ("git/rt-tests" . (t . 8))
     ("git/rh/qemu-kvm" . (nil . 4)))
   "List of directories that has indent hints. When the hint is `nil', then we
 will use tab for indent. When the hint is non-nil, we will use spaces with

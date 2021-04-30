@@ -1,7 +1,7 @@
 ;; this is the config file related to lisp in emacs
 
 ;; loading SLIME
-(add-to-list 'load-path (emacs-path "slime-2013-03-22"))
+(add-to-list 'load-path (emacs-path "slime"))
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (setq scheme-program-name "guile")
 (require 'slime)
