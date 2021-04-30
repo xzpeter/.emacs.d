@@ -28,3 +28,6 @@
 [submodule "slime"]
 	path = slime
 	url = https://github.com/slime/slime.git
+[submodule "org-mode"]
+	path = org-mode
+	url = https://code.orgmode.org/bzg/org-mode.git

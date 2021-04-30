@@ -19,7 +19,6 @@ install_hyperspec:
 
 build_packages: 
 	@echo "making org..."
-	@(cd org-7.7; make; cd ..;) &>${makelog}
 	@echo "make sure emacs.el load at emacs startup... "
 	@grep -q '.emacs.d/lisp/emacs.el' ${emacsfile} || \
 		echo '(load "~/.emacs.d/lisp/emacs.el")' >> ${emacsfile}
@@ -33,6 +32,5 @@ cp_user_files:
 clean:
 	@(cd cedet-1.1; make clean-autoloads; make clean-all; cd ..;) &>${makelog}
 	@(cd ecb-2.40; make clean; cd ..;) &>${makelog}
-	@(cd org-7.7; make clean; cd ..;) &>${makelog}
 	@rm -rf HyperSpec/
 	@echo "### CLEANED! ###"

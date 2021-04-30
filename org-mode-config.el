@@ -7,7 +7,7 @@
        ((is-system-p 'cygwin) "/cygdrive/c/xuzhe/docs/org/")))
 
 ;; setting org path
-(add-to-list 'load-path (emacs-path "org-7.7/lisp"))
+(add-to-list 'load-path (emacs-path "org-mode/lisp"))
 (setq org-agenda-files (list (concat my-data-share-dir "work.org")))
 (require 'org-install)
 
