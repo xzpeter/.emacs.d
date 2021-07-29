@@ -31,3 +31,6 @@
 [submodule "org-mode"]
 	path = org-mode
 	url = https://code.orgmode.org/bzg/org-mode.git
+[submodule "transient"]
+	path = transient
+	url = https://github.com/magit/transient.git
