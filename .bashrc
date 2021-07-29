@@ -65,3 +65,6 @@ PERL_MM_OPT="INSTALL_BASE=/home/xz/perl5"; export PERL_MM_OPT;
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/musl/bin:$PATH"
+
+# for distcc
+export DISTCC_POTENTIAL_HOSTS='localhost b1'

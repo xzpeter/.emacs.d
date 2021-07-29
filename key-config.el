@@ -220,4 +220,7 @@
 ;;; address book lookups
 (global-set-key (kbd "C-c C-;") 'my-alias-lookup)
 
+;;; an extra C-w to kill word, which is the commonly used one
+(global-set-key (kbd "C-w") 'backward-kill-word)
+
 (provide 'key-config)
