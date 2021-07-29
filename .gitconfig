@@ -64,7 +64,9 @@
 	#cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
 [gitpublishprofile "kvm"]
 	to = kvm@vger.kernel.org
+	to = linux-kernel@vger.kernel.org
 	cc = peterx@redhat.com
+	base = kvm
 [gitpublishprofile "kernel"]
 	to = linux-kernel@vger.kernel.org
 	cc = peterx@redhat.com
@@ -72,6 +74,7 @@
 	to = linux-kernel@vger.kernel.org
 	to = linux-mm@kvack.org
 	cc = peterx@redhat.com
+	cc = Andrew Morton <akpm@linux-foundation.org>
 [gitpublishprofile "iommu"]
 	to = iommu@lists.linux-foundation.org
 	to = linux-kernel@vger.kernel.org
@@ -81,3 +84,85 @@
 	to = kvm@vger.kernel.org
 	prefix = PATCH kvm-unit-tests
 	cc = peterx@redhat.com
+[gitpublishprofile "rhel74-qemu-kvm-rhev"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.4.z qemu-kvm-rhev PATCH
+	base = origin/rhv7/master-2.9.0
+[gitpublishprofile "rhel75-qemu-kvm-rhev"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.5.z qemu-kvm-rhev PATCH
+	base = origin/rhv7/master-2.10.0
+[gitpublishprofile "rhel75-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.5.z PATCH
+	base = origin/master
+[gitpublishprofile "rhel76-qemu-kvm-rhev"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.6 qemu-kvm-rhev PATCH
+	# TODO: need to fix this after the branch settles
+	base = origin/rhv7/master-2.10.0
+[gitpublishprofile "rhev78"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.8 qemu-kvm-rhev PATCH
+	base = origin/rhv78/master
+[gitpublishprofile "rhel81-slow"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-8.1 qemu-kvm PATCH
+	base = origin/rhel-8.1.0
+[gitpublishprofile "rhel81-fast"]
+	to = rhvirt-patches@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-AV-8.1 qemu-kvm PATCH
+	base = origin/rhel-av-8.1.0/master-4.1.0
+[gitpublishprofile "rhel76-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-7.6 PATCH
+	base = origin/master
+[gitpublishprofile "rhel77-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL7.7 PATCH
+	base = origin/master
+[gitpublishprofile "rhel78-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL7.8 PATCH
+	base = origin/master
+[gitpublishprofile "rhel82-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-8.2.z PATCH
+	base = origin/rhel-8.2.0
+[gitpublishprofile "rhel83-kernel"]
+	to = rhkernel-list@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-8.3 PATCH
+	base = origin/rhel-8.3.0
+[gitpublishprofile "rhel83-rt"]
+	to = kernel-rt-team@redhat.com
+	to = kvm-rt@redhat.com
+	cc = peterx@redhat.com
+	prefix = RHEL-8.3 RT PATCH
+	base = origin/rhel-rt-8.3.0
+[gitpublishprofile "rt"]
+	to = linux-rt-users@vger.kernel.org
+	cc = peterx@redhat.com
+	cc = Clark Williams <williams@redhat.com>
+	cc = John Kacur <jkacur@redhat.com>
+	prefix = PATCH
+	base = master
+[gitpublishprofile "man"]
+	to = linux-man@vger.kernel.org
+	cc = peterx@redhat.com
+	cc = Alejandro Colomar <alx.manpages@gmail.com>
+	cc = Michael Kerrisk <mtk.manpages@gmail.com>
+	cc = linux-kernel@vger.kernel.org
+	prefix = PATCH
+	base = master
