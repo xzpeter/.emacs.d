@@ -49,7 +49,7 @@
 (add-to-list 'load-path (emacs-path "treepy"))
 (add-to-list 'load-path (emacs-path "ghub"))
 (add-to-list 'load-path (emacs-path "magit/lisp"))
-;; (require 'magit)
+(require 'magit)
 
 ;;; for reading logs
 ;; (require 'log4j-mode)

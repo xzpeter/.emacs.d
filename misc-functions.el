@@ -189,7 +189,7 @@ in ORG MODE. "
                  (format "echo '%s' | sed 's/<.*>$//' | xargs git blame -L %s,+1 | awk '{print $1}' | sed 's/\\^//'"
                          (buffer-name) (line-number-at-pos)))))
     (setq commit (my-strip-return commit))
-    (when (and (equal commit "00000000\n"))
+    (when (and (equal commit "00000000"))
       (message "Current line is not commited yet.")
       (setq commit nil))
     commit))
@@ -215,8 +215,10 @@ in ORG MODE. "
       ;; try to fetch commit that introduce current line
       (setq commit (my-git-fetch-current-line-commit)))
     (when commit
-      (magit-diff (concat (format "%s" commit)
-                          (format "~..%s" commit))))))
+      (shell-command
+       (format "git diff %s"
+               (concat (format "%s" commit)
+                       (format "~..%s" commit)))))))
 
 (defun my-omit-lines ()
   (interactive)
