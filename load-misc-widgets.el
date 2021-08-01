@@ -49,6 +49,8 @@
 (add-to-list 'load-path (emacs-path "treepy"))
 (add-to-list 'load-path (emacs-path "ghub"))
 (add-to-list 'load-path (emacs-path "magit/lisp"))
+;; This is required by some newer version of magit
+(add-to-list 'load-path (emacs-path "transient/lisp"))
 (require 'magit)
 
 ;;; for reading logs
