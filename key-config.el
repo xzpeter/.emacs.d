@@ -22,10 +22,8 @@
 
 ;; something related to buffer manipulate
 (global-set-key (kbd "M-1") 'delete-other-windows)
-(global-set-key (kbd "s-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
-(global-set-key (kbd "s-4") 'my-kill-buffer)
 (global-set-key (kbd "M-4") 'my-kill-buffer)
 (global-set-key (kbd "M-5") 'winner-undo)
 (global-set-key (kbd "M-6") 'winner-redo)
@@ -36,6 +34,15 @@
 ;; (global-set-key (kbd "M-9") 'previous-multiframe-window)
 ;; (global-set-key (kbd "M-0") 'next-multiframe-window)
 (global-set-key (kbd "M--") 'delete-window)
+
+;;; For MacOS, map common shortcuts for s-* (which is the commmand
+;;; button).  Ideally it'll be simpler if we can just define the
+;;; "command" button to behave the same as an "option" button, but
+;;; can't do that until I know how..
+(global-set-key (kbd "s-1") 'delete-other-windows)
+(global-set-key (kbd "s-4") 'my-kill-buffer)
+(global-set-key (kbd "s-;") 'paredit-comment-dwim)
+(global-set-key (kbd "s-x") 'execute-extended-command)
 
 ;; mark hot key
 (global-set-key (kbd "C-t") 'set-mark-command)
