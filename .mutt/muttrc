@@ -15,27 +15,29 @@ source "$HOME/.mutt/fc.muttrc"
 # unset imap_passive
 
 # offlineimap configuration
-set mbox_type = Maildir
+# set mbox_type = Maildir
 #set folder = "$HOME/Mail/RH"
 set folder = "$HOME/Mail/RHGmail"
 
 # shared configurations
 set spoolfile   = +INBOX
+# Gmail seems to do this automatically
 set record = +[Gmail].Sent\ Mail
 set postponed = +[Gmail].Drafts
 set realname    = "Peter Xu"
 # use private file for mailboxes
- source "$HOME/.mutt/mailboxes"
+source "$HOME/.mutt/mailboxes"
 # set imap_check_subscribed
 
 # SMTP configurations
-set from = peterx@redhat.com
+set from = XXXXXX@redhat.com # normally the alias we prefer
 set use_from = yes
-set smtp_url = smtps://zhexu@redhat.com@smtp.gmail.com:465
-# SHOULD SET THIS WITH PASSWORD
-set smtp_pass = xxx
+set smtp_url = smtps://XXXXXX@redhat.com@smtp.gmail.com:465
+set smtp_pass = XXXXXX
 set ssl_force_tls = yes
 set ssl_starttls = yes
+# I don't know why, but this line is required for macos but not linux.
+set smtp_authenticators = 'gssapi:login'
 
 set editor = "emacsclient"
 
