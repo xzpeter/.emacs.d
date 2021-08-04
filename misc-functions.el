@@ -214,11 +214,7 @@ in ORG MODE. "
       ;; current word is not pointing to a full commit number, we will
       ;; try to fetch commit that introduce current line
       (setq commit (my-git-fetch-current-line-commit)))
-    (when commit
-      (shell-command
-       (format "git diff %s"
-               (concat (format "%s" commit)
-                       (format "~..%s" commit)))))))
+    (when commit (magit-diff-range (format "%s~..%s" commit commit)))))
 
 (defun my-omit-lines ()
   (interactive)
