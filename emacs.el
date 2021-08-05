@@ -7,20 +7,24 @@
   (eq system-type type))
 
 (setq home-dir
-      (if (string-equal user-login-name "root")
-	  "/root"
-	(format "/home/%s" user-login-name)))
+      (cond
+       ((is-system-p 'gnu/linux)
+        (if (string-equal user-login-name "root")
+            "/root"
+          (format "/home/%s" user-login-name)))
+       ((is-system-p 'darwin) (format "/Users/%s" user-login-name))
+       ((is-system-p 'berkeley-unix) "/root")
+       ((is-system-p 'windows-nt) (format "C:/%s/softs" user-login-name))
+       ((is-system-p 'cygwin) (format "/cygdrive/c/%s" user-login-name))
+       (else (error "setup home-dir first!"))))
 (setq linux-working-dir (format "%s/.emacs.d/lisp/" home-dir))
 
 ;; set the default directory. This is the start of all things else
 (setq emacs-working-dir
       (cond
        ((is-system-p 'gnu/linux) linux-working-dir)
-       ((is-system-p 'darwin) "/Users/xz/.emacs.d/lisp/")
-       ((is-system-p 'berkeley-unix) "/root/.emacs.d/")
-       ((is-system-p 'windows-nt) "C:/xuzhe/softs/.emacs.d/")
-       ((is-system-p 'cygwin) "/cygdrive/c/xuzhe/softs/.emacs.d/")
-       (else (error "unsupported system!"))))
+       ((is-system-p 'darwin) linux-working-dir)
+       (else (error "setup emacs-working-dir first!"))))
 
 ;; adding local load path
 (add-to-list 'load-path emacs-working-dir)

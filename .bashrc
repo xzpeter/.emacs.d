@@ -15,19 +15,24 @@ case $system_name in
         export PATH=~/bin:~/bin/rh:/usr/local/bin:$EMACS_MAC_PATH:$PATH
         # TERM not right may lead to vi/etc. open fail
         export TERM=xterm
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+        eval "$(/opt/homebrew/bin/brew shellenv)"
         # for macos bash completion
-	[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+        comp_dir=/opt/homebrew/etc/bash_completion.d
+        completions="git-completion.bash"
+        if [[ -d $comp_dir ]]; then
+            for f in $completions; do
+                source $comp_dir/$f
+		    done
+	    fi
         ;;
     Linux)
         alias ls='ls --color'
-        export PATH=~/bin:~/bin/rh:/usr/local/bin:~/git/git-tools:$PATH
-	PATH="/home/xz/perl5/bin${PATH:+:${PATH}}"; export PATH;
-	PERL5LIB="/home/xz/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-	PERL_LOCAL_LIB_ROOT="/home/xz/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-	PERL_MB_OPT="--install_base \"/home/xz/perl5\""; export PERL_MB_OPT;
-	PERL_MM_OPT="INSTALL_BASE=/home/xz/perl5"; export PERL_MM_OPT;
-	export PATH="/usr/local/musl/bin:$PATH"
+        PATH="/home/xz/perl5/bin${PATH:+:${PATH}}"; export PATH;
+        PERL5LIB="/home/xz/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+        PERL_LOCAL_LIB_ROOT="/home/xz/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+        PERL_MB_OPT="--install_base \"/home/xz/perl5\""; export PERL_MB_OPT;
+        PERL_MM_OPT="INSTALL_BASE=/home/xz/perl5"; export PERL_MM_OPT;
+        export PATH="/usr/local/musl/bin:$PATH"
         ;;
 esac
 
@@ -67,6 +72,7 @@ set -o vi
 bind -x $'"\C-l":clear;'
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=~/bin:~/bin/rh:/usr/local/bin:~/git/git-tools:$PATH
 
 # for distcc
 export DISTCC_POTENTIAL_HOSTS='localhost b1'
