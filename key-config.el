@@ -41,9 +41,10 @@
 ;;; can't do that until I know how..
 (global-set-key (kbd "s-1") 'delete-other-windows)
 (global-set-key (kbd "s-4") 'my-kill-buffer)
-(global-set-key (kbd "s-;") 'paredit-comment-dwim)
+(global-set-key (kbd "s-;") 'comment-dwim)
 (global-set-key (kbd "s-x") 'execute-extended-command)
 (global-set-key (kbd "s-q") 'fill-paragraph)
+(global-set-key (kbd "s-w") 'kill-ring-save)
 
 ;; mark hot key
 (global-set-key (kbd "C-t") 'set-mark-command)
