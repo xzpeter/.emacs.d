@@ -9,6 +9,11 @@
 (require 'evil)
 (evil-mode 1)
 
+;; These two are for working around org-mode, otherwise <tab> in org
+;; mode will be overwritten by evil key bindings
+(define-key evil-motion-state-map (kbd "<tab>") nil)
+(define-key evil-motion-state-map (kbd "TAB") nil)
+
 ;; these are the tag system I am using 
 (require 'evil-global-tag)
 ;; some functions to unscroll under evil mode. Not using too much. 
