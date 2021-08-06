@@ -45,6 +45,7 @@
 (global-set-key (kbd "s-x") 'execute-extended-command)
 (global-set-key (kbd "s-q") 'fill-paragraph)
 (global-set-key (kbd "s-w") 'kill-ring-save)
+(global-set-key (kbd "<s-f6>") 'my-set-current-as-key-buffer)
 
 ;; mark hot key
 (global-set-key (kbd "C-t") 'set-mark-command)
