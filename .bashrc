@@ -22,8 +22,8 @@ case $system_name in
         if [[ -d $comp_dir ]]; then
             for f in $completions; do
                 source $comp_dir/$f
-		    done
-	    fi
+            done
+        fi
         ;;
     Linux)
         alias ls='ls --color'
@@ -76,3 +76,6 @@ export PATH=~/bin:~/bin/rh:/usr/local/bin:~/git/git-tools:$PATH
 
 # for distcc
 export DISTCC_POTENTIAL_HOSTS='localhost b1'
+
+# load qtool auto-complete
+source ~/bin/tools/qtool_completion.sh
