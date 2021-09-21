@@ -5,6 +5,7 @@
 	lo = log --color --stat --summary
 	ls = log --oneline
 	ls-tr = log --color --pretty=oneline --graph
+	ls-re = lo --reverse
 	ci = commit -s
 	co = checkout
 	st = status
