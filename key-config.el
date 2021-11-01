@@ -235,13 +235,7 @@
 ;;; an extra C-w to kill word, which is the commonly used one
 (global-set-key (kbd "C-w") 'backward-kill-word)
 
-;; Org key bindings, mostly for mac..
 (when (is-system-p 'darwin)
-  (define-key org-mode-map (kbd "<S-s-return>") 'org-insert-todo-heading)
-  (define-key org-mode-map (kbd "<C-s-return>") 'org-insert-todo-heading)
-  (define-key org-mode-map (kbd "<s-down>") 'org-metadown)
-  (define-key org-mode-map (kbd "<s-up>") 'org-metaup)
-
   ;; magit keys
   (define-key git-rebase-mode-map (kbd "<s-up>") 'git-rebase-move-line-up)
   (define-key git-rebase-mode-map (kbd "<s-down>") 'git-rebase-move-line-down))

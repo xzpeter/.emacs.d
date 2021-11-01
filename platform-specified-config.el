@@ -15,9 +15,10 @@
 
 (defun platform-darwin-startup ()
   ;; setting /bin directory on emacs
+  (setq exec-path (cons "~/bin" exec-path))
   (setq exec-path (cons "/usr/local/bin" exec-path))
   (setq browse-url-browser-function 'browse-url-generic
-		browse-url-generic-program "remote-open-url")
+		browse-url-generic-program "macos-open-url")
   ;; (setq browse-url-browser-function 'darwin-open-url)
   (server-start))
 
