@@ -31,6 +31,8 @@
   (define-key org-mode-map (kbd "C-c P") 'org2blog/wp-post-buffer-as-page-and-publish)
   (define-key org-mode-map (kbd "M-h") 'org-metaleft)
   (define-key org-mode-map (kbd "M-l") 'org-metaright)
+  (define-key org-mode-map (kbd "<s-left>") 'org-metaleft)
+  (define-key org-mode-map (kbd "<s-right>") 'org-metaright)
   (define-key org-mode-map (kbd "<C-return>") 'org-insert-heading)
   (define-key org-mode-map (kbd "<C-M-return>") 'org-insert-todo-heading)
 
