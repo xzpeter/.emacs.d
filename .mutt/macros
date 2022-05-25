@@ -1,5 +1,6 @@
 # This file contain all Peter's macro definition for Mutt.
 macro index A "<tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "Mark all as read"
+macro index \Cl "l~F<enter>" "Show only emails that are flagged (marked important)"
 
 # These lines are hacky. mutt works not well with tmux in many consoles
 # like Konsole. We hack to force refresh screen to avoid incorrect

@@ -55,7 +55,7 @@ specific number.")
   (auto-fill-mode 1)
   ;; by default, all use tabs
   (setq indent-tabs-mode t
-        fill-column 79)
+        fill-column 75)
   (modify-syntax-entry ?_ "w"))
 	
 (defun text-hook-function ()
