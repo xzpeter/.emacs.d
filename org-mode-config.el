@@ -34,11 +34,13 @@
   (define-key org-mode-map (kbd "<s-left>") 'org-metaleft)
   (define-key org-mode-map (kbd "<s-right>") 'org-metaright)
   (define-key org-mode-map (kbd "<C-return>") 'org-insert-heading)
+  (define-key org-mode-map (kbd "<C-return>") 'org-insert-heading)
   (define-key org-mode-map (kbd "<C-M-return>") 'org-insert-todo-heading)
 
   (define-key org-mode-map (kbd "<s-down>") 'org-metadown)
   (define-key org-mode-map (kbd "<s-up>") 'org-metaup)
   (when (is-system-p 'darwin)
+    (define-key org-mode-map (kbd "<s-return>") 'org-insert-item)
     (define-key org-mode-map (kbd "<S-s-return>") 'org-insert-todo-heading)
     (define-key org-mode-map (kbd "<C-s-return>") 'org-insert-todo-heading)))
 (add-hook 'org-mode-hook (lambda ()
