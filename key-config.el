@@ -224,6 +224,8 @@
 ;;; quick insertion of my r-b and a-b lines
 (global-set-key (kbd "C-c k") 'my-insert-acked-by)
 (global-set-key (kbd "C-c i") 'my-insert-reviewed-by)
+;;; quick insertion of lore.kernel.org links
+(global-set-key (kbd "C-c l") 'my-insert-lore-link)
 
 ;;; some git shortcuts
 (global-set-key (kbd "C-c C-j") 'my-git-blame-current-line)

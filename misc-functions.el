@@ -175,6 +175,10 @@ in ORG MODE. "
     (setq name *my-name-alias*))
   (insert (format "Reviewed-by: %s" (my-alias-lookup-internal name))))
 
+(defun my-insert-lore-link (name)
+  (interactive "sMessage-ID: ")
+  (insert (format "https://lore.kernel.org/r/%s" name)))
+
 (defun my-insert-acked-by (name)
   (interactive (list (completing-read "Acked-by: " (my-alias-get-keys))))
   (when (string-equal name "")

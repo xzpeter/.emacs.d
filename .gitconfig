@@ -3,9 +3,9 @@
 	email = peterx@redhat.com
 [alias]
 	lo = log --color --stat --summary
+	lo-re = lo --reverse
 	ls = log --oneline
 	ls-tr = log --color --pretty=oneline --graph
-	ls-re = lo --reverse
 	ci = commit -s
 	co = checkout
 	st = status
@@ -23,6 +23,7 @@
 	publish = !/root/bin/git-publish
 	go = rebase --continue
 	whatis = "show -s --pretty='tformat:%h (\"%s\", %cd)' --date=short"
+	squash = "ci -a --amend"
 [core]
 	editor = emacsclient
 [merge]
@@ -54,7 +55,7 @@
 	smtpEncryption = tls
 	smtpServer = smtp.gmail.com
 	smtpUser = zhexu@redhat.com
-	#smtpPass =
+	# smtpPass = xxx
 	smtpServerPort = 587
 
 [diff]
@@ -167,3 +168,11 @@
 	cc = linux-kernel@vger.kernel.org
 	prefix = PATCH
 	base = master
+[pull]
+	ff = only
+[am]
+	messageid = true
+[b4]
+	attestation-trust-model = tofu
+[init]
+	defaultBranch = main
