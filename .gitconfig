@@ -22,7 +22,8 @@
 	ls-br = log --graph --decorate --oneline --simplify-by-decoration
 	publish = !/root/bin/git-publish
 	go = rebase --continue
-	whatis = "show -s --pretty='tformat:%h (\"%s\", %cd)' --date=short"
+	#whatis = "show -s --pretty='tformat:%h (\"%s\", %cd)' --date=short"
+	whatis = "show -s --pretty='tformat:%h (\"%s\")' --date=short"
 	squash = "ci -a --amend"
 [core]
 	editor = emacsclient
