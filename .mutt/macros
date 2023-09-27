@@ -1,6 +1,9 @@
 # This file contain all Peter's macro definition for Mutt.
 macro index A "<tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "Mark all as read"
+macro index > "<tag-prefix><save-message>=pending<enter><enter> <enter>" "Move marked emails into PENDING folder"
+macro index < "<tag-prefix><save-message>=INBOX<enter><enter> <enter>" "Move marked emails back into INBOX"
 macro index \Cl "l~F<enter>" "Show only emails that are flagged (marked important)"
+macro index,pager M "<shell-escape>reset; mbsync -a<enter>" "Sync messages"
 
 # These lines are hacky. mutt works not well with tmux in many consoles
 # like Konsole. We hack to force refresh screen to avoid incorrect
