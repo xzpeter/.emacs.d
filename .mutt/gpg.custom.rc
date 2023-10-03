@@ -1,4 +1,0 @@
-set pgp_sign_as=F3A3CE7A
-set pgp_autosign=no
-set pgp_replyencrypt=no
-set pgp_timeout=3600
