@@ -34,3 +34,6 @@
 [submodule "transient"]
 	path = transient
 	url = https://github.com/magit/transient.git
+[submodule "yaml-mode"]
+	path = yaml-mode
+	url = https://github.com/yoshiki/yaml-mode.git
