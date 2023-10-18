@@ -8,6 +8,7 @@
 	ls-tr = log --color --pretty=oneline --graph
 	ci = commit -s
 	co = checkout
+	sw = "!f() { git_switch_branch.sh $1; }; f"
 	st = status
 	di = diff --color
 	bi = bisect
@@ -22,9 +23,14 @@
 	ls-br = log --graph --decorate --oneline --simplify-by-decoration
 	publish = !/root/bin/git-publish
 	go = rebase --continue
-	#whatis = "show -s --pretty='tformat:%h (\"%s\", %cd)' --date=short"
-	whatis = "show -s --pretty='tformat:%h (\"%s\")' --date=short"
 	squash = "ci -a --amend"
+	# from Paolo
+	whatis = "show -s --pretty='tformat:%h (\"%s\")' --date=short"
+	# from Juan
+	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+	# from Markus
+	dated-branch = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+	dated-tag = for-each-ref --sort=committerdate refs/tags/ --format='%(committerdate:short) %(refname:short)'
 [core]
 	editor = emacsclient
 [merge]
