@@ -9,7 +9,7 @@
 ;; setting org path
 (add-to-list 'load-path (emacs-path "org-mode/lisp"))
 (setq org-agenda-files (list (concat my-data-share-dir "work.org")))
-(require 'org-install)
+;; (require 'org-install)
 
 ;; some global defines of org-mode
 (global-set-key (kbd "C-c l") 'org-store-link)
