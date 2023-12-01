@@ -178,7 +178,9 @@
 [pull]
 	ff = only
 [am]
-	messageid = true
+	# b4 already has lore link, this will mess up the signed-off line
+	# to not be the last if ON
+	messageid = false
 [b4]
 	attestation-trust-model = tofu
 [init]
