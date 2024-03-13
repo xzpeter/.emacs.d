@@ -190,7 +190,7 @@ in ORG MODE. "
 
 (defun my-git-fetch-current-line-commit ()
   (let ((commit (shell-command-to-string
-                 (format "echo '%s' | sed 's/<.*>$//' | xargs git blame -w -L %s,+1 | awk '{print $1}' | sed 's/\\^//'"
+                 (format "echo '%s' | sed 's/<.*>$//' | xargs git blame -w -C -L %s,+1 | awk '{print $1}' | sed 's/\\^//'"
                          (buffer-name) (line-number-at-pos)))))
     (setq commit (my-strip-return commit))
     (when (and (equal commit "00000000"))
