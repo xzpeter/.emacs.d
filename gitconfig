@@ -55,18 +55,19 @@
 [push]
 	default = simple
 [sendemail]
-	#smtpserver = smtp.corp.redhat.com
-	#smtpencryption = starttls
-	#smtpserverport = 25
-	confirm = never
-	smtpEncryption = tls
-	smtpServer = smtp.gmail.com
-	smtpUser = zhexu@redhat.com
-	# smtpPass = xxx
-	smtpServerPort = 587
-
+        #smtpserver = smtp.corp.redhat.com
+        #smtpencryption = starttls
+        #smtpserverport = 25
+        confirm = never
+        smtpEncryption = tls
+        smtpServer = smtp.gmail.com
+        smtpUser = zhexu@redhat.com
+        #smtpPass = xxx
+        smtpServerPort = 587
 [diff]
 	renames = true
+	colorMoved = dimmed-zebra
+	colorMovedWS = allow-indentation-change
 [gitpublishprofile "qemu"]
 	to = qemu-devel@nongnu.org
 	cc = peterx@redhat.com
