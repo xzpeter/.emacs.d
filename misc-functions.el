@@ -233,6 +233,10 @@ in ORG MODE. "
       (progn (kill-word -1)
              (insert addr)))))
 
+(defun my-c-parse-ifdefs ()
+  (interactive)
+  (shell-command-on-region (point-min) (point) "c_parse_ifdefs.py"))
+
 (require 'my-key-buffer)
 (require 'temp-use-functions)
 
