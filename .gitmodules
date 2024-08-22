@@ -37,3 +37,6 @@
 [submodule "yaml-mode"]
 	path = yaml-mode
 	url = https://github.com/yoshiki/yaml-mode.git
+[submodule "meson-mode"]
+	path = meson-mode
+	url = https://github.com/wentasah/meson-mode.git

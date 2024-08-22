@@ -100,4 +100,7 @@
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
+(add-to-list 'load-path (emacs-path "meson-mode"))
+(require 'meson-mode)
+
 (provide 'load-misc-widgets)

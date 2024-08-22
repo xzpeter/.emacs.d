@@ -66,8 +66,8 @@
         smtpServerPort = 587
 [diff]
 	renames = true
-	colorMoved = dimmed-zebra
-	colorMovedWS = allow-indentation-change
+	#colorMoved = dimmed-zebra
+	#colorMovedWS = allow-indentation-change
 [gitpublishprofile "qemu"]
 	to = qemu-devel@nongnu.org
 	cc = peterx@redhat.com
