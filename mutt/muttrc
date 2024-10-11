@@ -2,43 +2,29 @@
 # useful).
 source "$HOME/.mutt/fc.muttrc"
 
-# IMAP configurations
-# load encrypted message
-# source "gpg -dq $HOME/.mutt/.pwd.gpg |"
-# set imap_user   = zhexu
-# set imap_pass   = $my_rh_pw
-# set folder      = imaps://mail.corp.redhat.com
-# Keep IMAP connection alive by polling intermittently (time in
-# seconds).
-# set imap_keepalive = 300
-# Allow Mutt to open new imap connection automatically.
-# unset imap_passive
-
 # offlineimap configuration
-# set mbox_type = Maildir
-#set folder = "$HOME/Mail/RH"
 set folder = "$HOME/Mail/RHGmail"
 
 # shared configurations
 set spoolfile   = +INBOX
 # Gmail seems to do this automatically
-set record = +[Gmail].Sent\ Mail
+# set record = +[Gmail].Sent
 set postponed = +[Gmail].Drafts
 set realname    = "Peter Xu"
-# use private file for mailboxes
-source "$HOME/.mutt/mailboxes"
+source "$HOME/.private/mutt/mailboxes"
 # set imap_check_subscribed
 
 # SMTP configurations
-set from = XXXXXX@redhat.com # normally the alias we prefer
+set from = peterx@redhat.com
 set use_from = yes
-set smtp_url = smtps://XXXXXX@redhat.com@smtp.gmail.com:465
-set smtp_pass = XXXXXX
+# Should be:
+# set smtp_url = XXX
+# set smtp_pass = XXX
+source "$HOME/.private/mutt/muttrc.pass"
 set ssl_force_tls = yes
 set ssl_starttls = yes
 # I don't know why, but this line is required for macos but not linux.
 set smtp_authenticators = 'gssapi:login'
-
 set editor = "emacsclient"
 
 # Store message headers locally to speed things up.
@@ -57,10 +43,11 @@ set mail_check = 120
 set mail_check_stats = yes
 
 # using UTF-8 all the time
-set send_charset = "utf-8"
+set charset = "UTF-8"
+set send_charset = "UTF-8"
 
 # Address book configurations
-set alias_file = "$HOME/.mutt/aliases"
+set alias_file = "$HOME/.private/mutt/aliases"
 set sort_alias = alias
 set reverse_alias = no
 source $alias_file
@@ -76,6 +63,8 @@ set sort = threads
 set forward_format = "Fwd: %s"
 set sig_dashes = no
 set signature = "$HOME/.mutt/signature"
+
+auto_view application/octet-stream
 
 # to read HTML emails
 # auto_view text/html
