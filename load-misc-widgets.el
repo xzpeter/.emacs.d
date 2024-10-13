@@ -103,4 +103,7 @@
 (add-to-list 'load-path (emacs-path "meson-mode"))
 (require 'meson-mode)
 
+(add-to-list 'load-path (emacs-path "kotlin-mode"))
+(require 'kotlin-mode)
+
 (provide 'load-misc-widgets)
