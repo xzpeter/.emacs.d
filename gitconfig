@@ -93,8 +93,7 @@
 [gitpublishprofile "man"]
 	to = linux-man@vger.kernel.org
 	cc = peterx@redhat.com
-	cc = Alejandro Colomar <alx.manpages@gmail.com>
-	cc = Michael Kerrisk <mtk.manpages@gmail.com>
+	cc = Alejandro Colomar <alx@kernel.org>
 	cc = linux-kernel@vger.kernel.org
 	prefix = PATCH
 	base = master

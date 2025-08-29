@@ -63,6 +63,7 @@ set sort = threads
 set forward_format = "Fwd: %s"
 set sig_dashes = no
 set signature = "$HOME/.mutt/signature"
+unignore message-id
 
 auto_view application/octet-stream
 
