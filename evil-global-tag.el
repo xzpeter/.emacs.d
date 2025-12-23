@@ -1,5 +1,7 @@
 ;; This is my own tag system! Based on Evil Mode. 
 
+(require 'xref)
+
 ;; load cscope
 (require 'cscope-config)
 
@@ -75,11 +77,8 @@ default value is 'etags ")
   (setq *evil-search-tag-enabled* nil)
   (cond
    ((eq my-tag-mode 'etags)
-    ;; modified [2012-09-02 日 12:34:55]
-    ;; Just find etags-select plugin, using this
-    ;; (let ((symbol-word (current-word)))
-    ;;   (find-tag symbol-word))
-    (etags-select-find-tag-at-point))
+    ;; New Emacs will enforce use of xref... switch to it for etags
+    (xref-find-definitions (thing-at-point 'symbol t)))
    ((eq my-tag-mode 'cscope)
     ;; fixing CAN'T FIND error when cscope-display-buffer==nil but the
     ;; buffer is not closed
@@ -94,7 +93,7 @@ default value is 'etags ")
   (when (not (evil-pop-search-tag-mark-if-exists))
     ;; there is no search tag, pop tag for the mode
     (cond
-     ((eq my-tag-mode 'etags) (pop-tag-mark))
+     ((eq my-tag-mode 'etags) (xref-go-back))
      ((eq my-tag-mode 'cscope) (cscope-pop-mark))
      (t (error "Tag mode not supported!")))))
 
