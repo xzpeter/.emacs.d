@@ -105,19 +105,25 @@ default value is 'etags ")
   (xref-push-marker-stack)
   (let* ((symbol (thing-at-point 'symbol t))
          (search-term (or symbol ""))
-         ;; Get extension of current file (e.g., "*.py"), default to "*" if no file
-         (files (if buffer-file-name
-                    (concat "*." (file-name-extension buffer-file-name))
-                  "*"))
          ;; Find the nearest parent dir containing .git, or default to current dir
          (root-dir (or (locate-dominating-file default-directory ".git")
-                       default-directory)))
+                       default-directory))
+         ;; --- BLACKLIST CONFIGURATION ---
+         (custom-ignored-files '("TAGS" "tags" "GTAGS" "*.log" "*cscope*"))
+         (custom-ignored-dirs  '("dist" "build"))
+         ;; Temporarily append custom ignores to the global grep
+         ;; defaults This 'let' binding only affects this specific
+         ;; function execution.
+         (grep-find-ignored-files
+          (append grep-find-ignored-files custom-ignored-files))
+         (grep-find-ignored-directories
+          (append grep-find-ignored-directories custom-ignored-dirs)))
     ;; Check if we found a symbol, otherwise prompt or warn
     (if (string-empty-p search-term)
         (message "No symbol at point to search for.")
       ;; Call rgrep: (REGEXP FILES DIR &optional CONFIRM)
-      ;; We pass nil for confirm to run immediately
-      (rgrep search-term files root-dir))))
+      ;; Always grep on all files
+      (rgrep search-term "*" root-dir))))
 
 ;; So, I am using the global tag system. 
 (define-key evil-normal-state-map (kbd "C-]") 'my-global-find-tag)
