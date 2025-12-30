@@ -97,8 +97,31 @@ default value is 'etags ")
      ((eq my-tag-mode 'cscope) (cscope-pop-mark))
      (t (error "Tag mode not supported!")))))
 
+(defun my-global-grep-tag ()
+  "Run rgrep with defaults: symbol at point, current file ext, git root."
+  (interactive)
+  ;; 1. Push the current location to the xref stack
+  ;;    This ensures 'xref-go-back' (M-,) returns you to this exact spot.
+  (xref-push-marker-stack)
+  (let* ((symbol (thing-at-point 'symbol t))
+         (search-term (or symbol ""))
+         ;; Get extension of current file (e.g., "*.py"), default to "*" if no file
+         (files (if buffer-file-name
+                    (concat "*." (file-name-extension buffer-file-name))
+                  "*"))
+         ;; Find the nearest parent dir containing .git, or default to current dir
+         (root-dir (or (locate-dominating-file default-directory ".git")
+                       default-directory)))
+    ;; Check if we found a symbol, otherwise prompt or warn
+    (if (string-empty-p search-term)
+        (message "No symbol at point to search for.")
+      ;; Call rgrep: (REGEXP FILES DIR &optional CONFIRM)
+      ;; We pass nil for confirm to run immediately
+      (rgrep search-term files root-dir))))
+
 ;; So, I am using the global tag system. 
 (define-key evil-normal-state-map (kbd "C-]") 'my-global-find-tag)
+(define-key evil-normal-state-map (kbd "C-e") 'my-global-grep-tag)
 (define-key evil-normal-state-map (kbd "C-o") 'my-global-pop-tag-mark)
 
 (my-switch-to-cscope-tag-mode)
