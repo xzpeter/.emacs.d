@@ -2,29 +2,39 @@
 # useful).
 source "$HOME/.mutt/fc.muttrc"
 
-# offlineimap configuration
-set folder = "$HOME/Mail/RHGmail"
+# key bindings
+source "$HOME/.mutt/bindings"
 
-# shared configurations
+# load macros
+source "$HOME/.mutt/macros"
+
+# load hooks
+source "$HOME/.mutt/hooks"
+
+# load sidebar conf
+source "$HOME/.mutt/sidebar.muttrc"
+
+# Load personal settings.  Should normally at least include below:
+#   smtp_url, smtp_pass, set folder, realname, from, signature
+source "$HOME/.private/mutt/main"
+
+# Shared configurations, currently tailored for Gmail
 set spoolfile   = +INBOX
 # Gmail seems to do this automatically
 # set record = +[Gmail].Sent
+# Meanwhile, avoid a copy in default $record, which is ~/sent
+set copy = no
 set postponed = +[Gmail].Drafts
-set realname    = "Peter Xu"
 source "$HOME/.private/mutt/mailboxes"
 # set imap_check_subscribed
 
 # SMTP configurations
-set from = peterx@redhat.com
 set use_from = yes
-# Should be:
-# set smtp_url = XXX
-# set smtp_pass = XXX
-source "$HOME/.private/mutt/muttrc.pass"
 set ssl_force_tls = yes
 set ssl_starttls = yes
 # I don't know why, but this line is required for macos but not linux.
 set smtp_authenticators = 'gssapi:login'
+# my own flavour of an emacs user
 set editor = "emacsclient"
 
 # Store message headers locally to speed things up.
@@ -46,11 +56,8 @@ set mail_check_stats = yes
 set charset = "UTF-8"
 set send_charset = "UTF-8"
 
-# Address book configurations
-set alias_file = "$HOME/.private/mutt/aliases"
 set sort_alias = alias
 set reverse_alias = no
-source $alias_file
 
 # other UI related
 set sleep_time = 0
@@ -62,22 +69,9 @@ set sort = threads
 # set sort_aux=last-date-received
 set forward_format = "Fwd: %s"
 set sig_dashes = no
-set signature = "$HOME/.mutt/signature"
 unignore message-id
 
 auto_view application/octet-stream
 
 # to read HTML emails
 # auto_view text/html
-
-# key bindings
-source "$HOME/.mutt/bindings"
-
-# load macros
-source "$HOME/.mutt/macros"
-
-# load hooks
-source "$HOME/.mutt/hooks"
-
-# load sidebar conf
-source "$HOME/.mutt/sidebar.muttrc"
