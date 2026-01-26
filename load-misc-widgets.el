@@ -50,6 +50,8 @@
 (add-to-list 'load-path (emacs-path "ghub"))
 (add-to-list 'load-path (emacs-path "compat"))
 (add-to-list 'load-path (emacs-path "magit/lisp"))
+(add-to-list 'load-path (emacs-path "cond-let"))
+(add-to-list 'load-path (emacs-path "llama"))
 ;; This is required by some newer version of magit
 (add-to-list 'load-path (emacs-path "transient/lisp"))
 (require 'magit)
