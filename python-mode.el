@@ -103,7 +103,7 @@
 (when (featurep 'xemacs)
   (require 'highlight-indentation))
 
-(eval-when-compile (require 'cl))
+(eval-when-compile (require 'cl-lib))
 
 
 ;; user definable variables

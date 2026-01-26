@@ -458,7 +458,7 @@
 ;;  Change log of this project is found at
 ;;  http://repo.or.cz/w/anything-config.git?a=shortlog
 
-(require 'cl)
+(require 'cl-lib)
 ;; (require 'anything-match-plugin nil t)
 
 ;; (@* "User Configuration")

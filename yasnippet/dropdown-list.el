@@ -57,7 +57,7 @@
 ;;
 ;;; Code:
 
-(eval-when-compile (require 'cl)) ;; decf, fourth, incf, loop, mapcar*
+(eval-when-compile (require 'cl-lib)) ;; decf, fourth, incf, loop, mapcar*
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

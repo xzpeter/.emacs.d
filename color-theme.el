@@ -50,7 +50,7 @@
   (require 'reporter)
   (require 'sendmail))
 
-(require 'cl); set-difference is a function...
+(require 'cl-lib); set-difference is a function...
 
 ;; for custom-face-attributes-get or face-custom-attributes-get
 (require 'cus-face)

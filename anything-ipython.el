@@ -92,7 +92,7 @@
 
 ;; <2009-07-25 Sam. 18:03>
 
-(eval-when-compile (require 'cl))
+(eval-when-compile (require 'cl-lib))
 (require 'ipython)
 
 ;; Fix some bugs in ipython.el:

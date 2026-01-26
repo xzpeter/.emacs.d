@@ -128,7 +128,7 @@
 
 
 ;;; Code
-(require 'cl)
+(require 'cl-lib)
 (require 'shell)
 (require 'executable)
 (require 'ansi-color)

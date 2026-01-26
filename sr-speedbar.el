@@ -236,7 +236,7 @@
 ;;; Require
 (require 'speedbar)
 (require 'advice)
-(require 'cl)
+(require 'cl-lib)
 
 ;;; Code:
 

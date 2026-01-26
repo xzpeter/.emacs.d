@@ -187,7 +187,7 @@
 (require 'url-http)
 (require 'timezone)
 (eval-when-compile
-  (require 'cl))
+  (require 'cl-lib))
 
 (defconst xml-rpc-maintainer-address "mah@everybody.org"
   "The address where bug reports should be sent.")

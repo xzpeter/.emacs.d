@@ -152,7 +152,7 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'assoc)
 (require 'easymenu)
 (require 'help-mode)
