@@ -72,11 +72,6 @@
 ;;; init systemtap mode
 (load "systemtap-init.el")
 
-;;; lua mode config
-(require 'lua-mode)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-
 ;;; rust mode config
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))

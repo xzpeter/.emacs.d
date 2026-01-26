@@ -173,12 +173,4 @@ specific number.")
   (add-hook 'magit-diff-mode-hook 'magit-diff-hook-function)
   (add-hook 'magit-revision-mode-hook 'magit-revision-hook-function))
 
-(defun lua-hook-function ()
-  (common-hook-function)
-  (setq indent-tabs-mode nil
-        lua-indent-level 2)
-  (my-set-tab-width 2))
-(when (featurep 'lua-mode)
-  (add-hook 'lua-mode-hook 'lua-hook-function))
-
 (provide 'hook-config)

@@ -212,12 +212,6 @@
 (when (featurep 'evil)
   (define-key text-mode-map (kbd "C-c C-c") 'my-save-buffer-and-close))
 
-;;; lua-mode key config
-(when (featurep 'lua-mode)
-  (define-key lua-mode-map (kbd ")") nil)
-  (define-key lua-mode-map (kbd "}") nil)
-  (define-key lua-mode-map (kbd "]") nil))
-
 (when (featurep 'go-mode)
   (define-key go-mode-map (kbd "C-c C-j") nil))
 

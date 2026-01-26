@@ -178,7 +178,7 @@
 ;;; Code:
 
 ;; requires
-(require 'cl)
+(require 'cl-lib)
 
 (defgroup autopair nil
   "Automagically pair braces and quotes"
