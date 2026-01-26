@@ -103,4 +103,11 @@
 (add-to-list 'load-path (emacs-path "kotlin-mode"))
 (require 'kotlin-mode)
 
+(add-to-list 'load-path (emacs-path "smartparens"))
+(require 'smartparens-config)
+(smartparens-global-mode t)
+;;; This makes RET to do proper newline and indents
+(with-eval-after-load 'smartparens
+  (sp-pair "{" "}" :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))
+
 (provide 'load-misc-widgets)
