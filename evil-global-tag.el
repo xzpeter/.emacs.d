@@ -98,32 +98,23 @@ default value is 'etags ")
      (t (error "Tag mode not supported!")))))
 
 (defun my-global-grep-tag ()
-  "Run rgrep with defaults: symbol at point, current file ext, git root."
+  "Search for symbol at point using project.el (respects .gitignore)."
   (interactive)
-  ;; 1. Push the current location to the xref stack
-  ;;    This ensures 'xref-go-back' (M-,) returns you to this exact spot.
+  (require 'project)
+  ;; This makes jumping back to work when popping
   (xref-push-marker-stack)
   (let* ((symbol (thing-at-point 'symbol t))
          (search-term (or symbol ""))
-         ;; Find the nearest parent dir containing .git, or default to current dir
-         (root-dir (or (locate-dominating-file default-directory ".git")
-                       default-directory))
-         ;; --- BLACKLIST CONFIGURATION ---
-         (custom-ignored-files '("TAGS" "tags" "GTAGS" "*.log" "*cscope*"))
-         (custom-ignored-dirs  '("dist" "build"))
-         ;; Temporarily append custom ignores to the global grep
-         ;; defaults This 'let' binding only affects this specific
-         ;; function execution.
-         (grep-find-ignored-files
-          (append grep-find-ignored-files custom-ignored-files))
-         (grep-find-ignored-directories
-          (append grep-find-ignored-directories custom-ignored-dirs)))
-    ;; Check if we found a symbol, otherwise prompt or warn
-    (if (string-empty-p search-term)
-        (message "No symbol at point to search for.")
-      ;; Call rgrep: (REGEXP FILES DIR &optional CONFIRM)
-      ;; Always grep on all files
-      (rgrep search-term "*" root-dir))))
+         ;; Check if we are actually inside a project
+         (project (project-current nil)))
+    (if (and project (not (string-empty-p search-term)))
+        ;; project-find-regexp takes the search string as an argument
+        ;; It automatically determines the root and ignored files
+        (project-find-regexp search-term)
+      (if (not project)
+          ;; Fallback to rgrep: (REGEXP FILES DIR &optional CONFIRM)
+          (rgrep search-term "*" default-directory)
+        (message "No symbol at point to search for")))))
 
 ;; So, I am using the global tag system. 
 (define-key evil-normal-state-map (kbd "C-]") 'my-global-find-tag)
