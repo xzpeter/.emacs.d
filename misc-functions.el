@@ -238,6 +238,5 @@ in ORG MODE. "
   (shell-command-on-region (point-min) (point) "c_parse_ifdefs.py"))
 
 (require 'my-key-buffer)
-(require 'temp-use-functions)
 
 (provide 'misc-functions)
