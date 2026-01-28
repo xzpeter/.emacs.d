@@ -110,7 +110,9 @@ default value is 'etags ")
     (if (and project (not (string-empty-p search-term)))
         ;; project-find-regexp takes the search string as an argument
         ;; It automatically determines the root and ignored files
-        (project-find-regexp search-term)
+        ;;
+        ;; format makes it grep like "-w"
+        (project-find-regexp (format "\\b%s\\b" (regexp-quote search-term)))
       (if (not project)
           ;; Fallback to rgrep: (REGEXP FILES DIR &optional CONFIRM)
           (rgrep search-term "*" default-directory)
