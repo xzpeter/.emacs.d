@@ -71,25 +71,29 @@
 [gitpublishprofile "qemu"]
 	to = qemu-devel@nongnu.org
 	cc = peterx@redhat.com
-	#cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
+	cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
 [gitpublishprofile "kvm"]
 	to = kvm@vger.kernel.org
 	to = linux-kernel@vger.kernel.org
 	cc = peterx@redhat.com
 	base = kvm
+	cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
 [gitpublishprofile "kernel"]
 	to = linux-kernel@vger.kernel.org
 	cc = peterx@redhat.com
+	cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
 [gitpublishprofile "mm"]
 	to = linux-kernel@vger.kernel.org
 	to = linux-mm@kvack.org
 	cc = peterx@redhat.com
 	cc = Andrew Morton <akpm@linux-foundation.org>
+	cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
 [gitpublishprofile "iommu"]
 	to = iommu@lists.linux-foundation.org
 	to = linux-kernel@vger.kernel.org
 	cc = peterx@redhat.com
 	cc = joro@8bytes.org
+	cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
 [gitpublishprofile "man"]
 	to = linux-man@vger.kernel.org
 	cc = peterx@redhat.com
