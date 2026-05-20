@@ -8,19 +8,16 @@
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; load color theme
-(require 'color-theme)
-(color-theme-initialize)
-;; (color-theme-clarity)
-;; (color-theme-emacs-21)
-;; (color-theme-blippblopp)
-;; (color-theme-rotor)
-;; (color-theme-dark-blue2)
-;; (color-theme-hober)
-;; (color-theme-arjen)
-;; (color-theme-taylor)
-;; (color-theme-snow)
-(color-theme-xzpeter-dark)
+;;
+;; load color theme.  This is the ancient theme I used for years!
+;;
+;; (require 'color-theme)
+;; (color-theme-initialize)
+;; (color-theme-xzpeter-dark)
+
+;;; Let's try some modern themes built-in
+;; (load-theme 'modus-vivendi t)
+(load-theme 'wombat t)
 
 ;; loading linum+ module to show line numbers
 ;; (require 'linum+)

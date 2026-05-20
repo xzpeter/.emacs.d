@@ -35,6 +35,7 @@
 	editor = emacsclient
 [merge]
 	tool = meld
+	conflictStyle = diff3
 [rebase]
 	autosquash = true
 [color]
