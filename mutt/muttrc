@@ -14,6 +14,9 @@ source "$HOME/.mutt/hooks"
 # load sidebar conf
 source "$HOME/.mutt/sidebar.muttrc"
 
+# load coloring of lines
+source "$HOME/.mutt/color.muttrc"
+
 # Load personal settings.  Should normally at least include below:
 #   smtp_url, smtp_pass, set folder, realname, from, signature
 source "$HOME/.private/mutt/main"

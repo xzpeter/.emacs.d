@@ -1,5 +1,6 @@
 #
 # System configuration file for Mutt
+# (Modified by Peter Xu)
 #
 
 # Default list of header fields to weed when displaying.
@@ -4966,6 +4967,3 @@ color underline brightgreen default
 # attributes when using a mono terminal
 #mono header underline ^(From|Subject):
 mono quoted bold
-
-# peterx: this is not required any more.....
-# source /etc/Muttrc.local

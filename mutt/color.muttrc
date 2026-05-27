@@ -1,0 +1,53 @@
+# ==================================================================
+# Patch / unified-diff coloring for email-based code review
+# ==================================================================
+
+# Added lines
+color body green  default "^[+][^+].*"
+color body green  default "^[+]$"
+
+# Removed lines
+color body red    default "^-[^-].*"
+color body red    default "^-$"
+
+# Hunk headers (includes function name context after the closing @@)
+color body brightcyan default "^@@ .*"
+
+# Diff file headers
+color body yellow default "^diff --git.*"
+color body yellow default "^index [0-9a-f]+"
+color body yellow default "^---.*"
+color body yellow default "^[+]{3}.*"
+
+# Rename/copy detection
+color body yellow default "^(rename|copy) (from|to) .*"
+color body yellow default "^similarity index [0-9]+%"
+
+# Diffstat summary (e.g. "  file.c | 10 ++++------")
+color body brightyellow default "^ .*\|.*[0-9]+ [+-]+"
+
+# Patch trailer separator (the "---" between commit message and diffstat)
+color body yellow default "^---$"
+
+# Commit/patch metadata
+color body brightmagenta default "^(From|Date|Subject):.*"
+
+# Review/sign-off tags
+color body brightyellow default "^(Signed-off-by|Reviewed-by|Acked-by|Tested-by|Suggested-by|Cc):.*"
+
+# Reset context lines to default so stray system color rules (e.g. blue
+# brackets) don't bleed through.  Only targets diff context lines: starts
+# with a space, followed by a non-">" character (preserving quoted-text
+# coloring for replies).
+color body default default "^ [^>].*"
+color body default default "^ $"
+
+# Restore quoted-text coloring (replies with ">") that the above reset
+# would otherwise suppress.  Multi-level quoting gets distinct colors.
+# Avoid using "quoted[1-3]" to avoid (possible?) bug of mutt showing wrong
+# colors sometimes in quotes.  Just hard-code it with "body" because
+# "body" overwrites "quoted[1-3]" anyways.
+color body blue    default "^>.*$"
+color body magenta default "^> *>.*$"
+color body cyan    default "^> *> *>.*$"
+color body green   default "^> *> *> *>.*$"
