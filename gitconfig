@@ -33,6 +33,8 @@
 	dated-tag = for-each-ref --sort=committerdate refs/tags/ --format='%(committerdate:short) %(refname:short)'
 [core]
 	editor = emacsclient
+	# Requires "dnf install git-delta"
+	pager = delta --color-only
 [merge]
 	tool = meld
 	conflictStyle = diff3

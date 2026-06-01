@@ -8,13 +8,6 @@
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;
-;; load color theme.  This is the ancient theme I used for years!
-;;
-;; (require 'color-theme)
-;; (color-theme-initialize)
-;; (color-theme-xzpeter-dark)
-
 ;;; Let's try some modern themes built-in
 ;; (load-theme 'modus-vivendi t)
 (load-theme 'wombat t)
