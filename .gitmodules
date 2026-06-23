@@ -52,3 +52,6 @@
 [submodule "smartparens"]
 	path = smartparens
 	url = https://github.com/Fuco1/smartparens.git
+[submodule "citre"]
+	path = citre
+	url = https://github.com/universal-ctags/citre.git
