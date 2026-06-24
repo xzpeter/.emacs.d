@@ -100,4 +100,8 @@
 (with-eval-after-load 'smartparens
   (sp-pair "{" "}" :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))
 
+(add-to-list 'load-path (emacs-path "citre"))
+(require 'citre)
+(require 'citre-config)
+
 (provide 'load-misc-widgets)
