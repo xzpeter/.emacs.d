@@ -59,6 +59,16 @@ default value is 'tags ")
      ((eq my-tag-mode 'cscope) (cscope-pop-mark))
      (t (error "Tag mode not supported!")))))
 
+(defvar my-tag-index-files '("TAGS" ".tags" "tags" "GPATH" "GRTAGS" "GTAGS")
+  "Tag index files to exclude from grep searches.")
+
+(with-eval-after-load 'grep
+  (dolist (f my-tag-index-files)
+    (add-to-list 'grep-find-ignored-files f)))
+(with-eval-after-load 'project
+  (dolist (f my-tag-index-files)
+    (add-to-list 'project-vc-ignores f)))
+
 (defun my-global-grep-tag ()
   "Search for symbol at point using project.el (respects .gitignore)."
   (interactive)
