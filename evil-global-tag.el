@@ -6,6 +6,8 @@
 ;; I am support search tagging with current tag systems. 
 (require 'evil-search-tag)
 
+(require 'evil-citre-tag)
+
 ;; sometimes I would like to use cscope functions rather that tags
 ;; system. So here comes a function that do the switch between TAGS and
 ;; CSCOPE index mode
