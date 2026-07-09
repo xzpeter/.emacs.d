@@ -114,3 +114,7 @@
 	attestation-trust-model = tofu
 [init]
 	defaultBranch = main
+[pack]
+	# The default values is "unlimited" x NCPUs.  Not wise..
+	windowMemory = 256m
+	threads = 4
