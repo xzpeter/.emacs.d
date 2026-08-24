@@ -239,4 +239,24 @@ in ORG MODE. "
 
 (require 'my-key-buffer)
 
+(defun my-insert-patches (dir)
+  "Generate patches from a git commit to HEAD and insert at point."
+  (interactive "DGit directory: ")
+  (let* ((default-directory (file-name-as-directory dir)))
+    (unless (= 0 (call-process "git" nil nil nil "rev-parse" "--git-dir"))
+      (user-error "%s is not in a git repository" dir))
+    (let* ((log-lines (split-string
+                     (shell-command-to-string "git log --oneline -30")
+                     "\n" t))
+         (chosen (completing-read "Base commit: " log-lines))
+         (hash (car (split-string chosen)))
+         (output (shell-command-to-string
+                  (format "git format-patch --stdout %s~..HEAD" hash))))
+    (if (string-empty-p output)
+        (message "No patches between %s~ and HEAD" hash)
+      (newline)
+      (insert "===8<===\n")
+      (insert output)
+      (message "Inserted patches from %s..HEAD" hash)))))
+
 (provide 'misc-functions)

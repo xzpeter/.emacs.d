@@ -220,6 +220,8 @@
 (global-set-key (kbd "C-c i") 'my-insert-reviewed-by)
 ;;; quick insertion of lore.kernel.org links
 (global-set-key (kbd "C-c l") 'my-insert-lore-link)
+;;; insert 00* patches from a directory
+(global-set-key (kbd "C-c p") 'my-insert-patches)
 
 ;;; some git shortcuts
 (global-set-key (kbd "C-c C-j") 'my-git-blame-current-line)
