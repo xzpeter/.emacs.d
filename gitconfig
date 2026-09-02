@@ -58,15 +58,15 @@
 [push]
 	default = simple
 [sendemail]
-        #smtpserver = smtp.corp.redhat.com
-        #smtpencryption = starttls
-        #smtpserverport = 25
         confirm = never
-        smtpEncryption = tls
-        smtpServer = smtp.gmail.com
-        smtpUser = zhexu@redhat.com
-        #smtpPass = xxx
-        smtpServerPort = 587
+	smtpServer = /usr/bin/msmtp
+
+	# For app password setup:
+        # smtpEncryption = tls
+        # smtpServer = SMTP_SERVER
+        # smtpUser = USER@DOMAIN.COM
+        # smtpServerPort = 587
+	# smtpPass = APP_PASSWORD
 [diff]
 	renames = true
 	#colorMoved = dimmed-zebra
