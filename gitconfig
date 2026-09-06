@@ -21,7 +21,7 @@
 	rb = rebase
 	rbc = rebase --continue
 	ls-br = log --graph --decorate --oneline --simplify-by-decoration
-	publish = !/root/bin/git-publish
+	publish = !/home/zhexu/git/git-publish/git-publish
 	go = rebase --continue
 	squash = "ci -a --amend"
 	# from Paolo
