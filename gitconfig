@@ -74,7 +74,7 @@
 [gitpublishprofile "qemu"]
 	to = qemu-devel@nongnu.org
 	cc = peterx@redhat.com
-	cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
+	# cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
 [gitpublishprofile "kvm"]
 	to = kvm@vger.kernel.org
 	to = linux-kernel@vger.kernel.org
