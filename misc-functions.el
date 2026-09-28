@@ -250,7 +250,7 @@ in ORG MODE. "
          (chosen (completing-read "Base commit: " log-lines))
          (hash (car (split-string chosen)))
          (output (shell-command-to-string
-                  (format "git format-patch --stdout %s~..HEAD" hash))))
+                  (format "git format-patch --stdout %s..HEAD" hash))))
     (if (string-empty-p output)
         (message "No patches between %s~ and HEAD" hash)
       (newline)
