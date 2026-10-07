@@ -1,4 +1,12 @@
-;; This is my own tag system! Based on Evil Mode. 
+;;; This is my own tag system! Based on Evil Mode.
+;;;
+;;; For citre indexing:
+;;;
+;;; (1) M-x citre-create-tags-file, select dir, 1, .tags
+;;; (2) Follow help message, then C-c C-c to commit and index,
+;;;     remember to input languages to index or it'll be none.
+;;; (3) F10 to switch to CTAGS mode
+;;; (4) To update, use: M-x citre-update-this-tags-file
 
 ;; load cscope
 (require 'cscope-config)
